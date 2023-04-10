@@ -28,12 +28,11 @@ public class ToyGlider extends AirVehicle implements INonMotorized {
                 '}';
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ToyGlider toyGlider = (ToyGlider) o;
+        if (!(o instanceof ToyGlider toyGlider)) return false;
+        if (!super.equals(o)) return false;
         return energyScore == toyGlider.energyScore && Objects.equals(powerSource, toyGlider.powerSource);
     }
 

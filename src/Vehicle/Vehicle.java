@@ -1,5 +1,7 @@
 package Vehicle;
 
+import java.util.Objects;
+
 public abstract class Vehicle {
 
     protected void move(int distance){
@@ -25,6 +27,19 @@ public abstract class Vehicle {
                         ", Max speed of " + maxSpeed + " Mph" +
                         ", can carry max of " + numOfPassengers + " people."
                 ;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Vehicle vehicle = (Vehicle) o;
+        return distanceTraveled == vehicle.distanceTraveled && numOfPassengers == vehicle.numOfPassengers && maxSpeed == vehicle.maxSpeed && Objects.equals(model, vehicle.model);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(model, distanceTraveled, numOfPassengers, maxSpeed);
     }
 
     public String getModel() {

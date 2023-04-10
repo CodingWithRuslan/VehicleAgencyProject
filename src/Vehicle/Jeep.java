@@ -39,11 +39,12 @@ public class Jeep extends LandVehicle implements IMotorized, ICommercial {
                 '}';
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Jeep jeep = (Jeep) o;
+        if (!(o instanceof Jeep jeep)) return false;
+        if (!super.equals(o)) return false;
         return Double.compare(jeep.avgFuelConsumption, avgFuelConsumption) == 0 && Double.compare(jeep.avgEngineLifeSpan, avgEngineLifeSpan) == 0 && Objects.equals(typeOfLicense, jeep.typeOfLicense);
     }
 

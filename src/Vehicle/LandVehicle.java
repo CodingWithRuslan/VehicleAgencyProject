@@ -1,5 +1,7 @@
 package Vehicle;
 
+import java.util.Objects;
+
 public abstract class LandVehicle extends Vehicle {
 
     protected int numOfWheels;
@@ -25,6 +27,20 @@ public abstract class LandVehicle extends Vehicle {
                 " Number of wheels=" + numOfWheels +
                 ", Road Type=" + flagBool
                 ;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        LandVehicle that = (LandVehicle) o;
+        return numOfWheels == that.numOfWheels && roadType == that.roadType;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), numOfWheels, roadType);
     }
 
     public void setNumOfWheels(int numOfWheels) {

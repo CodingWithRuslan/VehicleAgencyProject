@@ -32,9 +32,9 @@ public class SpyGlider extends AirVehicle implements INonMotorized {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        SpyGlider spyGlider = (SpyGlider) o;
-        return energyScore == spyGlider.energyScore && Objects.equals(powerSource, spyGlider.powerSource);
+        if (!(o instanceof SpyGlider spyGlider)) return false;
+        if (!super.equals(o)) return false;
+        return getEnergyScore() == spyGlider.getEnergyScore() && Objects.equals(getPowerSource(), spyGlider.getPowerSource());
     }
 
     @Override

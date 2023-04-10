@@ -1,5 +1,4 @@
 package System;
-import java.util.*;
 import Vehicle.Vehicle;
 import Vehicle.Jeep;
 import Vehicle.Frigate;
@@ -9,7 +8,15 @@ import Vehicle.ToyGlider;
 import java.util.Scanner;
 
 public class Main {
+    static int amountOfVehicles = 0;
+    static int capacityOfAgency = 100;
+
+    static Vehicle[] Agency = new Vehicle[capacityOfAgency]; // Agency (Jeeps, Frigates, SpyGliders, ToyGliders)
     public static void main(String[] args) {
+
+        Menus a = new Menus();
+
+
         //super(model, 5, maxSpeed, 4, false);  // false = dirt
         //Vehicle a = new Jeep("BMW", 800, 2, 320, 4, false, "MINI", 25, 2);
         //System.out.println(a.toString());
@@ -19,97 +26,119 @@ public class Main {
         //Vehicle b = new Frigate("QWed123",400, 100, true );
         //System.out.println(b.toString());
 
+        // Agency (Jeeps, Frigates, SpyGliders, ToyGliders)
+        // Jeeps = [0,1,2,3,4] and etc
 
-        Scanner sc= new Scanner(System.in);    //System.in is a standard input stream
-        System.out.print("Please Enter The Vehicle you want to choose:" +
-                "\n" +
-                "1 : Jeep" + "\n" +
-                "2 : Frigate" + "\n" +
-                "3 : SpyGlider" + "\n" +
-                "4 : ToyGlider" + "\n" +
-                " \n");
-        int choice = sc.nextInt(); // a = 2
 
-        switch(choice) {
-            case 1: //Jeep
-                Scanner sc1= new Scanner(System.in);
-                //Jeep(String model, double avgFuelConsumption, int maxSpeed, double avgEngineLifeSpan)
-                System.out.print("Please Enter Model: \n");
-                String modelJeep = sc1.nextLine();
 
-                System.out.print("Please Enter Average Fuel Consumption: \n");
-                double avgFuelConsumptionJeep = sc1.nextDouble();
 
-                System.out.print("Please Enter Max speed: \n");
-                int maxSpeedJeep = sc1.nextInt();
+        boolean exit = true;
+        while (exit) {
 
-                System.out.print("Please Average Engine Life Span: \n");
-                double avgEngineLifeSpanJeep = sc1.nextDouble();
+            Scanner sc = new Scanner(System.in);    //System.in is a standard input stream
+            System.out.print("Choose a Vehicle type to add to your Agency:" +
+                    "\n" +
+                    "1 : Jeep" + "\n" +
+                    "2 : Frigate" + "\n" +
+                    "3 : SpyGlider" + "\n" +
+                    "4 : ToyGlider" + "\n" +
+                    "5 : Finish Adding vehicles" + "\n" +
+                    " \n");
+            int choice = sc.nextInt(); // a = 2
 
-                Vehicle j = new Jeep(modelJeep, avgFuelConsumptionJeep, maxSpeedJeep, avgEngineLifeSpanJeep);
-                System.out.println(j.toString());
+            switch (choice) {
+                case 1: //Jeep
+                    a.addJeep();
+                    break;
 
-                //{ menu of jeep}
+                case 2: //Frigate
+                    a.addFrigate();
+                    break;
 
-                break;
+                case 3: //SpyGlider
+                    a.addSpyGlider();
+                    break;
 
-            case 2: //Frigate
-                Scanner sc2= new Scanner(System.in);
+                case 4: //ToyGlider
+                    a.addToyGlider();
+                    break;
 
-                System.out.print("Please Enter Model: \n");
-                String modelFrigate = sc2.nextLine();
+                case 5: //Quit menu
+                    exit = false;
+                    break;
 
-                System.out.print("Please Enter Number of passengers: \n");
-                int numOfPassengersFrigate = sc2.nextInt();
-
-                System.out.print("Please Enter Max speed: \n");
-                int maxSpeedFrigate = sc2.nextInt();
-
-                Scanner sc2a= new Scanner(System.in);
-                System.out.print("Sailing in wind direction? (yes or no): \n");
-                String withWindDirectionFrigate = sc2a.nextLine(); // yes/no
-                boolean sailWindDirectionFrigate=false;
-                if (withWindDirectionFrigate.equals("yes")) {sailWindDirectionFrigate = true;} // else it stays false (no)
-
-                System.out.print("Please Enter Distance traveled: \n");
-                int distanceTraveledFrigate = sc2a.nextInt();
-
-                Vehicle f = new Frigate(modelFrigate,numOfPassengersFrigate, maxSpeedFrigate, sailWindDirectionFrigate, distanceTraveledFrigate);
-                System.out.println(f.toString());
-                break;
-
-            case 3: //SpyGlider
-                Scanner sc3= new Scanner(System.in);
-
-                System.out.print("Please Enter Power Source (Battery, Solar, Fuel): \n");
-                String powerSourceSpyGlider = sc3.nextLine();
-
-                System.out.print("Please Enter Distance traveled: \n");
-                int distanceTraveledSpyGlider = sc3.nextInt();
-
-                Vehicle sg = new SpyGlider(powerSourceSpyGlider, distanceTraveledSpyGlider);
-                System.out.println(sg.toString());
-                break;
-
-            case 4: //ToyGlider
-                Scanner sc4= new Scanner(System.in);
-
-                System.out.print("Please Enter Distance traveled: \n");
-                int distanceTraveledToyGlider = sc4.nextInt();
-
-                Vehicle tg = new ToyGlider(distanceTraveledToyGlider);
-                System.out.println(tg.toString());
-                break;
-
-            default:
-                // code block
+                default:
+                    System.out.println("Wrong choice, available options are from 1-4");
+            }
+            System.out.println("Your Agency has been built!\n");
         }
 
         //While true look for the Menu after entering the details of the Vehicle
 
+        // example: person looking for a 'jeep' with under 10 fuelConsumption
+        // Pesuedo code
+        // for (i=0 i<amountOfVehicles;i++){
+        // if jeep
+        // if fuelConsumption < 10
+        //  Print all options so that the person can choose which to buy
+        // and after the person chooses it, we delete it from the list.
+        //}
+
+        /*for (int i=0 ; i<Agency.length ; i++){
+            if (Agency[i] instanceof Jeep){
+                System.out.println("This is a Jeep: "+(Jeep)Agency[i]);
+            }
+        }*/
 
 
 
 
+        //Menu #2
+        System.out.println("Welcome to the Vehicle Agency DealerShip\n");
+        boolean exit2 = true;
+        while (exit2) {
+
+            Scanner sc2 = new Scanner(System.in);    //System.in is a standard input stream
+            System.out.print("MENU2 Please Enter The Vehicle you want to Add:" +
+                    "\n" +
+                    "1 : Buy A Vehicle" + "\n" +
+                    "2 : Take Vehicle for a test drive" + "\n" +
+                    "3 : Reset distance traveled for ALL the Vehicles" + "\n" +
+                    "4 : Change flag of the Marine Vehicles of the user" + "\n" +
+                    "5 : Quit System" + "\n" +
+                    " \n");
+            int choice2 = sc2.nextInt(); // a = 2
+
+            switch (choice2) {
+                case 1: //Buy Vehicle from Agency
+                    a.buyVehicleFromAgency();
+                    break;
+
+                case 2: // Take Vehicle for a test drive
+
+                    break;
+
+                case 3: // Reset distance traveled for ALL the Vehicles
+
+                    break;
+
+                case 4: // Change flag of the Marine Vehicles of the user
+
+                    break;
+
+                case 5: // Quit System
+                    exit2 = false;
+
+                    break;
+
+                default:
+                    System.out.println("Wrong choice, available options are from 1-4");
+            }
+        }
+
+
+
+        System.out.println("\nThank you for choosing our Vehicle Agency, Good bye.\n");
     }
+
 }
