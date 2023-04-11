@@ -38,6 +38,8 @@ public abstract class LandVehicle extends Vehicle {
         return numOfWheels == that.numOfWheels && roadType == that.roadType;
     }
 
+
+
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), numOfWheels, roadType);

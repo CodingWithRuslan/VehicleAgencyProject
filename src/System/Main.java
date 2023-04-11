@@ -1,5 +1,6 @@
 package System;
 import Vehicle.Vehicle;
+import Vehicle.MarineVehicle;
 import Vehicle.Jeep;
 import Vehicle.Frigate;
 import Vehicle.SpyGlider;
@@ -99,7 +100,7 @@ public class Main {
         while (exit2) {
 
             Scanner sc2 = new Scanner(System.in);    //System.in is a standard input stream
-            System.out.print("MENU2 Please Enter The Vehicle you want to Add:" +
+            System.out.print("Hello user, Choose Option:" +
                     "\n" +
                     "1 : Buy A Vehicle" + "\n" +
                     "2 : Take Vehicle for a test drive" + "\n" +
@@ -114,16 +115,16 @@ public class Main {
                     a.buyVehicleFromAgency();
                     break;
 
-                case 2: // Take Vehicle for a test drive
-
+                case 2: // Take Vehicle for a test drive /////////////////////////////////////////////////////////
+                    a.testDriveVehicle();
                     break;
 
                 case 3: // Reset distance traveled for ALL the Vehicles
-
+                    a.resetDistanceTraveledAll();
                     break;
 
                 case 4: // Change flag of the Marine Vehicles of the user
-
+                    a.changeFlagOfAllMarineVehicles();
                     break;
 
                 case 5: // Quit System

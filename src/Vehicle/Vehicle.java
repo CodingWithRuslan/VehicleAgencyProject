@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public abstract class Vehicle {
 
-    protected void move(int distance){
+    public void move(int distance){
         distanceTraveled+=distance;
     }
     protected String model;
@@ -36,6 +36,7 @@ public abstract class Vehicle {
         Vehicle vehicle = (Vehicle) o;
         return distanceTraveled == vehicle.distanceTraveled && numOfPassengers == vehicle.numOfPassengers && maxSpeed == vehicle.maxSpeed && Objects.equals(model, vehicle.model);
     }
+
 
     @Override
     public int hashCode() {

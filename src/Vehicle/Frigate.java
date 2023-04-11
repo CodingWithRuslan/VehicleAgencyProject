@@ -55,7 +55,7 @@ public class Frigate extends MarineVehicle implements IMotorized{
         if (!super.equals(o)) return false;
         return Double.compare(frigate.avgFuelConsumption, avgFuelConsumption) == 0 && Double.compare(frigate.avgEngineLifeSpan, avgEngineLifeSpan) == 0;
     }
-
+    
     @Override
     public int hashCode() {
         return Objects.hash(avgFuelConsumption, avgEngineLifeSpan);

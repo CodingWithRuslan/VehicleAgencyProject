@@ -36,6 +36,9 @@ public class ToyGlider extends AirVehicle implements INonMotorized {
         return energyScore == toyGlider.energyScore && Objects.equals(powerSource, toyGlider.powerSource);
     }
 
+    // check equals without comparing distance, because the distances changing, cause of people taking for test drives
+
+
     @Override
     public int hashCode() {
         return Objects.hash(powerSource, energyScore);

@@ -37,6 +37,14 @@ public class SpyGlider extends AirVehicle implements INonMotorized {
         return getEnergyScore() == spyGlider.getEnergyScore() && Objects.equals(getPowerSource(), spyGlider.getPowerSource());
     }
 
+    // check equals without comparing distance, because the distances changing, cause of people taking for test drives
+    public boolean equals2(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof SpyGlider spyGlider)) return false;
+        if (!super.equals(o)) return false;
+        return getEnergyScore() == spyGlider.getEnergyScore() && Objects.equals(getPowerSource(), spyGlider.getPowerSource());
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(powerSource, energyScore);
