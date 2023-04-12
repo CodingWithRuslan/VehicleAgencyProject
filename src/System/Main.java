@@ -36,7 +36,6 @@ public class Main {
         boolean exit = true;
         while (exit) {
 
-            Scanner sc = new Scanner(System.in);    //System.in is a standard input stream
             System.out.print("Choose a Vehicle type to add to your Agency:" +
                     "\n" +
                     "1 : Jeep" + "\n" +
@@ -45,7 +44,7 @@ public class Main {
                     "4 : ToyGlider" + "\n" +
                     "5 : Finish Adding vehicles" + "\n" +
                     " \n");
-            int choice = sc.nextInt(); // a = 2
+            int choice = a.myScanInt();
 
             switch (choice) {
                 case 1: //Jeep
@@ -99,7 +98,6 @@ public class Main {
         boolean exit2 = true;
         while (exit2) {
 
-            Scanner sc2 = new Scanner(System.in);    //System.in is a standard input stream
             System.out.print("Hello user, Choose Option:" +
                     "\n" +
                     "1 : Buy A Vehicle" + "\n" +
@@ -108,7 +106,7 @@ public class Main {
                     "4 : Change flag of the Marine Vehicles of the user" + "\n" +
                     "5 : Quit System" + "\n" +
                     " \n");
-            int choice2 = sc2.nextInt(); // a = 2
+            int choice2 = a.myScanInt();
 
             switch (choice2) {
                 case 1: //Buy Vehicle from Agency
