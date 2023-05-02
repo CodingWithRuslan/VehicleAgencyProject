@@ -42,7 +42,7 @@ public class Frigate extends MarineVehicle implements IMotorized{
 
     @Override
     public String toString() {
-        return  super.toString() +
+        return  "Frigate{" + super.toString() +
                 "Engine: " + avgFuelConsumption + "L" +
                 ", lifetime of = " + avgEngineLifeSpan + " years. " +
                 '}';
@@ -55,7 +55,15 @@ public class Frigate extends MarineVehicle implements IMotorized{
         if (!super.equals(o)) return false;
         return Double.compare(frigate.avgFuelConsumption, avgFuelConsumption) == 0 && Double.compare(frigate.avgEngineLifeSpan, avgEngineLifeSpan) == 0;
     }
-    
+
+    // check equals without comparing distance, because the distances changing, cause of people taking for test drives
+    public boolean equals2(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Frigate frigate)) return false;
+        if (!super.equals(o)) return false;
+        return Double.compare(frigate.avgFuelConsumption, avgFuelConsumption) == 0 && Double.compare(frigate.avgEngineLifeSpan, avgEngineLifeSpan) == 0;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(avgFuelConsumption, avgEngineLifeSpan);
@@ -70,4 +78,9 @@ public class Frigate extends MarineVehicle implements IMotorized{
     public void setAvgEngineLifeSpan(double avgEngineLifeSpan) {
         this.avgEngineLifeSpan=avgEngineLifeSpan;
     }
+
+    public double getAvgFuelConsumption() { return avgFuelConsumption; }
+
+    public double getAvgEngineLifeSpan() { return avgEngineLifeSpan; }
+
 }

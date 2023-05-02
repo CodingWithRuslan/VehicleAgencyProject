@@ -2,7 +2,7 @@ package Vehicle;
 
 import java.util.Objects;
 
-public abstract class LandVehicle extends Vehicle {
+public class LandVehicle extends Vehicle {
 
     protected int numOfWheels;
     protected boolean roadType; // true = pavement . false=dirt
@@ -11,6 +11,11 @@ public abstract class LandVehicle extends Vehicle {
         super();
         this.numOfWheels=0;
         this.roadType=false;
+    }
+    public LandVehicle(int numOfWheels) { // for amphibious
+        super();
+        this.numOfWheels=numOfWheels;
+        this.roadType=true; // paved for amphibious
     }
 
     @Override
@@ -38,7 +43,15 @@ public abstract class LandVehicle extends Vehicle {
         return numOfWheels == that.numOfWheels && roadType == that.roadType;
     }
 
-
+    // check equals without comparing distance, because the distances changing, cause of people taking for test drives
+    @Override
+    public boolean equals2(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        LandVehicle that = (LandVehicle) o;
+        return numOfWheels == that.numOfWheels && roadType == that.roadType;
+    }
 
     @Override
     public int hashCode() {
@@ -52,4 +65,9 @@ public abstract class LandVehicle extends Vehicle {
     public void setRoadType(boolean roadType) {
         this.roadType = roadType;
     }
+
+    public int getNumOfWheels() { return numOfWheels; }
+
+    public boolean isRoadType() { return roadType; }
 }
+

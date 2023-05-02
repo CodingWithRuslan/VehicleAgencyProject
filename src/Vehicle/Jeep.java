@@ -48,6 +48,15 @@ public class Jeep extends LandVehicle implements IMotorized, ICommercial {
         return Double.compare(jeep.avgFuelConsumption, avgFuelConsumption) == 0 && Double.compare(jeep.avgEngineLifeSpan, avgEngineLifeSpan) == 0 && Objects.equals(typeOfLicense, jeep.typeOfLicense);
     }
 
+    // check equals without comparing distance, because the distances changing, cause of people taking for test drives
+    @Override
+    public boolean equals2(Object o) { // check equals without comparing distance, because the distances changing, cause of people taking for test drives
+        if (this == o) return true;
+        if (!(o instanceof Jeep jeep)) return false;
+        if (!super.equals(o)) return false;
+        return Double.compare(jeep.avgFuelConsumption, avgFuelConsumption) == 0 && Double.compare(jeep.avgEngineLifeSpan, avgEngineLifeSpan) == 0 && Objects.equals(typeOfLicense, jeep.typeOfLicense);
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(typeOfLicense, avgFuelConsumption, avgEngineLifeSpan);
@@ -67,4 +76,12 @@ public class Jeep extends LandVehicle implements IMotorized, ICommercial {
     public void setAvgEngineLifeSpan(double avgEngineLifeSpan) {
         this.avgEngineLifeSpan=avgEngineLifeSpan;
     }
+
+    public String getTypeOfLicense() { return typeOfLicense; }
+
+    public double getAvgFuelConsumption() { return avgFuelConsumption; }
+
+    public double getAvgEngineLifeSpan() { return avgEngineLifeSpan; }
+
+
 }

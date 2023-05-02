@@ -2,7 +2,7 @@ package Vehicle;
 
 import java.util.Objects;
 
-public abstract class AirVehicle extends Vehicle{
+public class AirVehicle extends Vehicle{
 
     boolean isMilitary; // true = military ,  false = civilian
 
@@ -30,6 +30,14 @@ public abstract class AirVehicle extends Vehicle{
         if (!super.equals(o)) return false;
         return isMilitary() == that.isMilitary();
     }
+
+    public boolean equals2(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof AirVehicle that)) return false;
+        if (!super.equals(o)) return false;
+        return isMilitary() == that.isMilitary();
+    }
+    // check equals without comparing distance, because the distances changing, cause of people taking for test drives
 
     @Override
     public int hashCode() {

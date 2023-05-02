@@ -1,12 +1,6 @@
 package System;
-import Vehicle.Vehicle;
-import Vehicle.MarineVehicle;
-import Vehicle.Jeep;
-import Vehicle.Frigate;
-import Vehicle.SpyGlider;
-import Vehicle.ToyGlider;
 
-import java.util.Scanner;
+import Vehicle.Vehicle;
 
 public class Main {
     static int amountOfVehicles = 0;
@@ -42,7 +36,10 @@ public class Main {
                     "2 : Frigate" + "\n" +
                     "3 : SpyGlider" + "\n" +
                     "4 : ToyGlider" + "\n" +
-                    "5 : Finish Adding vehicles" + "\n" +
+                    "5 : Amphibious" + "\n" +
+                    "6 : Bicycle" + "\n" +
+                    "7 : CruiseShip" + "\n" +
+                    "8 : Finish Adding vehicles" + "\n" +
                     " \n");
             int choice = a.myScanInt();
 
@@ -63,7 +60,18 @@ public class Main {
                     a.addToyGlider();
                     break;
 
-                case 5: //Quit menu
+                case 5: //Amphibious
+                    a.addAmphibiousVehicle();
+                    break;
+                case 6: //Bicycle
+                    a.addBicycle();
+                    break;
+                case 7: //CruiseShip
+                    a.addCruiseShip();
+                    break;
+
+
+                case 8: //Quit menu
                     exit = false;
                     break;
 

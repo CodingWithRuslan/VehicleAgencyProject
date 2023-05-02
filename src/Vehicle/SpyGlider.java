@@ -67,4 +67,7 @@ public class SpyGlider extends AirVehicle implements INonMotorized {
     public void setEnergyScore(char energyScore) {
         this.energyScore = energyScore;
     }
+
+
+
 }
