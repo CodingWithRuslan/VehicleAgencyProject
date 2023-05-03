@@ -3,10 +3,10 @@ package System;
 import Vehicle.Vehicle;
 
 public class Main {
-    static int amountOfVehicles = 0;
-    static int capacityOfAgency = 100;
+    public static int amountOfVehicles = 0;
+    public static int capacityOfAgency = 100;
 
-    static Vehicle[] Agency = new Vehicle[capacityOfAgency]; // Agency (Jeeps, Frigates, SpyGliders, ToyGliders)
+    public static Vehicle[] Agency = new Vehicle[capacityOfAgency]; // Agency (Jeeps, Frigates, SpyGliders, ToyGliders)
     public static void main(String[] args) {
 
         Menus a = new Menus();
@@ -76,10 +76,10 @@ public class Main {
                     break;
 
                 default:
-                    System.out.println("Wrong choice, available options are from 1-4");
+                    System.out.println("Wrong choice, available options are from 1-8");
             }
-            System.out.println("Your Agency has been built!\n");
         }
+        System.out.println("Your Agency has been built!\n");
 
         //While true look for the Menu after entering the details of the Vehicle
 

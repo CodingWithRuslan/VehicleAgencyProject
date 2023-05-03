@@ -25,7 +25,7 @@ public abstract class Vehicle {
                 "Model: " + model +
                         ", traveled: " + distanceTraveled + " Km" +
                         ", Max speed of " + maxSpeed + " Mph" +
-                        ", can carry max of " + numOfPassengers + " people."
+                        ", can carry max of " + numOfPassengers + " people,"
                 ;
     }
 
