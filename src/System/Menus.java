@@ -164,7 +164,7 @@ public class Menus {
         System.out.print("Please Enter Country Flag: \n");
         String flag = myScanLine();
 
-        Vehicle a = new AmphibiousVehicle(model, distanceTraveled, numOfWheels, maxSpeed, avgFuelConsumption,avgEngineLifeSpan,numOfWheels,sailWindDirection,flag);
+        Vehicle a = new AmphibiousVehicle(model, distanceTraveled, numOfPassengers, maxSpeed, avgFuelConsumption,avgEngineLifeSpan,numOfWheels,sailWindDirection,flag);
         return a;
     }
     public Vehicle scanBicycle(){

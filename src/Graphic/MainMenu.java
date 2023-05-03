@@ -51,20 +51,78 @@ public class MainMenu extends JFrame implements ActionListener {
 
         //Jeep button+image
         ImageIcon imageIcon = new ImageIcon("src/Images/jeep.png"); // load the image to a imageIcon
-        Image image = imageIcon.getImage(); // transform it
-        Image JeepImg = image.getScaledInstance(100, 100,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
+        Image imageJeep = imageIcon.getImage(); // transform it
+        Image JeepImg = imageJeep.getScaledInstance(100, 100,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
         imageIcon = new ImageIcon(JeepImg);  // transform it back
         JButton jeepButton = new JButton(imageIcon);
         jeepButton.addActionListener(this);
         jeepButton.setActionCommand("Jeep");
 
         //Frigate button+image and rest needs to be done same as above^
-        JButton addFrigateButton = new JButton("Add Frigate");
-        JButton addSpyGliderButton = new JButton("Add SpyGlider");
-        JButton addGliderButton = new JButton("Add ToyGlider");
-        JButton addAmphibiousVehicleButton = new JButton("Add Amphibious");
-        JButton addBicycleButton = new JButton("Add Bicycle");
-        JButton addCruiseShipButton = new JButton("Add CruiseShip");
+
+        //Frigate button+image and rest needs to be done same as above^
+        ImageIcon imageIconFrigate = new ImageIcon("src/Images/frigate.png"); // load the image to a imageIcon
+        Image imageFrigate = imageIconFrigate.getImage();
+        Image FrigateImg = imageFrigate.getScaledInstance(100, 100,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
+        imageIconFrigate = new ImageIcon(FrigateImg);
+        JButton frigateButton = new JButton(imageIconFrigate);
+        frigateButton.addActionListener(this);
+        frigateButton.setActionCommand("Frigate");
+
+        //JButton addFrigateButton = new JButton("Add Frigate");
+
+        // finish buttons below
+        //JButton addSpyGliderButton = new JButton("Add SpyGlider");
+        //
+        ImageIcon imageIconSpyGlider = new ImageIcon("src/Images/spyGlider.png"); // load the image to a imageIcon
+        Image imageSpyGlider = imageIconSpyGlider.getImage();
+        Image SpyGliderImg = imageSpyGlider.getScaledInstance(100, 100,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
+        imageIconSpyGlider = new ImageIcon(SpyGliderImg);
+        JButton spyGliderButton = new JButton(imageIconSpyGlider);
+        spyGliderButton.addActionListener(this);
+        spyGliderButton.setActionCommand("SpyGlider");
+
+        //JButton addGliderButton = new JButton("Add ToyGlider");
+        //toyGlider
+        ImageIcon imageIconToyGlider = new ImageIcon("src/Images/toyGlider.png"); // load the image to a imageIcon
+        Image imageToyGlider = imageIconToyGlider.getImage();
+        Image ToyGliderImg = imageToyGlider.getScaledInstance(100, 100,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
+        imageIconToyGlider = new ImageIcon(ToyGliderImg);
+        JButton toyGliderButton = new JButton(imageIconToyGlider);
+        toyGliderButton.addActionListener(this);
+        toyGliderButton.setActionCommand("ToyGlider");
+        //
+
+        //JButton addAmphibiousButton = new JButton("Add Amphibious");
+        ImageIcon imageIconAmphibious = new ImageIcon("src/Images/amphibious.png"); // load the image to a imageIcon
+        Image imageAmphibious = imageIconAmphibious.getImage();
+        Image AmphibiousImg = imageAmphibious.getScaledInstance(100, 100,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
+        imageIconAmphibious= new ImageIcon(AmphibiousImg);
+        JButton amphibiousButton = new JButton(imageIconAmphibious);
+        amphibiousButton.addActionListener(this);
+        amphibiousButton.setActionCommand("Amphibious");
+
+
+        //JButton addBicycleButton = new JButton("Add Bicycle");
+        ImageIcon imageIconBicycle = new ImageIcon("src/Images/bicycle.png"); // load the image to a imageIcon
+        Image imageBicycle = imageIconBicycle.getImage();
+        Image BicycleImg = imageBicycle.getScaledInstance(100, 100,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
+        imageIconBicycle= new ImageIcon(BicycleImg);
+        JButton bicycleButton = new JButton(imageIconBicycle);
+        bicycleButton.addActionListener(this);
+        bicycleButton.setActionCommand("Bicycle");
+
+
+        //JButton addCruiseShipButton = new JButton("Add CruiseShip");
+        ImageIcon imageIconCruiseShip = new ImageIcon("src/Images/cruiseShip.png"); // load the image to a imageIcon
+        Image imageCruiseShip = imageIconCruiseShip.getImage();
+        Image CruiseShipImg = imageCruiseShip.getScaledInstance(100, 100,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
+        imageIconCruiseShip= new ImageIcon(CruiseShipImg);
+        JButton cruiseShipButton = new JButton(imageIconCruiseShip);
+        cruiseShipButton.addActionListener(this);
+        cruiseShipButton.setActionCommand("CruiseShip");
+
+        //
 
         JButton addFinishAddingButton = new JButton("Finish Adding");
         addFinishAddingButton.addActionListener(this);
@@ -75,12 +133,13 @@ public class MainMenu extends JFrame implements ActionListener {
 
         // Add the components to the GUI
         add(jeepButton);
-        add(addFrigateButton);
-        add(addSpyGliderButton);
-        add(addGliderButton);
-        add(addAmphibiousVehicleButton);
-        add(addBicycleButton);
-        add(addCruiseShipButton);
+        add(frigateButton);
+        add(spyGliderButton);
+        add(toyGliderButton);
+        add(amphibiousButton);
+        add(bicycleButton);
+        add(cruiseShipButton);
+        // finish buttons below;
         add(addFinishAddingButton);
 
         // Make the window visible
@@ -108,21 +167,33 @@ public class MainMenu extends JFrame implements ActionListener {
                 break;
             case "Frigate":
                 // Code for Frigate action
+                Agency[amountOfVehicles] = GraphicMenus.scanFrigateGui();
+                amountOfVehicles++;
                 break;
             case "SpyGlider":
                 // Code for SpyGlider action
+                Agency[amountOfVehicles] = GraphicMenus.scanSpyGliderGui();
+                amountOfVehicles++;
                 break;
             case "ToyGlider":
                 // Code for boat ToyGlider
+                Agency[amountOfVehicles] = GraphicMenus.scanToyGliderGui();
+                amountOfVehicles++;
                 break;
             case "Amphibious":
                 // Code for Amphibious action
+                Agency[amountOfVehicles] = GraphicMenus.scanAmphibiousGui();
+                amountOfVehicles++;
                 break;
             case "Bicycle":
                 // Code for Bicycle action
+                Agency[amountOfVehicles] = GraphicMenus.scanBicycleGui();
+                amountOfVehicles++;
                 break;
             case "CruiseShip":
                 // Code for CruiseShip action
+                Agency[amountOfVehicles] = GraphicMenus.scanCruiseShipGui();
+                amountOfVehicles++;
                 break;
             case "FinishAdding":
                 System.out.println("close");

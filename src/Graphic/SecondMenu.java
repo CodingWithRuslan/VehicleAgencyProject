@@ -52,6 +52,10 @@ public class SecondMenu extends JFrame implements ActionListener {
         addChangeFlagButton.addActionListener(this);
         addChangeFlagButton.setActionCommand("Change");
 
+        JButton addVehicleMenuButton = new JButton("Add Vehicle Menu");
+        addVehicleMenuButton.addActionListener(this);
+        addVehicleMenuButton.setActionCommand("AddVehicleMenu");
+
 
         JButton addFinishAddingButton = new JButton("Quit System");
         addFinishAddingButton.addActionListener(this);
@@ -63,6 +67,7 @@ public class SecondMenu extends JFrame implements ActionListener {
         add(addTestVehicleButton);
         add(addResetDistancesButton);
         add(addChangeFlagButton);
+        add(addVehicleMenuButton);
         add(addFinishAddingButton);
 
         // Make the window visible
@@ -100,6 +105,11 @@ public class SecondMenu extends JFrame implements ActionListener {
             case "Change":
                 GraphicMenus.changeFlagOfAllMarineVehiclesGui();
                 break;
+            case "AddVehicleMenu":
+                dispose();
+                MainMenu.main(null);
+                break;
+
 
 
             case "QuitSystem":
