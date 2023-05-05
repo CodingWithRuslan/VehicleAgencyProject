@@ -70,4 +70,3 @@ public class LandVehicle extends Vehicle {
 
     public boolean isRoadType() { return roadType; }
 }
-

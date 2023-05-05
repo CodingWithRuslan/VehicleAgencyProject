@@ -107,19 +107,19 @@ public class GraphicMenus {
         return a;
     }
 
-     public static Vehicle scanFrigateGui(){
-         String modelFrigate = JOptionPane.showInputDialog(null, "Please Enter Model: ");
-         int numOfPassengersFrigate = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter Number of passengers: "));
-         int maxSpeedFrigate = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter Max speed: "));
-         String withWindDirectionFrigate = JOptionPane.showInputDialog(null, "Sailing in wind direction? (yes or no): ");
-         boolean sailWindDirectionFrigate = false;
-         if (withWindDirectionFrigate.equals("yes")) {
-             sailWindDirectionFrigate = true;
-         } // else it stays false (no)
-         int distanceTraveledFrigate = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter Distance traveled: "));
-         Vehicle a = new Frigate(modelFrigate, numOfPassengersFrigate, maxSpeedFrigate, sailWindDirectionFrigate, distanceTraveledFrigate);
-         return a;
-     }
+    public static Vehicle scanFrigateGui(){
+        String modelFrigate = JOptionPane.showInputDialog(null, "Please Enter Model: ");
+        int numOfPassengersFrigate = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter Number of passengers: "));
+        int maxSpeedFrigate = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter Max speed: "));
+        String withWindDirectionFrigate = JOptionPane.showInputDialog(null, "Sailing in wind direction? (yes or no): ");
+        boolean sailWindDirectionFrigate = false;
+        if (withWindDirectionFrigate.equals("yes")) {
+            sailWindDirectionFrigate = true;
+        } // else it stays false (no)
+        int distanceTraveledFrigate = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter Distance traveled: "));
+        Vehicle a = new Frigate(modelFrigate, numOfPassengersFrigate, maxSpeedFrigate, sailWindDirectionFrigate, distanceTraveledFrigate);
+        return a;
+    }
 
     public static Vehicle scanSpyGliderGui(){
         String powerSourceSpyGlider = JOptionPane.showInputDialog(null, "Please Enter Power Source (Battery, Solar, Fuel, Manual): ");
@@ -309,7 +309,7 @@ public class GraphicMenus {
         for (int z=0 ; z<amountOfVehicles ; z++){
             System.out.println(Agency[z]);
         }
-     }
+    }
 
     public static void buyToyGliderGui(){
         Vehicle tg = scanToyGliderGui();
@@ -564,7 +564,7 @@ public class GraphicMenus {
         for (int z = 0; z < amountOfVehicles; z++) {
             System.out.println(Agency[z]);
         }
-     }
+    }
 
     public static void testDriveToyGliderGui(){
         Vehicle tg = scanToyGliderGui();
@@ -584,10 +584,10 @@ public class GraphicMenus {
             ((ToyGlider) Agency[indexToUpdateDistanceToyGlider]).move(toUpdateDistanceToyGlider);
             JOptionPane.showMessageDialog(null, "Updated distance to this Vehile by " + toUpdateDistanceToyGlider + " Km.");
         }
-         else    {
-                System.out.print("Error, Vehicle not found. Please try again. \n");
-                JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
-            }
+        else    {
+            System.out.print("Error, Vehicle not found. Please try again. \n");
+            JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
+        }
 
         System.out.println("The New Agency List:");
         for (int z = 0; z < amountOfVehicles; z++) {
