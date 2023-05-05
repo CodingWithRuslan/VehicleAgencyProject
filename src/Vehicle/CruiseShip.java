@@ -14,6 +14,7 @@ public class CruiseShip extends MarineVehicle implements IMotorized, ICommercial
         this.typeOfLicense="Unlimited";
         this.avgFuelConsumption= avgFuelConsumption;
         this.avgEngineLifeSpan= avgEngineLifeSpan;
+        this.countryFlag=countryFlag;
     }
 
     @Override

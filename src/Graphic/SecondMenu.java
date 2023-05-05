@@ -139,7 +139,8 @@ public class SecondMenu extends JFrame implements ActionListener {
                 break;
 
             case "Change":
-                GraphicMenus.changeFlagOfAllMarineVehiclesGui();
+                new GraphicFlags();
+                //GraphicMenus.changeFlagOfAllMarineVehiclesGui();
                 break;
             case "AddVehicleMenu":
                 dispose();
