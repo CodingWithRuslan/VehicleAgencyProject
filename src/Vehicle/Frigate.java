@@ -1,4 +1,5 @@
 package Vehicle;
+import javax.swing.*;
 import java.util.*;
 
 public class Frigate extends MarineVehicle implements IMotorized{
@@ -6,7 +7,9 @@ public class Frigate extends MarineVehicle implements IMotorized{
     private double avgFuelConsumption;
     private double avgEngineLifeSpan;
 
-    public Frigate(String model, int numOfPassengers, int maxSpeed, boolean sailWindDirection, int distanceTraveled ) {
+    private ImageIcon image;
+
+    public Frigate(String model, int numOfPassengers, int maxSpeed, boolean sailWindDirection, int distanceTraveled, ImageIcon image ) {
         super();
         //all below const for frigate
         this.avgEngineLifeSpan = 4;
@@ -18,6 +21,7 @@ public class Frigate extends MarineVehicle implements IMotorized{
         this.maxSpeed=maxSpeed;
         this.sailWindDirection=sailWindDirection;
         this.distanceTraveled=distanceTraveled;
+        this.image = image;
     }
 
    /* @Override
@@ -45,6 +49,7 @@ public class Frigate extends MarineVehicle implements IMotorized{
         return  "Frigate{" + super.toString() +
                 "Engine: " + avgFuelConsumption + "L" +
                 ", lifetime of = " + avgEngineLifeSpan + " years. " +
+                ",Image Jeep" +image +
                 '}';
     }
 
@@ -82,5 +87,13 @@ public class Frigate extends MarineVehicle implements IMotorized{
     public double getAvgFuelConsumption() { return avgFuelConsumption; }
 
     public double getAvgEngineLifeSpan() { return avgEngineLifeSpan; }
+
+    public ImageIcon getImageIcon() {
+        return this.image;
+    }
+
+    public ImageIcon getFrigateImageIcon() {
+        return this.image;
+    }
 
 }

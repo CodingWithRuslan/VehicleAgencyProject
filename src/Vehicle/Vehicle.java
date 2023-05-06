@@ -1,5 +1,6 @@
 package Vehicle;
 
+import javax.swing.*;
 import java.util.Objects;
 
 public abstract class Vehicle {
@@ -11,7 +12,6 @@ public abstract class Vehicle {
     protected int distanceTraveled ;
     protected int numOfPassengers;
     protected int maxSpeed;
-
     public Vehicle() {
         this.model ="";
         this.distanceTraveled = 0;
@@ -80,6 +80,8 @@ public abstract class Vehicle {
     public void setMaxSpeed(int maxSpeed) {
         this.maxSpeed = maxSpeed;
     }
+
+
 
 
 

@@ -227,5 +227,6 @@ public class MainMenu extends JFrame implements ActionListener {
         Menus m = new Menus();
         m.printAllVehicles();
         GraphicMenus.printAllVehiclesGuiPop();
+        //GraphicMenus.printAllVehiclesGuiPop();
     }
 }

@@ -1,5 +1,6 @@
 package Vehicle;
 
+import javax.swing.*;
 import java.util.Objects;
 
 public class CruiseShip extends MarineVehicle implements IMotorized, ICommercial{
@@ -8,13 +9,16 @@ public class CruiseShip extends MarineVehicle implements IMotorized, ICommercial
     private double avgEngineLifeSpan;
     private String typeOfLicense;
 
-    public CruiseShip(String model, int distanceTraveled, int numOfPassengers, int maxSpeed, String countryFlag, double avgFuelConsumption, double avgEngineLifeSpan) {
+    private ImageIcon image;
+
+    public CruiseShip(String model, int distanceTraveled, int numOfPassengers, int maxSpeed, String countryFlag, double avgFuelConsumption, double avgEngineLifeSpan, ImageIcon image) {
         super();
         this.sailWindDirection=true;
         this.typeOfLicense="Unlimited";
         this.avgFuelConsumption= avgFuelConsumption;
         this.avgEngineLifeSpan= avgEngineLifeSpan;
         this.countryFlag=countryFlag;
+        this.image = image;
     }
 
     @Override
@@ -50,8 +54,16 @@ public class CruiseShip extends MarineVehicle implements IMotorized, ICommercial
         return super.toString() +
                 "avgFuelConsumption=" + avgFuelConsumption +
                 ", avgEngineLifeSpan=" + avgEngineLifeSpan +
-                ", typeOfLicense='" + typeOfLicense + '\'' +
+                ", typeOfLicense='" + typeOfLicense + '\''  +
+                ",Image Jeep" +image +
                 '}';
+    }
+    public ImageIcon getImageIcon() {
+        return this.image;
+    }
+
+    public ImageIcon getCruiseShipImageIcon() {
+        return this.image;
     }
 
 }

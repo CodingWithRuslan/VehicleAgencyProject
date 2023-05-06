@@ -1,11 +1,14 @@
 package Vehicle;
 
+import javax.swing.*;
 import java.util.Objects;
 
 public class ToyGlider extends AirVehicle implements INonMotorized {
     private String powerSource;
     private char energyScore; // A/B/C
-    public ToyGlider(int distanceTraveled) {
+
+    private ImageIcon image;
+    public ToyGlider(int distanceTraveled, ImageIcon image) {
         super();
         // ToyGlider details that cannot be changed:
         this.isMilitary = false;
@@ -17,6 +20,7 @@ public class ToyGlider extends AirVehicle implements INonMotorized {
 
         // ToyGlider details entered by user:
         this.distanceTraveled = distanceTraveled;
+        this.image = image;
     }
 
     @Override
@@ -24,7 +28,8 @@ public class ToyGlider extends AirVehicle implements INonMotorized {
         return "ToyGlider{" +
                 super.toString() +
                 ", Power Source= " + powerSource +
-                ", Energy Score= " + energyScore +
+                ", Energy Score= " + energyScore  +
+                ",Image Jeep" +image +
                 '}';
     }
 
@@ -58,4 +63,12 @@ public class ToyGlider extends AirVehicle implements INonMotorized {
     public String getPowerSource() { return powerSource; }
 
     public char getEnergyScore() { return energyScore; }
+
+    public ImageIcon getImageIcon() {
+        return this.image;
+    }
+
+    public ImageIcon getToyGliderImageIcon() {
+        return this.image;
+    }
 }

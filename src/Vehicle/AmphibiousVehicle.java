@@ -1,5 +1,6 @@
 package Vehicle;
 
+import javax.swing.*;
 import java.util.Objects;
 
 public class AmphibiousVehicle extends Vehicle implements IMotorized{
@@ -11,11 +12,13 @@ public class AmphibiousVehicle extends Vehicle implements IMotorized{
     /** The AvgLifeSpan **/
     private double avgEngineLifeSpan;
 
+    private ImageIcon image;
+
     //Vehicle+MarineVehicle+LandVehicle:
     // super: model, distanceTraveled , numOfPassengers , maxSpeed
     // Marine: sailWindDirection, countryFlag
     // Land: numOfWheels, roadType
-    public AmphibiousVehicle(String model, int distanceTraveled , int numOfPassengers , int maxSpeed,double avgFuelConsumption, double avgEngineLifeSpan, int numOfWheels, boolean sailWindDirection, String countryFlag) {
+    public AmphibiousVehicle(String model, int distanceTraveled , int numOfPassengers , int maxSpeed,double avgFuelConsumption, double avgEngineLifeSpan, int numOfWheels, boolean sailWindDirection, String countryFlag, ImageIcon image) {
         // AmphibiousVehicle details that cannot be changed:  Paved
         // AmphibiousVehicle details entered by user: model type, average fuel consumption, max speed, average life of the engine.
         super();
@@ -25,6 +28,7 @@ public class AmphibiousVehicle extends Vehicle implements IMotorized{
         this.maxSpeed=maxSpeed;
         this.avgFuelConsumption=avgFuelConsumption;
         this.avgEngineLifeSpan=avgEngineLifeSpan;
+        this.image = image;
         landVehicle = new LandVehicle(numOfWheels); //this.roadType =true; // will be in constructor // // true = paved
         marineVehicle = new MarineVehicle(sailWindDirection, countryFlag);
     }
@@ -55,7 +59,8 @@ public class AmphibiousVehicle extends Vehicle implements IMotorized{
                 "Number of wheels=" + landVehicle.getNumOfWheels() +
                 ", Road Type=" + "pavement. " +
                 " Under " + marineVehicle.getCountryFlag() + " flag" +
-                ", " + flagBool + " the wind. " +
+                ", " + flagBool + " the wind. "  +
+                ",Image Jeep" +image +
                 '}';
         // Marine: sailWindDirection, countryFlag
         // Land: numOfWheels, roadType
@@ -73,4 +78,13 @@ public class AmphibiousVehicle extends Vehicle implements IMotorized{
     public int hashCode() {
         return Objects.hash(super.hashCode(), landVehicle, marineVehicle, getAvgFuelConsumption(), getAvgEngineLifeSpan());
     }
+
+    public ImageIcon getImageIcon() {
+        return this.image;
+    }
+
+    public ImageIcon getAmphibiousVehicleImageIcon() {
+        return this.image;
+    }
+
 }

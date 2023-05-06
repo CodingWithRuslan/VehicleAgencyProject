@@ -19,6 +19,7 @@ import System.Menus;
 import static System.Main.*;
 import Vehicle.MarineVehicle;
 
+import java.awt.*;
 import java.util.Arrays;
 import java.util.Vector;
 
@@ -34,7 +35,129 @@ public class GraphicMenus {
         }
     }
 
-    public static void printAllVehiclesGuiPop(){
+    /*public static void printAllVehiclesGuiPop() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < amountOfVehicles; i++) {
+            stringBuilder.append(Agency[i]);
+            stringBuilder.append("\n");
+        }
+        String joinedString = stringBuilder.toString();
+        JOptionPane.showMessageDialog(null, "List of Available Vehicles in stock:\n" + joinedString);
+        for (int i = 0; i < amountOfVehicles; i++) {
+            if (Agency[i] instanceof Jeep) {
+                Jeep jeep = (Jeep) Agency[i];
+                JeepImageSelectionMenu.showImageAndToString(jeep);
+            }
+        }
+    }*/
+    public static void printAllVehiclesGuiPop() {
+        JPanel panel = new JPanel(new GridLayout(0, 3)); // create a panel with 3 columns
+        for (int i = 0; i < amountOfVehicles; i++) {
+            if (Agency[i] instanceof Jeep) {
+                Jeep jeep = (Jeep) Agency[i];
+                ImageIcon imageIcon = jeep.getJeepImageIcon();
+                String jeepToString = jeep.toString();
+                JLabel label = new JLabel(imageIcon);
+                label.setToolTipText(jeepToString); // set tooltip with the Jeep's toString method
+                panel.add(label);
+            }
+            if (Agency[i] instanceof Frigate) {
+                Frigate frigate = (Frigate) Agency[i];
+                ImageIcon imageIcon = frigate.getFrigateImageIcon();
+                String frigateToString = frigate.toString();
+                JLabel label = new JLabel(imageIcon);
+                label.setToolTipText(frigateToString); // set tooltip with the Jeep's toString method
+                panel.add(label);
+            }
+            if (Agency[i] instanceof SpyGlider) {
+                SpyGlider spyGlider = (SpyGlider) Agency[i];
+                ImageIcon imageIcon = spyGlider.getSpyGliderImageIcon();
+                String spyGliderToString = spyGlider.toString();
+                JLabel label = new JLabel(imageIcon);
+                label.setToolTipText(spyGliderToString); // set tooltip with the Jeep's toString method
+                panel.add(label);
+            }
+            if (Agency[i] instanceof ToyGlider) {
+                ToyGlider toyGlider = (ToyGlider) Agency[i];
+                ImageIcon imageIcon = toyGlider.getToyGliderImageIcon();
+                String toyGliderToString = toyGlider.toString();
+                JLabel label = new JLabel(imageIcon);
+                label.setToolTipText(toyGliderToString); // set tooltip with the Jeep's toString method
+                panel.add(label);
+            }
+            if (Agency[i] instanceof AmphibiousVehicle) {
+                AmphibiousVehicle amphibiousVehicle = (AmphibiousVehicle) Agency[i];
+                ImageIcon imageIcon = amphibiousVehicle.getAmphibiousVehicleImageIcon();
+                String amphibiousVehicleToString = amphibiousVehicle .toString();
+                JLabel label = new JLabel(imageIcon);
+                label.setToolTipText(amphibiousVehicleToString); // set tooltip with the Jeep's toString method
+                panel.add(label);
+            }
+
+            if (Agency[i] instanceof Bicycle) {
+                Bicycle bicycle = (Bicycle) Agency[i];
+                ImageIcon imageIcon = bicycle.getBicycleImageIcon();
+                String bicycleToString = bicycle.toString();
+                JLabel label = new JLabel(imageIcon);
+                label.setToolTipText(bicycleToString); // set tooltip with the Jeep's toString method
+                panel.add(label);
+            }
+
+            if (Agency[i] instanceof CruiseShip) {
+                CruiseShip cruiseShip = (CruiseShip) Agency[i];
+                ImageIcon imageIcon = cruiseShip.getCruiseShipImageIcon();
+                String cruiseShipToString = cruiseShip.toString();
+                JLabel label = new JLabel(imageIcon);
+                label.setToolTipText(cruiseShipToString); // set tooltip with the Jeep's toString method
+                panel.add(label);
+            }
+
+
+
+
+        }
+        JOptionPane.showMessageDialog(null, panel, "List of Available Vehicles in stock:", JOptionPane.PLAIN_MESSAGE);
+    }
+
+
+    /*public static void printAllVehiclesGuiPop() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < amountOfVehicles; i++) {
+            stringBuilder.append(Agency[i]);
+            stringBuilder.append("\n");
+        }
+        String joinedString = stringBuilder.toString();
+        JOptionPane.showMessageDialog(null, "List of Available Vehicles in stock:\n" + joinedString);
+        for (int i = 0; i < amountOfVehicles; i++) {
+            if (Agency[i] instanceof Jeep) {
+                Jeep jeep = (Jeep) Agency[i];
+                JeepImageSelectionMenu.showImageAndToString(jeep);
+            }
+        }
+    }*/
+
+    /*public static void printAllVehiclesGuiPop() {
+        // Print all the List Available Vehicles in stock.
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < amountOfVehicles; i++) {
+            stringBuilder.append(Agency[i].toString());
+            stringBuilder.append("\n");
+        }
+        String joinedString = stringBuilder.toString();
+        JOptionPane.showMessageDialog(null, "List of Available Vehicles in stock:\n" + joinedString);
+
+        for (int i = 0; i < amountOfVehicles; i++) {
+            if (Agency[i] instanceof Jeep) {
+                Jeep jeep = (Jeep) Agency[i];
+                ImageIcon imageIcon = jeep.getJeepImageIcon();
+                String jeepToString = jeep.toString();
+                JeepImageSelectionMenu.showImageAndToString(imageIcon, jeepToString);
+            }
+        }
+    }*/
+
+
+    /*public static void printAllVehiclesGuiPop(){
         // Print all the List Available Vehicles in stock.
 
         String[] strArray = { };
@@ -45,10 +168,15 @@ public class GraphicMenus {
         }
         String joinedString = stringBuilder.toString();
         JOptionPane.showMessageDialog(null, "List of Available Vehicles in stock:\n" + joinedString);
-    }
+        for (int i = 0; i < amountOfVehicles; i++) {
+            if(Agency[i] instanceof Jeep){JeepImageSelectionMenu.showImageAndToString((Jeep)Agency[i]);}
+        }
+    }*/
 
 
-    public static void printAllVehiclesGuiPopTable(){
+
+
+    /*public static void printAllVehiclesGuiPopTable(){
         // Print all the List Available Vehicles in stock.
 
         String[] strArray = { };
@@ -70,6 +198,9 @@ public class GraphicMenus {
             Vector<String> data = new Vector<String>();
             data.addAll(Arrays.asList(row.split(",")));
             dataVector.add(data);
+            if (row =="image"){
+
+            }
         }
 
         Vector<String> header = new Vector<String>(2);
@@ -82,6 +213,7 @@ public class GraphicMenus {
         header.add("typeOfLicense");
         header.add("avgFuelConsumption");
         header.add("avgEngineLifeSpan");
+        header.add("image");
 
 
         TableModel model = new DefaultTableModel(dataVector, header);
@@ -95,15 +227,18 @@ public class GraphicMenus {
 
 
 
-    }
+    }*/
 
     public static Vehicle scanJeepGui(){
         String modelJeep = JOptionPane.showInputDialog(null, "Please Enter Model: ");
         double avgFuelConsumptionJeep = Double.parseDouble(JOptionPane.showInputDialog(null, "Please Enter Average Fuel Consumption: "));
         int maxSpeedJeep = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter Max speed: "));
         double avgEngineLifeSpanJeep = Double.parseDouble(JOptionPane.showInputDialog(null, "Please Average Engine Life Span: "));
-
-        Vehicle a = new Jeep(modelJeep, avgFuelConsumptionJeep, maxSpeedJeep, avgEngineLifeSpanJeep);
+        /*String[] imageOptions = { "jeep1.png", "jeep2.png", "jeep3.png" }; // limited image options
+        String imageJeep = (String) JOptionPane.showInputDialog(null, "Please select an image:", "Select Image",
+                JOptionPane.PLAIN_MESSAGE, null, imageOptions, imageOptions[0]);*/
+        ImageIcon imageJeep = JeepImageSelectionMenu.getImageIcon();
+        Vehicle a = new Jeep(modelJeep, avgFuelConsumptionJeep, maxSpeedJeep, avgEngineLifeSpanJeep,imageJeep);
         return a;
     }
 
@@ -117,21 +252,23 @@ public class GraphicMenus {
             sailWindDirectionFrigate = true;
         } // else it stays false (no)
         int distanceTraveledFrigate = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter Distance traveled: "));
-        Vehicle a = new Frigate(modelFrigate, numOfPassengersFrigate, maxSpeedFrigate, sailWindDirectionFrigate, distanceTraveledFrigate);
+        ImageIcon imageFrigate = FrigateImageSelectionMenu.getImageIcon();
+        Vehicle a = new Frigate(modelFrigate, numOfPassengersFrigate, maxSpeedFrigate, sailWindDirectionFrigate, distanceTraveledFrigate,imageFrigate);
         return a;
     }
 
     public static Vehicle scanSpyGliderGui(){
         String powerSourceSpyGlider = JOptionPane.showInputDialog(null, "Please Enter Power Source (Battery, Solar, Fuel, Manual): ");
         int distanceTraveledSpyGlider = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter Distance traveled: "));
-
-        Vehicle a = new SpyGlider(powerSourceSpyGlider, distanceTraveledSpyGlider);
+        ImageIcon imageSpyGlider = SpyGliderImageSelectionMenu.getImageIcon();
+        Vehicle a = new SpyGlider(powerSourceSpyGlider, distanceTraveledSpyGlider,imageSpyGlider);
         return a;
     }
 
     public static Vehicle scanToyGliderGui(){
         int distanceTraveledSpyGlider = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter Distance traveled: "));
-        Vehicle a = new ToyGlider(distanceTraveledSpyGlider);
+        ImageIcon imageToyGlider = ToyGliderImageSelectionMenu.getImageIcon();
+        Vehicle a = new ToyGlider(distanceTraveledSpyGlider,imageToyGlider);
         return a;
     }
 
@@ -149,7 +286,8 @@ public class GraphicMenus {
             sailWindDirection = true;
         } // else it stays false (no)
         String flag = JOptionPane.showInputDialog(null, "Please Enter Country Flag: ");
-        Vehicle a = new AmphibiousVehicle(model, distanceTraveled, numOfPassengers, maxSpeed, avgFuelConsumption,avgEngineLifeSpan,numOfWheels,sailWindDirection,flag);
+        ImageIcon imageAmphibious = AmphibiousImageSelectionMenu.getImageIcon();
+        Vehicle a = new AmphibiousVehicle(model, distanceTraveled, numOfPassengers, maxSpeed, avgFuelConsumption,avgEngineLifeSpan,numOfWheels,sailWindDirection,flag,imageAmphibious);
         return a;
     }
 
@@ -166,7 +304,8 @@ public class GraphicMenus {
         else
             flagBool=false;
 
-        Vehicle a = new Bicycle(model,distanceTraveled,numOfPassengers,maxSpeed,flagBool);
+        ImageIcon imageBicycle = BicycleImageSelectionMenu.getImageIcon();
+        Vehicle a = new Bicycle(model,distanceTraveled,numOfPassengers,maxSpeed,flagBool,imageBicycle);
         return a;
     }
 
@@ -178,7 +317,8 @@ public class GraphicMenus {
         String countryFlag = JOptionPane.showInputDialog(null, "Please Enter Country Flag: ");
         double avgFuelConsumption = Double.parseDouble(JOptionPane.showInputDialog(null, "Please Enter Average Fuel Consumption: "));
         double avgEngineLifeSpan = Double.parseDouble(JOptionPane.showInputDialog(null, "Please Average Engine Life Span: "));
-        Vehicle a = new CruiseShip(model,distanceTraveled,numOfPassengers,maxSpeed,countryFlag,avgFuelConsumption,avgEngineLifeSpan);
+        ImageIcon imageCruiseShip = CruiseShipImageSelectionMenu.getImageIcon();
+        Vehicle a = new CruiseShip(model,distanceTraveled,numOfPassengers,maxSpeed,countryFlag,avgFuelConsumption,avgEngineLifeSpan,imageCruiseShip);
         return a;
 
     }

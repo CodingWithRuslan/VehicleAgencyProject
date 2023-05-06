@@ -1,14 +1,18 @@
 package Vehicle;
 
+import Graphic.JeepImageSelectionMenu;
+
+import javax.swing.*;
 import java.util.Objects;
 
 public class Jeep extends LandVehicle implements IMotorized, ICommercial {
     private String typeOfLicense;
     private double avgFuelConsumption;
     private double avgEngineLifeSpan;
+    private ImageIcon image;
 
 
-    public Jeep(String model, double avgFuelConsumption, int maxSpeed, double avgEngineLifeSpan) {
+    public Jeep(String model, double avgFuelConsumption, int maxSpeed, double avgEngineLifeSpan, ImageIcon image) {
         super();
         // Jeep details that cannot be changed: Land, Motor, 4Wheels, 5PPl, Dirt
         this.numOfWheels=4;
@@ -21,6 +25,8 @@ public class Jeep extends LandVehicle implements IMotorized, ICommercial {
         this.avgFuelConsumption=avgFuelConsumption;
         this.maxSpeed=maxSpeed;
         this.avgEngineLifeSpan=avgEngineLifeSpan;
+        this.image = image;
+        //this.image = JeepImageSelectionMenu.getImageIcon();
     }
 
 
@@ -36,6 +42,7 @@ public class Jeep extends LandVehicle implements IMotorized, ICommercial {
                 ", typeOfLicense=" + typeOfLicense +
                 ", avgFuelConsumption=" + avgFuelConsumption +
                 ", avgEngineLifeSpan=" + avgEngineLifeSpan +
+                ",Image Jeep" +image +
                 '}';
     }
 
@@ -84,4 +91,11 @@ public class Jeep extends LandVehicle implements IMotorized, ICommercial {
     public double getAvgEngineLifeSpan() { return avgEngineLifeSpan; }
 
 
+    public ImageIcon getImageIcon() {
+        return this.image;
+    }
+
+    public ImageIcon getJeepImageIcon() {
+        return this.image;
+    }
 }

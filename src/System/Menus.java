@@ -1,4 +1,5 @@
 package System;
+import Graphic.*;
 import Vehicle.Vehicle;
 import Vehicle.MarineVehicle;
 import Vehicle.Jeep;
@@ -77,9 +78,11 @@ public class Menus {
 
         //Vehicle j = new Jeep(modelJeep, avgFuelConsumptionJeep, maxSpeedJeep, avgEngineLifeSpanJeep);
         //System.out.println(j.toString());
-
+        //ImageIcon image = JeepImageSelectionMenu.getImageIcon();
+        System.out.print("Please Choose Image: \n");
+        ImageIcon imageJeep = JeepImageSelectionMenu.getImageIcon();
         //Vehicle[] Agency = new Vehicle[3]; return a;
-        Vehicle a = new Jeep(modelJeep, avgFuelConsumptionJeep, maxSpeedJeep, avgEngineLifeSpanJeep);
+        Vehicle a = new Jeep(modelJeep, avgFuelConsumptionJeep, maxSpeedJeep, avgEngineLifeSpanJeep,imageJeep );
         return a;
     }
     public Vehicle scanFrigate(){
@@ -102,10 +105,13 @@ public class Menus {
         System.out.print("Please Enter Distance traveled: \n");
         int distanceTraveledFrigate = myScanInt();
 
+        System.out.print("Please Choose Image: \n");
+        ImageIcon imageFrigate = FrigateImageSelectionMenu.getImageIcon();
+
         //Vehicle f = new Frigate(modelFrigate, numOfPassengersFrigate, maxSpeedFrigate, sailWindDirectionFrigate, distanceTraveledFrigate);
         //System.out.println(f.toString());
 
-        Vehicle a = new Frigate(modelFrigate, numOfPassengersFrigate, maxSpeedFrigate, sailWindDirectionFrigate, distanceTraveledFrigate);
+        Vehicle a = new Frigate(modelFrigate, numOfPassengersFrigate, maxSpeedFrigate, sailWindDirectionFrigate, distanceTraveledFrigate,imageFrigate);
         return a;
     }
     public Vehicle scanSpyGlider(){
@@ -117,8 +123,10 @@ public class Menus {
 
         //Vehicle sg = new SpyGlider(powerSourceSpyGlider, distanceTraveledSpyGlider);
         //System.out.println(sg.toString());
+        System.out.print("Please Choose Image: \n");
+        ImageIcon imageSpyGlider = SpyGliderImageSelectionMenu.getImageIcon();
 
-        Vehicle a = new SpyGlider(powerSourceSpyGlider, distanceTraveledSpyGlider);
+        Vehicle a = new SpyGlider(powerSourceSpyGlider, distanceTraveledSpyGlider,imageSpyGlider);
         return a;
     }
     public Vehicle scanToyGlider(){
@@ -128,7 +136,10 @@ public class Menus {
         //Vehicle tg = new ToyGlider(distanceTraveledToyGlider);
         //System.out.println(tg.toString());
 
-        Vehicle a = new ToyGlider(distanceTraveledToyGlider);
+        System.out.print("Please Choose Image: \n");
+        ImageIcon imageToyGlider = ToyGliderImageSelectionMenu.getImageIcon();
+
+        Vehicle a = new ToyGlider(distanceTraveledToyGlider,imageToyGlider);
         return a;
     }
     public Vehicle scanAmphibiousVehicle(){
@@ -164,7 +175,10 @@ public class Menus {
         System.out.print("Please Enter Country Flag: \n");
         String flag = myScanLine();
 
-        Vehicle a = new AmphibiousVehicle(model, distanceTraveled, numOfPassengers, maxSpeed, avgFuelConsumption,avgEngineLifeSpan,numOfWheels,sailWindDirection,flag);
+        System.out.print("Please Choose Image: \n");
+        ImageIcon imageAmphibious = AmphibiousImageSelectionMenu.getImageIcon();
+
+        Vehicle a = new AmphibiousVehicle(model, distanceTraveled, numOfPassengers, maxSpeed, avgFuelConsumption,avgEngineLifeSpan,numOfWheels,sailWindDirection,flag,imageAmphibious);
         return a;
     }
     public Vehicle scanBicycle(){
@@ -191,7 +205,10 @@ public class Menus {
         else
             flagBool=false;
 
-        Vehicle a = new Bicycle(model,distanceTraveled,numOfPassengers,maxSpeed,flagBool);
+        System.out.print("Please Choose Image: \n");
+        ImageIcon imageBicycle = BicycleImageSelectionMenu.getImageIcon();
+
+        Vehicle a = new Bicycle(model,distanceTraveled,numOfPassengers,maxSpeed,flagBool,imageBicycle);
         return a;
     }
     public Vehicle scanCruiseShip(){
@@ -217,7 +234,10 @@ public class Menus {
         System.out.print("Please Average Engine Life Span: \n");
         double avgEngineLifeSpan = myScanDouble();
 
-        Vehicle a = new CruiseShip(model,distanceTraveled,numOfPassengers,maxSpeed,countryFlag,avgFuelConsumption,avgEngineLifeSpan);
+        System.out.print("Please Choose Image: \n");
+        ImageIcon imageCruiseShip = CruiseShipImageSelectionMenu.getImageIcon();
+
+        Vehicle a = new CruiseShip(model,distanceTraveled,numOfPassengers,maxSpeed,countryFlag,avgFuelConsumption,avgEngineLifeSpan,imageCruiseShip);
         return a;
     }
     public  void addJeep() {
