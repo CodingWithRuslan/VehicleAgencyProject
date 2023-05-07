@@ -1,4 +1,4 @@
-package Graphic;
+/*package Graphic;
 
 import javax.swing.*;
 import java.awt.*;
@@ -172,4 +172,4 @@ public class GraphicBuy extends JFrame implements ActionListener {
         return imageName;
     }
 
-}
+}*/

@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import static Graphic.GraphicMenus.printAllVehiclesGuiPopTestDrive;
 import static System.Main.Agency;
 import static System.Main.amountOfVehicles;
 import static System.Main.capacityOfAgency;
@@ -127,11 +128,12 @@ public class SecondMenu extends JFrame implements ActionListener {
         // Execute the appropriate action based on the button clicked
         switch (command) {
             case "Buy":
-                GraphicBuy.main(null);
+                GraphicMenus.printAllVehiclesGuiPopBuy();
 
                 break;
             case "Test":
-                GraphicTest.main(null);
+                //GraphicTest.main(null); // before ex2 with this we used to TestDrive...
+                GraphicMenus.printAllVehiclesGuiPopTestDrive();
                 break;
 
             case "Reset":

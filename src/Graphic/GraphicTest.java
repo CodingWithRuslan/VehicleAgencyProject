@@ -1,15 +1,18 @@
-package Graphic;
+/*package Graphic;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import static Graphic.GraphicMenus.printAllVehiclesGuiPopTestDrive;
+
 public class GraphicTest extends JFrame implements ActionListener {
     //private JButton jeepButton;
     public GraphicTest() {
+        printAllVehiclesGuiPopTestDrive();
         // Set up the Third Menu (BUY)
-        setTitle("Vehicle Agency - Test Vehicles");
+        /*setTitle("Vehicle Agency - Test Vehicles");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(500, 500);
         setLayout(new GridLayout(2, 4));
@@ -106,8 +109,8 @@ public class GraphicTest extends JFrame implements ActionListener {
         add(cruiseShipButton);
         add(addFinishTestButton);
 
-        // Make the window visible
-        setVisible(true);
+        // Make the window visible*/
+        /*setVisible(true);
     }
 
 
@@ -171,4 +174,4 @@ public class GraphicTest extends JFrame implements ActionListener {
 
     }
 
-}
+}*/

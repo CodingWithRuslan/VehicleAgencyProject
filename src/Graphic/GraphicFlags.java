@@ -109,7 +109,7 @@ public class GraphicFlags extends JFrame implements ActionListener {
 
 
     public static void main(String[] args) {
-        new GraphicBuy();
+        new SecondMenu();
     }
 
     @Override

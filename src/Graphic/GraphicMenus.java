@@ -20,6 +20,8 @@ import static System.Main.*;
 import Vehicle.MarineVehicle;
 
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.Arrays;
 import java.util.Vector;
 
@@ -119,6 +121,221 @@ public class GraphicMenus {
         JOptionPane.showMessageDialog(null, panel, "List of Available Vehicles in stock:", JOptionPane.PLAIN_MESSAGE);
     }
 
+/*
+    //TestDrive method will be opend when user clicks on TestDrive , it will show the user window with all the Agency vehicles .
+    // when the user clicks on some vehicle it will provide him the option to enter the distance travled of test drive.
+    //Note : Example :testDriveJeepGui(Jeep jeep) , i did minor change to the method , on the argument recived and
+    // inside the method insted of using scanJeep i recive the jeep as paramter so i store it Vehicle j = jeep.
+    // before it was Vehicle f = scanJeepGui();
+
+
+ */
+    public static void printAllVehiclesGuiPopTestDrive() {
+        JPanel panel = new JPanel(new GridLayout(0, 3)); // create a panel with 3 columns
+        for (int i = 0; i < amountOfVehicles; i++) {
+            if (Agency[i] instanceof Jeep) {
+                Jeep jeep = (Jeep) Agency[i];
+                ImageIcon imageIcon = jeep.getJeepImageIcon();
+                String jeepToString = jeep.toString();
+                JLabel label = new JLabel(imageIcon);
+                label.setToolTipText(jeepToString); // set tooltip with the Jeep's toString method
+                label.addMouseListener(new MouseAdapter() {
+                    public void mouseClicked(MouseEvent e) {
+                        testDriveJeepGui(jeep);
+                    }
+                });
+                panel.add(label);
+            }
+            if (Agency[i] instanceof Frigate) {
+                Frigate frigate = (Frigate) Agency[i];
+                ImageIcon imageIcon = frigate.getFrigateImageIcon();
+                String frigateToString = frigate.toString();
+                JLabel label = new JLabel(imageIcon);
+                label.setToolTipText(frigateToString); // set tooltip with the Jeep's toString method
+                label.addMouseListener(new MouseAdapter() {
+                    public void mouseClicked(MouseEvent e) {
+                        testDriveFrigateGui(frigate);
+                    }
+                });
+                panel.add(label);
+            }
+            if (Agency[i] instanceof SpyGlider) {
+                SpyGlider spyGlider = (SpyGlider) Agency[i];
+                ImageIcon imageIcon = spyGlider.getSpyGliderImageIcon();
+                String spyGliderToString = spyGlider.toString();
+                JLabel label = new JLabel(imageIcon);
+                label.setToolTipText(spyGliderToString); // set tooltip with the Jeep's toString method
+                label.addMouseListener(new MouseAdapter() {
+                    public void mouseClicked(MouseEvent e) {
+                        testDriveSpyGliderGui(spyGlider);
+                    }
+                });
+                panel.add(label);
+            }
+            if (Agency[i] instanceof ToyGlider) {
+                ToyGlider toyGlider = (ToyGlider) Agency[i];
+                ImageIcon imageIcon = toyGlider.getToyGliderImageIcon();
+                String toyGliderToString = toyGlider.toString();
+                JLabel label = new JLabel(imageIcon);
+                label.setToolTipText(toyGliderToString); // set tooltip with the Jeep's toString method
+                label.addMouseListener(new MouseAdapter() {
+                    public void mouseClicked(MouseEvent e) {
+                        testDriveToyGliderGui(toyGlider);
+                    }
+                });
+                panel.add(label);
+            }
+            if (Agency[i] instanceof AmphibiousVehicle) {
+                AmphibiousVehicle amphibiousVehicle = (AmphibiousVehicle) Agency[i];
+                ImageIcon imageIcon = amphibiousVehicle.getAmphibiousVehicleImageIcon();
+                String amphibiousVehicleToString = amphibiousVehicle .toString();
+                JLabel label = new JLabel(imageIcon);
+                label.setToolTipText(amphibiousVehicleToString); // set tooltip with the Jeep's toString method
+                label.addMouseListener(new MouseAdapter() {
+                    public void mouseClicked(MouseEvent e) {
+                        testDriveAmphibiousGui(amphibiousVehicle);
+                    }
+                });
+                panel.add(label);
+            }
+
+            if (Agency[i] instanceof Bicycle) {
+                Bicycle bicycle = (Bicycle) Agency[i];
+                ImageIcon imageIcon = bicycle.getBicycleImageIcon();
+                String bicycleToString = bicycle.toString();
+                JLabel label = new JLabel(imageIcon);
+                label.setToolTipText(bicycleToString); // set tooltip with the Jeep's toString method
+                label.addMouseListener(new MouseAdapter() {
+                    public void mouseClicked(MouseEvent e) {
+                        testDriveBicycleGui(bicycle);
+                    }
+                });
+                panel.add(label);
+            }
+
+            if (Agency[i] instanceof CruiseShip) {
+                CruiseShip cruiseShip = (CruiseShip) Agency[i];
+                ImageIcon imageIcon = cruiseShip.getCruiseShipImageIcon();
+                String cruiseShipToString = cruiseShip.toString();
+                JLabel label = new JLabel(imageIcon);
+                label.setToolTipText(cruiseShipToString); // set tooltip with the Jeep's toString method
+                label.addMouseListener(new MouseAdapter() {
+                    public void mouseClicked(MouseEvent e) {
+                        testDriveCruiseShipGui(cruiseShip);
+                    }
+                });
+                panel.add(label);
+            }
+
+
+
+
+        }
+        JOptionPane.showMessageDialog(null, panel, "List of Available Vehicles in stock:", JOptionPane.PLAIN_MESSAGE);
+    }
+    public static void printAllVehiclesGuiPopBuy() {
+        JPanel panel = new JPanel(new GridLayout(0, 3)); // create a panel with 3 columns
+        for (int i = 0; i < amountOfVehicles; i++) {
+            if (Agency[i] instanceof Jeep) {
+                Jeep jeep = (Jeep) Agency[i];
+                ImageIcon imageIcon = jeep.getJeepImageIcon();
+                String jeepToString = jeep.toString();
+                JLabel label = new JLabel(imageIcon);
+                label.setToolTipText(jeepToString); // set tooltip with the Jeep's toString method
+                label.addMouseListener(new MouseAdapter() {
+                    public void mouseClicked(MouseEvent e) {
+                        buyJeepGui(jeep);
+                    }
+                });
+                panel.add(label);
+            }
+            if (Agency[i] instanceof Frigate) {
+                Frigate frigate = (Frigate) Agency[i];
+                ImageIcon imageIcon = frigate.getFrigateImageIcon();
+                String frigateToString = frigate.toString();
+                JLabel label = new JLabel(imageIcon);
+                label.setToolTipText(frigateToString); // set tooltip with the Jeep's toString method
+                label.addMouseListener(new MouseAdapter() {
+                    public void mouseClicked(MouseEvent e) {
+                        buyFrigateGui(frigate);
+                    }
+                });
+                panel.add(label);
+            }
+            if (Agency[i] instanceof SpyGlider) {
+                SpyGlider spyGlider = (SpyGlider) Agency[i];
+                ImageIcon imageIcon = spyGlider.getSpyGliderImageIcon();
+                String spyGliderToString = spyGlider.toString();
+                JLabel label = new JLabel(imageIcon);
+                label.setToolTipText(spyGliderToString); // set tooltip with the Jeep's toString method
+                label.addMouseListener(new MouseAdapter() {
+                    public void mouseClicked(MouseEvent e) {
+                        buySpyGliderGui(spyGlider);
+                    }
+                });
+                panel.add(label);
+            }
+            if (Agency[i] instanceof ToyGlider) {
+                ToyGlider toyGlider = (ToyGlider) Agency[i];
+                ImageIcon imageIcon = toyGlider.getToyGliderImageIcon();
+                String toyGliderToString = toyGlider.toString();
+                JLabel label = new JLabel(imageIcon);
+                label.setToolTipText(toyGliderToString); // set tooltip with the Jeep's toString method
+                label.addMouseListener(new MouseAdapter() {
+                    public void mouseClicked(MouseEvent e) {
+                        buyToyGliderGui(toyGlider);
+                    }
+                });
+                panel.add(label);
+            }
+            if (Agency[i] instanceof AmphibiousVehicle) {
+                AmphibiousVehicle amphibiousVehicle = (AmphibiousVehicle) Agency[i];
+                ImageIcon imageIcon = amphibiousVehicle.getAmphibiousVehicleImageIcon();
+                String amphibiousVehicleToString = amphibiousVehicle .toString();
+                JLabel label = new JLabel(imageIcon);
+                label.setToolTipText(amphibiousVehicleToString); // set tooltip with the Jeep's toString method
+                label.addMouseListener(new MouseAdapter() {
+                    public void mouseClicked(MouseEvent e) {
+                        buyAmphibiousGui(amphibiousVehicle);
+                    }
+                });
+                panel.add(label);
+            }
+
+            if (Agency[i] instanceof Bicycle) {
+                Bicycle bicycle = (Bicycle) Agency[i];
+                ImageIcon imageIcon = bicycle.getBicycleImageIcon();
+                String bicycleToString = bicycle.toString();
+                JLabel label = new JLabel(imageIcon);
+                label.setToolTipText(bicycleToString); // set tooltip with the Jeep's toString method
+                label.addMouseListener(new MouseAdapter() {
+                    public void mouseClicked(MouseEvent e) {
+                        buyBicycleGui(bicycle);
+                    }
+                });
+                panel.add(label);
+            }
+
+            if (Agency[i] instanceof CruiseShip) {
+                CruiseShip cruiseShip = (CruiseShip) Agency[i];
+                ImageIcon imageIcon = cruiseShip.getCruiseShipImageIcon();
+                String cruiseShipToString = cruiseShip.toString();
+                JLabel label = new JLabel(imageIcon);
+                label.setToolTipText(cruiseShipToString); // set tooltip with the Jeep's toString method
+                label.addMouseListener(new MouseAdapter() {
+                    public void mouseClicked(MouseEvent e) {
+                        buyCruiseShipGui(cruiseShip);
+                    }
+                });
+                panel.add(label);
+            }
+
+
+
+
+        }
+        JOptionPane.showMessageDialog(null, panel, "List of Available Vehicles in stock:", JOptionPane.PLAIN_MESSAGE);
+    }
 
     /*public static void printAllVehiclesGuiPop() {
         StringBuilder stringBuilder = new StringBuilder();
@@ -326,9 +543,9 @@ public class GraphicMenus {
     // public static Vehicle scanAllTheRest...
 
 
-    public static void buyJeepGui(){
+    public static void buyJeepGui(Jeep jeep){
 
-        Vehicle j = scanJeepGui();
+        Vehicle j = jeep;
 
         int toDelete = capacityOfAgency+1; // just to make see if theres to delete after
         for (int i=0 ; i<amountOfVehicles ; i++) {
@@ -369,8 +586,8 @@ public class GraphicMenus {
         }
     }
 
-    public static void buyFrigateGui(){
-        Vehicle f = scanFrigateGui();
+    public static void buyFrigateGui(Frigate frigate){
+        Vehicle f = frigate;
 
         int toDelete2 = capacityOfAgency+1; // just to make see if theres to delete after
         for (int i=0 ; i<amountOfVehicles ; i++) {
@@ -410,8 +627,8 @@ public class GraphicMenus {
         }
     }
 
-    public static void buySpyGliderGui(){
-        Vehicle sg = scanSpyGliderGui();
+    public static void buySpyGliderGui(SpyGlider spyGlider){
+        Vehicle sg = spyGlider;
 
         int toDelete3 = capacityOfAgency+1; // just to make see if theres to delete after
         for (int i=0 ; i<amountOfVehicles ; i++) {
@@ -451,8 +668,8 @@ public class GraphicMenus {
         }
     }
 
-    public static void buyToyGliderGui(){
-        Vehicle tg = scanToyGliderGui();
+    public static void buyToyGliderGui(ToyGlider toyGlider){
+        Vehicle tg = toyGlider;
 
         int toDelete4 = capacityOfAgency+1; // just to make see if theres to delete after
         for (int i=0 ; i<amountOfVehicles ; i++) {
@@ -492,8 +709,8 @@ public class GraphicMenus {
         }
     }
 
-    public static void buyAmphibiousGui(){
-        Vehicle a = scanAmphibiousGui();
+    public static void buyAmphibiousGui(AmphibiousVehicle amphibious){
+        Vehicle a = amphibious;
 
         int toDelete = capacityOfAgency+1; // just to make see if theres to delete after
         for (int i=0 ; i<amountOfVehicles ; i++) {
@@ -533,8 +750,8 @@ public class GraphicMenus {
         }
     }
 
-    public static void buyBicycleGui() {
-        Vehicle a = scanBicycleGui();
+    public static void buyBicycleGui(Bicycle bicycle) {
+        Vehicle a = bicycle;
 
         int toDelete = capacityOfAgency+1; // just to make see if theres to delete after
         for (int i=0 ; i<amountOfVehicles ; i++) {
@@ -575,8 +792,8 @@ public class GraphicMenus {
         }
     }
 
-    public static void buyCruiseShipGui(){
-        Vehicle a = scanCruiseShipGui();
+    public static void buyCruiseShipGui(CruiseShip cruiseShip){
+        Vehicle a = cruiseShip;
 
         int toDelete = capacityOfAgency+1; // just to make see if theres to delete after
         for (int i=0 ; i<amountOfVehicles ; i++) {
@@ -648,9 +865,43 @@ public class GraphicMenus {
 
     }
 
-    public static void testDriveFrigateGui(){
-        Vehicle f = scanFrigateGui();
+    public static void testDriveJeepGui(Jeep jeep){
 
+        System.out.println("testDriveJeepGui");
+        Vehicle j = jeep;
+
+        int indexToUpdateDistance = capacityOfAgency + 1; // just to make see if theres to delete after
+        for (int i = 0; i < amountOfVehicles; i++) {
+            if (Agency[i] instanceof Jeep) {
+                if ((((Jeep) Agency[i]).equals(j))) { // found the vehicle the person wants (equals2 is with ignoring distance because of the testdrives loops)
+                    indexToUpdateDistance = i; // found the index which to update
+                }
+            }
+        }
+
+        if (indexToUpdateDistance < capacityOfAgency) { // that means and index is found, so vehicle exists
+            //now we need to update the vehicle's test drive distance
+            int toUpdateDistanceJeep = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter the distance of the test drive: "));
+            ((Jeep) Agency[indexToUpdateDistance]).move(toUpdateDistanceJeep);
+            JOptionPane.showMessageDialog(null, "Updated distance to this Vehile by " + toUpdateDistanceJeep +" Km.");
+        }
+        else    {
+            System.out.print("Error, Vehicle not found. Please try again. \n");
+            JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
+        }
+
+        System.out.println("The New Agency List:");
+        for (int z = 0; z < amountOfVehicles; z++) {
+            System.out.println(Agency[z]);
+        }
+
+    }
+
+    //testDriveJeepGui(jeep);
+
+    public static void testDriveFrigateGui(Frigate frigate){
+        System.out.println("testDriveFrigateGui");
+        Vehicle f = frigate;
         int indexToUpdateDistanceFrigate = capacityOfAgency + 1; // just to make see if theres to delete after
         for (int i = 0; i < amountOfVehicles; i++) {
             if (Agency[i] instanceof Frigate) {
@@ -677,8 +928,8 @@ public class GraphicMenus {
         }
     }
 
-    public static void testDriveSpyGliderGui(){
-        Vehicle sg = scanSpyGliderGui();
+    public static void testDriveSpyGliderGui(SpyGlider spyGlider){
+        Vehicle sg = spyGlider;
 
         int indexToUpdateDistanceSpyGlider = capacityOfAgency + 1; // just to make see if theres to delete after
         for (int i = 0; i < amountOfVehicles; i++) {
@@ -706,8 +957,8 @@ public class GraphicMenus {
         }
     }
 
-    public static void testDriveToyGliderGui(){
-        Vehicle tg = scanToyGliderGui();
+    public static void testDriveToyGliderGui(ToyGlider toyGlider){
+        Vehicle tg = toyGlider;
 
         int indexToUpdateDistanceToyGlider = capacityOfAgency + 1; // just to make see if theres to delete after
         for (int i = 0; i < amountOfVehicles; i++) {
@@ -735,8 +986,8 @@ public class GraphicMenus {
         }
     }
 
-    public static void testDriveAmphibiousGui(){
-        Vehicle j = scanAmphibiousGui();
+    public static void testDriveAmphibiousGui(AmphibiousVehicle amphibious){
+        Vehicle j = amphibious;
 
         int indexToUpdateDistance = capacityOfAgency + 1; // just to make see if theres to delete after
         for (int i = 0; i < amountOfVehicles; i++) {
@@ -764,8 +1015,8 @@ public class GraphicMenus {
         }
     }
 
-    public static void testDriveBicycleGui(){
-        Vehicle j = scanBicycleGui();
+    public static void testDriveBicycleGui(Bicycle bicycle){
+        Vehicle j = bicycle;
 
         int indexToUpdateDistance = capacityOfAgency + 1; // just to make see if theres to delete after
         for (int i = 0; i < amountOfVehicles; i++) {
@@ -795,8 +1046,8 @@ public class GraphicMenus {
 
     }
 
-    public static void testDriveCruiseShipGui(){
-        Vehicle j = scanCruiseShipGui();
+    public static void testDriveCruiseShipGui(CruiseShip cruiseShip){
+        Vehicle j = cruiseShip;
 
         int indexToUpdateDistance = capacityOfAgency + 1; // just to make see if theres to delete after
         for (int i = 0; i < amountOfVehicles; i++) {
