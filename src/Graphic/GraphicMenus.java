@@ -142,6 +142,7 @@ public class GraphicMenus {
                 label.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
                         testDriveJeepGui(jeep);
+                        printAllVehiclesGuiPop(); // add this to show the update right away after the action.
                     }
                 });
                 panel.add(label);
@@ -155,6 +156,7 @@ public class GraphicMenus {
                 label.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
                         testDriveFrigateGui(frigate);
+                        printAllVehiclesGuiPop(); // add this to show the update right away after the action.
                     }
                 });
                 panel.add(label);
@@ -168,6 +170,7 @@ public class GraphicMenus {
                 label.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
                         testDriveSpyGliderGui(spyGlider);
+                        printAllVehiclesGuiPop(); // add this to show the update right away after the action.
                     }
                 });
                 panel.add(label);
@@ -181,6 +184,7 @@ public class GraphicMenus {
                 label.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
                         testDriveToyGliderGui(toyGlider);
+                        printAllVehiclesGuiPop(); // add this to show the update right away after the action.
                     }
                 });
                 panel.add(label);
@@ -194,6 +198,7 @@ public class GraphicMenus {
                 label.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
                         testDriveAmphibiousGui(amphibiousVehicle);
+                        printAllVehiclesGuiPop(); // add this to show the update right away after the action.
                     }
                 });
                 panel.add(label);
@@ -208,6 +213,7 @@ public class GraphicMenus {
                 label.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
                         testDriveBicycleGui(bicycle);
+                        printAllVehiclesGuiPop(); // add this to show the update right away after the action.
                     }
                 });
                 panel.add(label);
@@ -222,6 +228,7 @@ public class GraphicMenus {
                 label.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
                         testDriveCruiseShipGui(cruiseShip);
+                        printAllVehiclesGuiPop(); // add this to show the update right away after the action.
                     }
                 });
                 panel.add(label);
@@ -245,6 +252,7 @@ public class GraphicMenus {
                 label.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
                         buyJeepGui(jeep);
+                        printAllVehiclesGuiPop(); // add this method the show the update to user.
                     }
                 });
                 panel.add(label);
@@ -258,6 +266,7 @@ public class GraphicMenus {
                 label.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
                         buyFrigateGui(frigate);
+                        printAllVehiclesGuiPop(); // add this to show the update right away after the action.
                     }
                 });
                 panel.add(label);
@@ -271,6 +280,7 @@ public class GraphicMenus {
                 label.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
                         buySpyGliderGui(spyGlider);
+                        printAllVehiclesGuiPop(); // add this to show the update right away after the action.
                     }
                 });
                 panel.add(label);
@@ -284,6 +294,7 @@ public class GraphicMenus {
                 label.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
                         buyToyGliderGui(toyGlider);
+                        printAllVehiclesGuiPop(); // add this to show the update right away after the action.
                     }
                 });
                 panel.add(label);
@@ -297,6 +308,7 @@ public class GraphicMenus {
                 label.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
                         buyAmphibiousGui(amphibiousVehicle);
+                        printAllVehiclesGuiPop(); // add this to show the update right away after the action.
                     }
                 });
                 panel.add(label);
@@ -311,6 +323,7 @@ public class GraphicMenus {
                 label.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
                         buyBicycleGui(bicycle);
+                        printAllVehiclesGuiPop(); // add this to show the update right away after the action.
                     }
                 });
                 panel.add(label);
@@ -325,6 +338,7 @@ public class GraphicMenus {
                 label.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
                         buyCruiseShipGui(cruiseShip);
+                        printAllVehiclesGuiPop(); // add this to show the update right away after the action.
                     }
                 });
                 panel.add(label);
@@ -580,10 +594,10 @@ public class GraphicMenus {
             JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
         }
 
-        System.out.println("The New Agency List:");
+        /*System.out.println("The New Agency List:");
         for (int z=0 ; z<amountOfVehicles ; z++){
             System.out.println(Agency[z]);
-        }
+        }*/
     }
 
     public static void buyFrigateGui(Frigate frigate){

@@ -129,7 +129,6 @@ public class SecondMenu extends JFrame implements ActionListener {
         switch (command) {
             case "Buy":
                 GraphicMenus.printAllVehiclesGuiPopBuy();
-
                 break;
             case "Test":
                 //GraphicTest.main(null); // before ex2 with this we used to TestDrive...
