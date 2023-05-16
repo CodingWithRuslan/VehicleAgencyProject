@@ -24,6 +24,17 @@ public class SpyGlider extends AirVehicle implements INonMotorized {
         this.image = image;
     }
 
+    /*public SpyGlider(String powerSource, char energyScore) { //HybridAircraft
+        super();
+        // SpyGlider details that cannot be changed:
+        this.isMilitary = true;
+        // SpyGlider details entered by user:
+        this.powerSource = powerSource;
+        this.energyScore = energyScore;
+    }*/
+
+
+
     @Override
     public String toString() {
         return "SpyGlider{ " +

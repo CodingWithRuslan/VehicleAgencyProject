@@ -60,7 +60,7 @@ public class AmphibiousVehicle extends Vehicle implements IMotorized{
                 ", Road Type=" + "pavement. " +
                 " Under " + marineVehicle.getCountryFlag() + " flag" +
                 ", " + flagBool + " the wind. "  +
-                ",Image Jeep" +image +
+                ",Image Amphibious" +image +
                 '}';
         // Marine: sailWindDirection, countryFlag
         // Land: numOfWheels, roadType

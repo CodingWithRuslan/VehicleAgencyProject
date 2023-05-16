@@ -11,6 +11,18 @@ public class AirVehicle extends Vehicle{
         this.isMilitary = false;
     }
 
+    public boolean getisMilitary() {
+        return isMilitary;
+    }
+
+    public void setisMilitary(boolean isMilitary) {
+        this.isMilitary = isMilitary;
+    }
+    public AirVehicle(boolean hybrid) { //for HybridVehicle
+        super();
+        this.isMilitary = hybrid; //here it`s true .
+    }
+
     public boolean isMilitary() {
         return isMilitary;
     }

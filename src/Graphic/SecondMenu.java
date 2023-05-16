@@ -27,7 +27,7 @@ public class SecondMenu extends JFrame implements ActionListener {
         setTitle("Welcome to the Vehicle Agency DealerShip Menu");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(500, 500);
-        setLayout(new GridLayout(2, 4));
+        setLayout(new GridLayout(2, 5));
 
         ImageIcon imageIconBuy = new ImageIcon("src/Images/buy.png"); // load the image to a imageIcon
         Image imageBuy = imageIconBuy.getImage();

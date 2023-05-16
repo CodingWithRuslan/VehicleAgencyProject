@@ -47,7 +47,7 @@ public class MainMenu extends JFrame implements ActionListener {
         setTitle("Vehicle Agency - Add Vehicles Menu");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(500, 500);
-        setLayout(new GridLayout(2, 4));
+        setLayout(new GridLayout(2, 5));
 
         //Jeep button+image
         ImageIcon imageIcon = new ImageIcon("src/Images/jeep.png"); // load the image to a imageIcon
@@ -136,6 +136,29 @@ public class MainMenu extends JFrame implements ActionListener {
         cruiseShipButton.addActionListener(this);
         cruiseShipButton.setActionCommand("CruiseShip");
 
+
+        //JButton hybridAircraftButton = new JButton("Add HybridAircraft");
+        ImageIcon imageIconHybridAircraft = new ImageIcon("src/Images/hybridaircraft.png"); // load the image to a imageIcon
+        Image imageHybridAircraft = imageIconHybridAircraft.getImage();
+        Image HybridAircraftImg = imageHybridAircraft.getScaledInstance(100, 100,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
+        imageIconHybridAircraft= new ImageIcon(HybridAircraftImg);
+        JButton hybridAircraftButton = new JButton("HybridAircraft",imageIconHybridAircraft);
+        hybridAircraftButton.setHorizontalTextPosition(JButton.CENTER);
+        hybridAircraftButton.setVerticalTextPosition(JButton.BOTTOM);
+        hybridAircraftButton.addActionListener(this);
+        hybridAircraftButton.setActionCommand("HybridAircraft");
+
+        //JButton electricBicycleButton = new JButton("Add ElectricBicycle");
+        ImageIcon imageIconElectricBicycle = new ImageIcon("src/Images/electricbicycle.png"); // load the image to a imageIcon
+        Image imageElectricBicycle = imageIconElectricBicycle.getImage();
+        Image ElectricBicycleImg = imageElectricBicycle.getScaledInstance(100, 100,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
+        imageIconElectricBicycle= new ImageIcon(ElectricBicycleImg);
+        JButton electricBicycleButton = new JButton("ElectricBicycle",imageIconElectricBicycle);
+        electricBicycleButton.setHorizontalTextPosition(JButton.CENTER);
+        electricBicycleButton.setVerticalTextPosition(JButton.BOTTOM);
+        electricBicycleButton.addActionListener(this);
+        electricBicycleButton.setActionCommand("ElectricBicycle");
+
         //
 
         ImageIcon imageIconFinish = new ImageIcon("src/Images/finish.png"); // load the image to a imageIcon
@@ -159,6 +182,9 @@ public class MainMenu extends JFrame implements ActionListener {
         add(amphibiousButton);
         add(bicycleButton);
         add(cruiseShipButton);
+        add(hybridAircraftButton);
+        add(electricBicycleButton);
+
         // finish buttons below;
         add(finishButton);
 
@@ -215,6 +241,17 @@ public class MainMenu extends JFrame implements ActionListener {
                 Agency[amountOfVehicles] = GraphicMenus.scanCruiseShipGui();
                 amountOfVehicles++;
                 break;
+            case "HybridAircraft":
+                // Code for HybridAircraft action
+                Agency[amountOfVehicles] = GraphicMenus.scanHybridAircraftGui();
+                amountOfVehicles++;
+                break;
+            case "ElectricBicycle":
+                // Code for ElectricBicycle action
+                Agency[amountOfVehicles] = GraphicMenus.scanElectricBicycleGui();
+                amountOfVehicles++;
+                break;
+
             case "FinishAdding":
                 System.out.println("close");
                 dispose();

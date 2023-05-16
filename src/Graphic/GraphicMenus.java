@@ -9,7 +9,8 @@ import Vehicle.ToyGlider;
 import Vehicle.AmphibiousVehicle;
 import Vehicle.Bicycle;
 import Vehicle.CruiseShip;
-
+import Vehicle.ElectricBicycle;
+import Vehicle.HybridAircraft;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -114,8 +115,23 @@ public class GraphicMenus {
                 panel.add(label);
             }
 
+            if (Agency[i] instanceof ElectricBicycle) {
+                ElectricBicycle electricBicycle = (ElectricBicycle) Agency[i];
+                ImageIcon imageIcon = electricBicycle.getElectricBicycleImageIcon();
+                String electricBicycleToString = electricBicycle.toString();
+                JLabel label = new JLabel(imageIcon);
+                label.setToolTipText(electricBicycleToString); // set tooltip with the Jeep's toString method
+                panel.add(label);
+            }
 
-
+            if (Agency[i] instanceof HybridAircraft) {
+                HybridAircraft hybridAircraft = (HybridAircraft) Agency[i];
+                ImageIcon imageIcon = hybridAircraft.getHybridAircraftImageIcon();
+                String hybridAircraftToString = hybridAircraft.toString();
+                JLabel label = new JLabel(imageIcon);
+                label.setToolTipText(hybridAircraftToString); // set tooltip with the Jeep's toString method
+                panel.add(label);
+            }
 
         }
         JOptionPane.showMessageDialog(null, panel, "List of Available Vehicles in stock:", JOptionPane.PLAIN_MESSAGE);
@@ -234,6 +250,37 @@ public class GraphicMenus {
                 panel.add(label);
             }
 
+            if (Agency[i] instanceof ElectricBicycle) {
+                ElectricBicycle electricBicycle = (ElectricBicycle) Agency[i];
+                ImageIcon imageIcon = electricBicycle.getElectricBicycleImageIcon();
+                String electricBicycleToString = electricBicycle.toString();
+                JLabel label = new JLabel(imageIcon);
+                label.setToolTipText(electricBicycleToString); // set tooltip with the Jeep's toString method
+                label.addMouseListener(new MouseAdapter() {
+                    public void mouseClicked(MouseEvent e) {
+                        testDriveElectricBicycleGui(electricBicycle);
+                        printAllVehiclesGuiPop(); // add this to show the update right away after the action.
+                    }
+                });
+                panel.add(label);
+            }
+
+            if (Agency[i] instanceof HybridAircraft) {
+                HybridAircraft hybridAircraft = (HybridAircraft) Agency[i];
+                ImageIcon imageIcon = hybridAircraft.getHybridAircraftImageIcon();
+                String hybridAircraftToString = hybridAircraft.toString();
+                JLabel label = new JLabel(imageIcon);
+                label.setToolTipText(hybridAircraftToString); // set tooltip with the Jeep's toString method
+                label.addMouseListener(new MouseAdapter() {
+                    public void mouseClicked(MouseEvent e) {
+                        testDriveHybridAircraftGui(hybridAircraft);
+                        printAllVehiclesGuiPop(); // add this to show the update right away after the action.
+                    }
+                });
+                panel.add(label);
+            }
+
+
 
 
 
@@ -338,6 +385,36 @@ public class GraphicMenus {
                 label.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
                         buyCruiseShipGui(cruiseShip);
+                        printAllVehiclesGuiPop(); // add this to show the update right away after the action.
+                    }
+                });
+                panel.add(label);
+            }
+
+            if (Agency[i] instanceof ElectricBicycle) {
+                ElectricBicycle electricBicycle = (ElectricBicycle) Agency[i];
+                ImageIcon imageIcon = electricBicycle.getElectricBicycleImageIcon();
+                String electricBicycleToString = electricBicycle.toString();
+                JLabel label = new JLabel(imageIcon);
+                label.setToolTipText(electricBicycleToString); // set tooltip with the Jeep's toString method
+                label.addMouseListener(new MouseAdapter() {
+                    public void mouseClicked(MouseEvent e) {
+                        buyElectricBicycleGui(electricBicycle);
+                        printAllVehiclesGuiPop(); // add this to show the update right away after the action.
+                    }
+                });
+                panel.add(label);
+            }
+
+            if (Agency[i] instanceof HybridAircraft) {
+                HybridAircraft hybridAircraft = (HybridAircraft) Agency[i];
+                ImageIcon imageIcon = hybridAircraft.getHybridAircraftImageIcon();
+                String hybridAircraftToString = hybridAircraft.toString();
+                JLabel label = new JLabel(imageIcon);
+                label.setToolTipText(hybridAircraftToString); // set tooltip with the Jeep's toString method
+                label.addMouseListener(new MouseAdapter() {
+                    public void mouseClicked(MouseEvent e) {
+                        buyHybridAircraftGui(hybridAircraft);
                         printAllVehiclesGuiPop(); // add this to show the update right away after the action.
                     }
                 });
@@ -552,6 +629,49 @@ public class GraphicMenus {
         Vehicle a = new CruiseShip(model,distanceTraveled,numOfPassengers,maxSpeed,countryFlag,avgFuelConsumption,avgEngineLifeSpan,imageCruiseShip);
         return a;
 
+    }
+
+    //    public HybridAircraft(String model, int distanceTraveled , int numOfPassengers , int maxSpeed,double avgFuelConsumption, double avgEngineLifeSpan, int numOfWheels, boolean sailWindDirection, String countryFlag,String powerSource,char energyScore, ImageIcon image
+    public static Vehicle scanHybridAircraftGui(){
+        String model = JOptionPane.showInputDialog(null, "Please Enter Model: ");
+        int distanceTraveled = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter Distance traveled: "));
+        int numOfPassengers = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter Number of passengers: "));
+        int maxSpeed = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter Max speed: "));
+        double avgFuelConsumption = Double.parseDouble(JOptionPane.showInputDialog(null, "Please Enter Average Fuel Consumption: "));
+        double avgEngineLifeSpan = Double.parseDouble(JOptionPane.showInputDialog(null, "Please Average Engine Life Span: "));
+        int numOfWheels = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter Num of wheels: "));
+        String withWindDirection = JOptionPane.showInputDialog(null, "Sailing in wind direction? (yes or no): ");
+        boolean sailWindDirection = false;
+        if (withWindDirection.equals("yes")) {
+            sailWindDirection = true;
+        } // else it stays false (no)
+        String flag = JOptionPane.showInputDialog(null, "Please Enter Country Flag: ");
+        String powerSource = JOptionPane.showInputDialog(null, "Please Enter Power Source (Battery, Solar, Fuel, Manual): ");
+       // char energyScore = JOptionPane.showInputDialog(null, "Please Enter EnergyScore A/B/C ");
+        char energyScore = JOptionPane.showInputDialog(null, "Please Enter EnergyScore A/B/C").charAt(0);
+        ImageIcon imageHybridAircraft = HybridAircraftImageSelectionMenu.getImageIcon();
+        Vehicle a = new HybridAircraft(model, distanceTraveled, numOfPassengers, maxSpeed, avgFuelConsumption,avgEngineLifeSpan,numOfWheels,sailWindDirection,flag,powerSource,energyScore,imageHybridAircraft);
+        return a;
+
+    }
+
+    //public ElectricBicycle(String model, int distanceTraveled, int numOfPassengers, int maxSpeed, boolean roadType,double avgEngineLifeSpan, ImageIcon image)
+    public static Vehicle scanElectricBicycleGui(){
+        String model = JOptionPane.showInputDialog(null, "Please Enter Model: ");
+        int distanceTraveled = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter Distance traveled: "));
+        int numOfPassengers = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter Number of passengers: "));
+        int maxSpeed = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter Max speed: "));
+        String roadType = JOptionPane.showInputDialog(null, "Please Enter Road Type (dirt/pavement): ");
+        boolean flagBool=false;
+        if (roadType.equals("pavement")) { // with
+            flagBool=true;
+        }
+        else
+            flagBool=false;
+        double avgEngineLifeSpan = Double.parseDouble(JOptionPane.showInputDialog(null, "Please Average Engine Life Span: "));
+        ImageIcon imageElectricBicycle= ElectricBicycleImageSelectionMenu.getImageIcon();
+        Vehicle a = new ElectricBicycle(model,distanceTraveled,numOfPassengers,maxSpeed,flagBool,avgEngineLifeSpan,imageElectricBicycle);
+        return a;
     }
 
     // public static Vehicle scanAllTheRest...
@@ -848,6 +968,90 @@ public class GraphicMenus {
         }
     }
 
+    public static void buyElectricBicycleGui(ElectricBicycle electricBicycle){
+        Vehicle a = electricBicycle;
+
+        int toDelete = capacityOfAgency+1; // just to make see if theres to delete after
+        for (int i=0 ; i<amountOfVehicles ; i++) {
+            if (Agency[i] instanceof ElectricBicycle){
+                if ((((ElectricBicycle) Agency[i]).equals(a))) { // found the vehicle the person wants
+                    toDelete = i; // found the index which to delete (after bought)
+                    // to prevent deletion of more equal vehicles
+                    // because maybe theres several same vehicles, so i prevent with this.
+                }
+            }
+        }
+        // delete the vehicle from agency
+
+        if (toDelete < capacityOfAgency) { // that means i need to delete
+            Vehicle[] tempAgency = new Vehicle[capacityOfAgency]; // temp array
+            for (int l = 0, k = 0; l < amountOfVehicles; l++) {
+                // check if index is crossed, continue without copying
+                // to delete only the first match, because if there are alot of matching vehicles, he only buys 1.
+                if (l == toDelete) {
+                    continue;
+                } else
+                    // else copy the element
+                    tempAgency[k++] = Agency[l];
+            }
+            Agency = tempAgency;
+            System.out.print("Vehicle bought successfully! \n");
+            JOptionPane.showMessageDialog(null, "Vehicle bought successfully!");
+            amountOfVehicles--;
+        }
+        else    {
+            System.out.print("Error, Vehicle not found. Please try again. \n");
+            JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
+        }
+
+        System.out.println("The New Agency List:");
+        for (int z=0 ; z<amountOfVehicles ; z++){
+            System.out.println(Agency[z]);
+        }
+    }
+
+    public static void buyHybridAircraftGui(HybridAircraft hybridAircraft){
+        Vehicle a = hybridAircraft;
+
+        int toDelete = capacityOfAgency+1; // just to make see if theres to delete after
+        for (int i=0 ; i<amountOfVehicles ; i++) {
+            if (Agency[i] instanceof HybridAircraft){
+                if ((((HybridAircraft) Agency[i]).equals(a))) { // found the vehicle the person wants
+                    toDelete = i; // found the index which to delete (after bought)
+                    // to prevent deletion of more equal vehicles
+                    // because maybe theres several same vehicles, so i prevent with this.
+                }
+            }
+        }
+        // delete the vehicle from agency
+
+        if (toDelete < capacityOfAgency) { // that means i need to delete
+            Vehicle[] tempAgency = new Vehicle[capacityOfAgency]; // temp array
+            for (int l = 0, k = 0; l < amountOfVehicles; l++) {
+                // check if index is crossed, continue without copying
+                // to delete only the first match, because if there are alot of matching vehicles, he only buys 1.
+                if (l == toDelete) {
+                    continue;
+                } else
+                    // else copy the element
+                    tempAgency[k++] = Agency[l];
+            }
+            Agency = tempAgency;
+            System.out.print("Vehicle bought successfully! \n");
+            JOptionPane.showMessageDialog(null, "Vehicle bought successfully!");
+            amountOfVehicles--;
+        }
+        else    {
+            System.out.print("Error, Vehicle not found. Please try again. \n");
+            JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
+        }
+
+        System.out.println("The New Agency List:");
+        for (int z=0 ; z<amountOfVehicles ; z++){
+            System.out.println(Agency[z]);
+        }
+    }
+
     public static void testDriveJeepGui(){
 
         Vehicle j = scanJeepGui();
@@ -1077,6 +1281,65 @@ public class GraphicMenus {
             int toUpdateDistanceCruiseShip = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter the distance of the test drive: "));
             ((CruiseShip) Agency[indexToUpdateDistance]).move(toUpdateDistanceCruiseShip);
             JOptionPane.showMessageDialog(null, "Updated distance to this Vehile by " + toUpdateDistanceCruiseShip +" Km.");
+        }
+        else    {
+            System.out.print("Error, Vehicle not found. Please try again. \n");
+            JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
+        }
+
+        System.out.println("The New Agency List:");
+        for (int z = 0; z < amountOfVehicles; z++) {
+            System.out.println(Agency[z]);
+        }
+    }
+
+    public static void testDriveElectricBicycleGui(ElectricBicycle electricBicycle){
+        Vehicle j = electricBicycle;
+
+        int indexToUpdateDistance = capacityOfAgency + 1; // just to make see if theres to delete after
+        for (int i = 0; i < amountOfVehicles; i++) {
+            if (Agency[i] instanceof ElectricBicycle) {
+                if ((((ElectricBicycle) Agency[i]).equals(j))) { // found the vehicle the person wants (equals2 is with ignoring distance because of the testdrives loops)
+                    indexToUpdateDistance = i; // found the index which to update
+                }
+            }
+        }
+
+        if (indexToUpdateDistance < capacityOfAgency) { // that means and index is found, so vehicle exists
+            //now we need to update the vehicle's test drive distance
+            int toUpdateDistanceElectricBicycle = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter the distance of the test drive: "));
+            ((ElectricBicycle) Agency[indexToUpdateDistance]).move(toUpdateDistanceElectricBicycle);
+            JOptionPane.showMessageDialog(null, "Updated distance to this Vehile by " + toUpdateDistanceElectricBicycle +" Km.");
+        }
+        else    {
+            System.out.print("Error, Vehicle not found. Please try again. \n");
+            JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
+        }
+
+        System.out.println("The New Agency List:");
+        for (int z = 0; z < amountOfVehicles; z++) {
+            System.out.println(Agency[z]);
+        }
+
+    }
+
+    public static void  testDriveHybridAircraftGui(HybridAircraft hybridAircraft){
+        Vehicle j = hybridAircraft;
+
+        int indexToUpdateDistance = capacityOfAgency + 1; // just to make see if theres to delete after
+        for (int i = 0; i < amountOfVehicles; i++) {
+            if (Agency[i] instanceof HybridAircraft) {
+                if ((((HybridAircraft) Agency[i]).equals(j))) { // found the vehicle the person wants (equals2 is with ignoring distance because of the testdrives loops)
+                    indexToUpdateDistance = i; // found the index which to update
+                }
+            }
+        }
+
+        if (indexToUpdateDistance < capacityOfAgency) { // that means and index is found, so vehicle exists
+            //now we need to update the vehicle's test drive distance
+            int toUpdateDistanceHybridAircraft = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter the distance of the test drive: "));
+            ((HybridAircraft) Agency[indexToUpdateDistance]).move(toUpdateDistanceHybridAircraft);
+            JOptionPane.showMessageDialog(null, "Updated distance to this Vehile by " + toUpdateDistanceHybridAircraft +" Km.");
         }
         else    {
             System.out.print("Error, Vehicle not found. Please try again. \n");
