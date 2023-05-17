@@ -158,7 +158,7 @@ public class GraphicMenus {
                 label.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
                         testDriveJeepGui(jeep);
-                        printAllVehiclesGuiPop(); // add this to show the update right away after the action.
+                        //printAllVehiclesGuiPop(); // add this to show the update right away after the action.
                     }
                 });
                 panel.add(label);
@@ -172,7 +172,7 @@ public class GraphicMenus {
                 label.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
                         testDriveFrigateGui(frigate);
-                        printAllVehiclesGuiPop(); // add this to show the update right away after the action.
+                        //printAllVehiclesGuiPop(); // add this to show the update right away after the action.
                     }
                 });
                 panel.add(label);
@@ -186,7 +186,7 @@ public class GraphicMenus {
                 label.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
                         testDriveSpyGliderGui(spyGlider);
-                        printAllVehiclesGuiPop(); // add this to show the update right away after the action.
+                        //printAllVehiclesGuiPop(); // add this to show the update right away after the action.
                     }
                 });
                 panel.add(label);
@@ -200,7 +200,7 @@ public class GraphicMenus {
                 label.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
                         testDriveToyGliderGui(toyGlider);
-                        printAllVehiclesGuiPop(); // add this to show the update right away after the action.
+                        //printAllVehiclesGuiPop(); // add this to show the update right away after the action.
                     }
                 });
                 panel.add(label);
@@ -214,7 +214,7 @@ public class GraphicMenus {
                 label.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
                         testDriveAmphibiousGui(amphibiousVehicle);
-                        printAllVehiclesGuiPop(); // add this to show the update right away after the action.
+                        //printAllVehiclesGuiPop(); // add this to show the update right away after the action.
                     }
                 });
                 panel.add(label);
@@ -229,7 +229,7 @@ public class GraphicMenus {
                 label.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
                         testDriveBicycleGui(bicycle);
-                        printAllVehiclesGuiPop(); // add this to show the update right away after the action.
+                        //printAllVehiclesGuiPop(); // add this to show the update right away after the action.
                     }
                 });
                 panel.add(label);
@@ -244,7 +244,7 @@ public class GraphicMenus {
                 label.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
                         testDriveCruiseShipGui(cruiseShip);
-                        printAllVehiclesGuiPop(); // add this to show the update right away after the action.
+                        //printAllVehiclesGuiPop(); // add this to show the update right away after the action.
                     }
                 });
                 panel.add(label);
@@ -259,7 +259,7 @@ public class GraphicMenus {
                 label.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
                         testDriveElectricBicycleGui(electricBicycle);
-                        printAllVehiclesGuiPop(); // add this to show the update right away after the action.
+                        //printAllVehiclesGuiPop(); // add this to show the update right away after the action.
                     }
                 });
                 panel.add(label);
@@ -274,7 +274,7 @@ public class GraphicMenus {
                 label.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
                         testDriveHybridAircraftGui(hybridAircraft);
-                        printAllVehiclesGuiPop(); // add this to show the update right away after the action.
+                        //printAllVehiclesGuiPop(); // add this to show the update right away after the action.
                     }
                 });
                 panel.add(label);
@@ -299,7 +299,7 @@ public class GraphicMenus {
                 label.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
                         buyJeepGui(jeep);
-                        printAllVehiclesGuiPop(); // add this method the show the update to user.
+                        //printAllVehiclesGuiPop(); // add this method the show the update to user.
                     }
                 });
                 panel.add(label);
@@ -313,7 +313,7 @@ public class GraphicMenus {
                 label.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
                         buyFrigateGui(frigate);
-                        printAllVehiclesGuiPop(); // add this to show the update right away after the action.
+                        //printAllVehiclesGuiPop(); // add this to show the update right away after the action.
                     }
                 });
                 panel.add(label);
@@ -327,7 +327,7 @@ public class GraphicMenus {
                 label.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
                         buySpyGliderGui(spyGlider);
-                        printAllVehiclesGuiPop(); // add this to show the update right away after the action.
+                        //printAllVehiclesGuiPop(); // add this to show the update right away after the action.
                     }
                 });
                 panel.add(label);
@@ -341,7 +341,7 @@ public class GraphicMenus {
                 label.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
                         buyToyGliderGui(toyGlider);
-                        printAllVehiclesGuiPop(); // add this to show the update right away after the action.
+                        //printAllVehiclesGuiPop(); // add this to show the update right away after the action.
                     }
                 });
                 panel.add(label);
@@ -355,7 +355,7 @@ public class GraphicMenus {
                 label.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
                         buyAmphibiousGui(amphibiousVehicle);
-                        printAllVehiclesGuiPop(); // add this to show the update right away after the action.
+                        //printAllVehiclesGuiPop(); // add this to show the update right away after the action.
                     }
                 });
                 panel.add(label);
@@ -370,7 +370,7 @@ public class GraphicMenus {
                 label.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
                         buyBicycleGui(bicycle);
-                        printAllVehiclesGuiPop(); // add this to show the update right away after the action.
+                        //printAllVehiclesGuiPop(); // add this to show the update right away after the action.
                     }
                 });
                 panel.add(label);
@@ -385,7 +385,7 @@ public class GraphicMenus {
                 label.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
                         buyCruiseShipGui(cruiseShip);
-                        printAllVehiclesGuiPop(); // add this to show the update right away after the action.
+                        //printAllVehiclesGuiPop(); // add this to show the update right away after the action.
                     }
                 });
                 panel.add(label);
@@ -400,7 +400,7 @@ public class GraphicMenus {
                 label.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
                         buyElectricBicycleGui(electricBicycle);
-                        printAllVehiclesGuiPop(); // add this to show the update right away after the action.
+                        //printAllVehiclesGuiPop(); // add this to show the update right away after the action.
                     }
                 });
                 panel.add(label);
@@ -415,7 +415,7 @@ public class GraphicMenus {
                 label.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
                         buyHybridAircraftGui(hybridAircraft);
-                        printAllVehiclesGuiPop(); // add this to show the update right away after the action.
+                        //printAllVehiclesGuiPop(); // add this to show the update right away after the action.
                     }
                 });
                 panel.add(label);
@@ -755,10 +755,10 @@ public class GraphicMenus {
             System.out.print("Error, Vehicle not found. Please try again. \n");
             JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
         }
-        System.out.println("The New Agency List:");
+        /*System.out.println("The New Agency List:");
         for (int z=0 ; z<amountOfVehicles ; z++){
             System.out.println(Agency[z]);
-        }
+        }*/
     }
 
     public static void buySpyGliderGui(SpyGlider spyGlider){
@@ -796,10 +796,10 @@ public class GraphicMenus {
             System.out.print("Error, Vehicle not found. Please try again. \n");
             JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
         }
-        System.out.println("The New Agency List:");
+        /*System.out.println("The New Agency List:");
         for (int z=0 ; z<amountOfVehicles ; z++){
             System.out.println(Agency[z]);
-        }
+        }*/
     }
 
     public static void buyToyGliderGui(ToyGlider toyGlider){
@@ -837,10 +837,10 @@ public class GraphicMenus {
             System.out.print("Error, Vehicle not found. Please try again. \n");
             JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
         }
-        System.out.println("The New Agency List:");
+        /*System.out.println("The New Agency List:");
         for (int z=0 ; z<amountOfVehicles ; z++){
             System.out.println(Agency[z]);
-        }
+        }*/
     }
 
     public static void buyAmphibiousGui(AmphibiousVehicle amphibious){
@@ -878,10 +878,10 @@ public class GraphicMenus {
             System.out.print("Error, Vehicle not found. Please try again. \n");
             JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
         }
-        System.out.println("The New Agency List:");
+        /*System.out.println("The New Agency List:");
         for (int z=0 ; z<amountOfVehicles ; z++){
             System.out.println(Agency[z]);
-        }
+        }*/
     }
 
     public static void buyBicycleGui(Bicycle bicycle) {
@@ -920,10 +920,10 @@ public class GraphicMenus {
             JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
         }
 
-        System.out.println("The New Agency List:");
+        /*System.out.println("The New Agency List:");
         for (int z=0 ; z<amountOfVehicles ; z++){
             System.out.println(Agency[z]);
-        }
+        }*/
     }
 
     public static void buyCruiseShipGui(CruiseShip cruiseShip){
@@ -962,10 +962,10 @@ public class GraphicMenus {
             JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
         }
 
-        System.out.println("The New Agency List:");
+        /*System.out.println("The New Agency List:");
         for (int z=0 ; z<amountOfVehicles ; z++){
             System.out.println(Agency[z]);
-        }
+        }*/
     }
 
     public static void buyElectricBicycleGui(ElectricBicycle electricBicycle){
@@ -1004,10 +1004,10 @@ public class GraphicMenus {
             JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
         }
 
-        System.out.println("The New Agency List:");
+        /*System.out.println("The New Agency List:");
         for (int z=0 ; z<amountOfVehicles ; z++){
             System.out.println(Agency[z]);
-        }
+        }*/
     }
 
     public static void buyHybridAircraftGui(HybridAircraft hybridAircraft){
@@ -1046,10 +1046,10 @@ public class GraphicMenus {
             JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
         }
 
-        System.out.println("The New Agency List:");
+        /*System.out.println("The New Agency List:");
         for (int z=0 ; z<amountOfVehicles ; z++){
             System.out.println(Agency[z]);
-        }
+        }*/
     }
 
     public static void testDriveJeepGui(){
@@ -1108,10 +1108,10 @@ public class GraphicMenus {
             JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
         }
 
-        System.out.println("The New Agency List:");
+        /*System.out.println("The New Agency List:");
         for (int z = 0; z < amountOfVehicles; z++) {
             System.out.println(Agency[z]);
-        }
+        }*/
 
     }
 
@@ -1140,10 +1140,10 @@ public class GraphicMenus {
             JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
         }
 
-        System.out.println("The New Agency List:");
+        /*System.out.println("The New Agency List:");
         for (int z = 0; z < amountOfVehicles; z++) {
             System.out.println(Agency[z]);
-        }
+        }*/
     }
 
     public static void testDriveSpyGliderGui(SpyGlider spyGlider){
@@ -1169,10 +1169,10 @@ public class GraphicMenus {
             JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
         }
 
-        System.out.println("The New Agency List:");
+        /*System.out.println("The New Agency List:");
         for (int z = 0; z < amountOfVehicles; z++) {
             System.out.println(Agency[z]);
-        }
+        }*/
     }
 
     public static void testDriveToyGliderGui(ToyGlider toyGlider){
@@ -1198,10 +1198,10 @@ public class GraphicMenus {
             JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
         }
 
-        System.out.println("The New Agency List:");
+        /*System.out.println("The New Agency List:");
         for (int z = 0; z < amountOfVehicles; z++) {
             System.out.println(Agency[z]);
-        }
+        }*/
     }
 
     public static void testDriveAmphibiousGui(AmphibiousVehicle amphibious){
@@ -1227,10 +1227,10 @@ public class GraphicMenus {
             JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
         }
 
-        System.out.println("The New Agency List:");
+        /*System.out.println("The New Agency List:");
         for (int z = 0; z < amountOfVehicles; z++) {
             System.out.println(Agency[z]);
-        }
+        }*/
     }
 
     public static void testDriveBicycleGui(Bicycle bicycle){
@@ -1256,10 +1256,10 @@ public class GraphicMenus {
             JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
         }
 
-        System.out.println("The New Agency List:");
+        /*System.out.println("The New Agency List:");
         for (int z = 0; z < amountOfVehicles; z++) {
             System.out.println(Agency[z]);
-        }
+        }*/
 
 
     }
@@ -1287,10 +1287,10 @@ public class GraphicMenus {
             JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
         }
 
-        System.out.println("The New Agency List:");
+        /*System.out.println("The New Agency List:");
         for (int z = 0; z < amountOfVehicles; z++) {
             System.out.println(Agency[z]);
-        }
+        }*/
     }
 
     public static void testDriveElectricBicycleGui(ElectricBicycle electricBicycle){
@@ -1316,10 +1316,10 @@ public class GraphicMenus {
             JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
         }
 
-        System.out.println("The New Agency List:");
+        /*System.out.println("The New Agency List:");
         for (int z = 0; z < amountOfVehicles; z++) {
             System.out.println(Agency[z]);
-        }
+        }*/
 
     }
 
@@ -1346,10 +1346,10 @@ public class GraphicMenus {
             JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
         }
 
-        System.out.println("The New Agency List:");
+        /*System.out.println("The New Agency List:");
         for (int z = 0; z < amountOfVehicles; z++) {
             System.out.println(Agency[z]);
-        }
+        }*/
     }
 
 

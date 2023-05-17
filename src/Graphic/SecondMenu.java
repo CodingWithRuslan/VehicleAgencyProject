@@ -86,6 +86,16 @@ public class SecondMenu extends JFrame implements ActionListener {
         addVehicleMenuButton.addActionListener(this);
         addVehicleMenuButton.setActionCommand("AddVehicleMenu");
 
+        ImageIcon imageIconAvailableMenu = new ImageIcon("src/Images/available.png"); // load the image to a imageIcon
+        Image imageAvailableMenu = imageIconAvailableMenu.getImage();
+        Image AvailableMenuImg = imageAvailableMenu.getScaledInstance(100, 100,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
+        imageIconAvailableMenu= new ImageIcon(AvailableMenuImg);
+        JButton availableMenuButton = new JButton("Available",imageIconAvailableMenu);
+        availableMenuButton.setHorizontalTextPosition(JButton.CENTER);
+        availableMenuButton.setVerticalTextPosition(JButton.BOTTOM);
+        availableMenuButton.addActionListener(this);
+        availableMenuButton.setActionCommand("Available");
+
 
 
         ImageIcon imageIconQuit = new ImageIcon("src/Images/quit.png"); // load the image to a imageIcon
@@ -105,6 +115,7 @@ public class SecondMenu extends JFrame implements ActionListener {
         add(resetButton);
         add(changeButton);
         add(addVehicleMenuButton);
+        add(availableMenuButton);
         add(quitButton);
 
         // Make the window visible
@@ -147,8 +158,9 @@ public class SecondMenu extends JFrame implements ActionListener {
                 dispose();
                 MainMenu.main(null);
                 break;
-
-
+            case "Available":
+               GraphicMenus.printAllVehiclesGuiPop();
+                break;
 
             case "QuitSystem":
                 System.out.println("close menu2");
