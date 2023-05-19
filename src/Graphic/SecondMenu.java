@@ -1,10 +1,12 @@
 package Graphic;
-
+import java.util.Random;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.SwingUtilities;
 
+import static Graphic.GraphicMenus.addVehicleToAgency;
 import static Graphic.GraphicMenus.printAllVehiclesGuiPopTestDrive;
 import static System.Main.Agency;
 import static System.Main.amountOfVehicles;
@@ -139,7 +141,8 @@ public class SecondMenu extends JFrame implements ActionListener {
         // Execute the appropriate action based on the button clicked
         switch (command) {
             case "Buy":
-                GraphicMenus.printAllVehiclesGuiPopBuy();
+                /*GraphicMenus.printAllVehiclesGuiPopBuy();*/
+                SwingUtilities.invokeLater(GraphicMenus::printAllVehiclesGuiPopBuy);
                 break;
             case "Test":
                 //GraphicTest.main(null); // before ex2 with this we used to TestDrive...
@@ -155,11 +158,15 @@ public class SecondMenu extends JFrame implements ActionListener {
                 //GraphicMenus.changeFlagOfAllMarineVehiclesGui();
                 break;
             case "AddVehicleMenu":
-                dispose();
-                MainMenu.main(null);
+                    MainMenu.main(null);
+                      dispose();
+                //MainMenu.main(null);
+                //GraphicMenus.addVehicleToAgency();
                 break;
             case "Available":
-               GraphicMenus.printAllVehiclesGuiPop();
+                synchronized (this) {
+                    GraphicMenus.printAllVehiclesGuiPop();
+                }
                 break;
 
             case "QuitSystem":
@@ -171,7 +178,7 @@ public class SecondMenu extends JFrame implements ActionListener {
                 break;
         }
         Menus m = new Menus();
-        m.printAllVehicles();
+        //m.printAllVehicles();
 
     }
 

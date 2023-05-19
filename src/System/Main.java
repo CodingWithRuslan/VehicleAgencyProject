@@ -4,7 +4,7 @@ import Vehicle.Vehicle;
 
 public class Main {
     public static int amountOfVehicles = 0;
-    public static int capacityOfAgency = 100;
+    public static int capacityOfAgency = 999;
 
     public static Vehicle[] Agency = new Vehicle[capacityOfAgency]; // Agency (Jeeps, Frigates, SpyGliders, ToyGliders)
     public static void main(String[] args) {

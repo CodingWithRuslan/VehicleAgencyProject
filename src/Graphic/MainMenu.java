@@ -39,6 +39,7 @@ import System.Menus;
 
 import static System.Main.Agency;
 import static System.Main.amountOfVehicles;
+import static System.Main.capacityOfAgency;
 
 public class MainMenu extends JFrame implements ActionListener {
     //private JButton jeepButton;
@@ -208,9 +209,60 @@ public class MainMenu extends JFrame implements ActionListener {
         // Execute the appropriate action based on the button clicked
         switch (command) {
             case "Jeep":
-                Agency[amountOfVehicles] = GraphicMenus.scanJeepGui();
-                amountOfVehicles++;
+                /*if (amountOfVehicles < Agency.length) {
+                    if (Agency[amountOfVehicles] == null) {
+                        Agency[amountOfVehicles] = GraphicMenus.scanJeepGui();
+                        amountOfVehicles++;
+                        System.out.println("Jeep added successfully!");
+                        JOptionPane.showMessageDialog(null, "Jeep added successfully!");
+                    } else {
+                        System.out.println("Error: Agency is full. Cannot add more vehicles.");
+                        JOptionPane.showMessageDialog(null, "Error: Agency is full. Cannot add more vehicles.");
+                    }
+                } else {
+                    System.out.println("Error: Agency is full. Cannot add more vehicles.");
+                    JOptionPane.showMessageDialog(null, "Error: Agency is full. Cannot add more vehicles.");
+                }
+                break;*/
+                if (amountOfVehicles < Agency.length) {
+                    int index = -1;  // Variable to store the index of a null slot in the array
+                    for (int i = 0; i < Agency.length; i++) {
+                        if (Agency[i] == null) {
+                            index = i;  // Found a null slot
+                            break;
+                        }
+                    }
+                    if (index != -1) {
+                        Agency[index] = GraphicMenus.scanJeepGui();
+                        amountOfVehicles++;
+                        System.out.println("Jeep added successfully!");
+                        JOptionPane.showMessageDialog(null, "Jeep added successfully!");
+                    } else {
+                        System.out.println("Error: Agency is full. Cannot add more vehicles.");
+                        JOptionPane.showMessageDialog(null, "Error: Agency is full. Cannot add more vehicles.");
+                    }
+                } else {
+                    System.out.println("Error: Agency is full. Cannot add more vehicles.");
+                    JOptionPane.showMessageDialog(null, "Error: Agency is full. Cannot add more vehicles.");
+                }
                 break;
+                /*if(Agency[amountOfVehicles] == null)
+                {
+                    Agency[amountOfVehicles] = GraphicMenus.scanJeepGui();
+                    amountOfVehicles++;
+                    System.out.println("Jeep added successfully!");
+                    JOptionPane.showMessageDialog(null, "Jeep added successfully!");
+                }*/
+
+                /*if (amountOfVehicles < capacityOfAgency) {
+                    Agency[amountOfVehicles] = GraphicMenus.scanJeepGui();
+                    amountOfVehicles++;
+                    System.out.println("Jeep added successfully!");
+                    JOptionPane.showMessageDialog(null, "Jeep added successfully!");
+                } else {
+                    System.out.println("Error, Agency is full. Cannot add more vehicles.");
+                    JOptionPane.showMessageDialog(null, "Error, Agency is full. Cannot add more vehicles.");
+                }*/
             case "Frigate":
                 // Code for Frigate action
                 Agency[amountOfVehicles] = GraphicMenus.scanFrigateGui();
@@ -262,8 +314,8 @@ public class MainMenu extends JFrame implements ActionListener {
                 break;
         }
         Menus m = new Menus();
-        m.printAllVehicles();
-        GraphicMenus.printAllVehiclesGuiPop();
+        //m.printAllVehicles();
+        //GraphicMenus.printAllVehiclesGuiPop();
         //GraphicMenus.printAllVehiclesGuiPop();
     }
 }
