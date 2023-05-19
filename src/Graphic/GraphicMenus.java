@@ -890,11 +890,11 @@ public class GraphicMenus extends JFrame implements ActionListener {
     public static void buyFrigateGui(Frigate frigate){
         Vehicle f = frigate;
 
-        int toDelete2 = capacityOfAgency+1; // just to make see if theres to delete after
+        int toDelete = -1;
         for (int i=0 ; i<amountOfVehicles ; i++) {
             if (Agency[i] instanceof Frigate){
                 if ((((Frigate) Agency[i]).equals(f))) { // found the vehicle the person wants
-                    toDelete2 = i; // found the index which to delete (after bought)
+                    toDelete = i; // found the index which to delete (after bought)
                     // to prevent deletion of more equal vehicles
                     // because maybe theres several same vehicles, so i prevent with this.
                 }
@@ -902,40 +902,56 @@ public class GraphicMenus extends JFrame implements ActionListener {
         }
         // delete the vehicle from agency
 
-        if (toDelete2 < capacityOfAgency) { // that means i need to delete
-            Vehicle[] tempAgency = new Vehicle[capacityOfAgency]; // temp array
-            for (int l = 0, k = 0; l < amountOfVehicles; l++) {
-                // check if index is crossed, continue without copying
-                // to delete only the first match, because if there are alot of matching vehicles, he only buys 1.
-                if (l == toDelete2) {
-                    continue;
-                } else
-                    // else copy the element
-                    tempAgency[k++] = Agency[l];
+        if (toDelete != -1) {
+            // Sleep for a random time between 5 and 10 seconds
+            try {
+                Thread.sleep(new Random().nextInt(6000) + 5000);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
             }
-            Agency = tempAgency;
-            System.out.print("Vehicle bought successfully! \n");
-            JOptionPane.showMessageDialog(null, "Vehicle bought successfully!");
-            amountOfVehicles--;
+
+            // Show confirmation window
+            if (JOptionPane.showConfirmDialog(null, "Are you sure you want to buy this vehicle?") == JOptionPane.YES_OPTION) {
+                // Shift the elements in the array to remove the bought vehicle
+                for (int i = toDelete; i < amountOfVehicles - 1; i++) {
+                    Agency[i] = Agency[i + 1];
+                }
+                Agency[amountOfVehicles - 1] = null; // Set the last element to null
+
+                System.out.println("Vehicle bought successfully!");
+                JOptionPane.showMessageDialog(null, "Vehicle bought successfully!");
+                amountOfVehicles--;
+
+                // Show "Updating database... Please wait" message
+                JOptionPane.showMessageDialog(null, "Updating database... Please wait");
+
+                // Sleep for a random time between 3 and 8 seconds
+                try {
+                    Thread.sleep(new Random().nextInt(6000) + 3000);
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+
+                System.out.println("Database updated successfully!");
+                JOptionPane.showMessageDialog(null, "Database updated successfully!");
+            } else {
+                System.out.println("Purchase canceled by the user.");
+                JOptionPane.showMessageDialog(null, "Purchase cancelled.");
+            }
+        } else {
+            System.out.println("Error, vehicle not found. Please try again.");
+            JOptionPane.showMessageDialog(null, "Error, vehicle not found. Please try again.");
         }
-        else    {
-            System.out.print("Error, Vehicle not found. Please try again. \n");
-            JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
-        }
-        /*System.out.println("The New Agency List:");
-        for (int z=0 ; z<amountOfVehicles ; z++){
-            System.out.println(Agency[z]);
-        }*/
     }
 
     public static void buySpyGliderGui(SpyGlider spyGlider){
         Vehicle sg = spyGlider;
 
-        int toDelete3 = capacityOfAgency+1; // just to make see if theres to delete after
+        int toDelete = -1;
         for (int i=0 ; i<amountOfVehicles ; i++) {
             if (Agency[i] instanceof SpyGlider){
                 if ((((SpyGlider) Agency[i]).equals(sg))) { // found the vehicle the person wants
-                    toDelete3 = i; // found the index which to delete (after bought)
+                    toDelete = i; // found the index which to delete (after bought)
                     // to prevent deletion of more equal vehicles
                     // because maybe theres several same vehicles, so i prevent with this.
                 }
@@ -943,40 +959,57 @@ public class GraphicMenus extends JFrame implements ActionListener {
         }
         // delete the vehicle from agency
 
-        if (toDelete3 < capacityOfAgency) { // that means i need to delete
-            Vehicle[] tempAgency = new Vehicle[capacityOfAgency]; // temp array
-            for (int l = 0, k = 0; l < amountOfVehicles; l++) {
-                // check if index is crossed, continue without copying
-                // to delete only the first match, because if there are alot of matching vehicles, he only buys 1.
-                if (l == toDelete3) {
-                    continue;
-                } else
-                    // else copy the element
-                    tempAgency[k++] = Agency[l];
+        if (toDelete != -1) {
+            // Sleep for a random time between 5 and 10 seconds
+            try {
+                Thread.sleep(new Random().nextInt(6000) + 5000);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
             }
-            Agency = tempAgency;
-            System.out.print("Vehicle bought successfully! \n");
-            JOptionPane.showMessageDialog(null, "Vehicle bought successfully!");
-            amountOfVehicles--;
+
+            // Show confirmation window
+            if (JOptionPane.showConfirmDialog(null, "Are you sure you want to buy this vehicle?") == JOptionPane.YES_OPTION) {
+                // Shift the elements in the array to remove the bought vehicle
+                for (int i = toDelete; i < amountOfVehicles - 1; i++) {
+                    Agency[i] = Agency[i + 1];
+                }
+                Agency[amountOfVehicles - 1] = null; // Set the last element to null
+
+                System.out.println("Vehicle bought successfully!");
+                JOptionPane.showMessageDialog(null, "Vehicle bought successfully!");
+                amountOfVehicles--;
+
+                // Show "Updating database... Please wait" message
+                JOptionPane.showMessageDialog(null, "Updating database... Please wait");
+
+                // Sleep for a random time between 3 and 8 seconds
+                try {
+                    Thread.sleep(new Random().nextInt(6000) + 3000);
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+
+                System.out.println("Database updated successfully!");
+                JOptionPane.showMessageDialog(null, "Database updated successfully!");
+            } else {
+                System.out.println("Purchase canceled by the user.");
+                JOptionPane.showMessageDialog(null, "Purchase cancelled.");
+            }
+        } else {
+            System.out.println("Error, vehicle not found. Please try again.");
+            JOptionPane.showMessageDialog(null, "Error, vehicle not found. Please try again.");
         }
-        else    {
-            System.out.print("Error, Vehicle not found. Please try again. \n");
-            JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
-        }
-        /*System.out.println("The New Agency List:");
-        for (int z=0 ; z<amountOfVehicles ; z++){
-            System.out.println(Agency[z]);
-        }*/
     }
 
     public static void buyToyGliderGui(ToyGlider toyGlider){
         Vehicle tg = toyGlider;
 
-        int toDelete4 = capacityOfAgency+1; // just to make see if theres to delete after
+        //int toDelete4 = capacityOfAgency+1; // just to make see if theres to delete after
+        int toDelete = -1;
         for (int i=0 ; i<amountOfVehicles ; i++) {
             if (Agency[i] instanceof ToyGlider){
                 if ((((ToyGlider) Agency[i]).equals(tg))) { // found the vehicle the person wants
-                    toDelete4 = i; // found the index which to delete (after bought)
+                    toDelete = i; // found the index which to delete (after bought)
                     // to prevent deletion of more equal vehicles
                     // because maybe theres several same vehicles, so i prevent with this.
                 }
@@ -984,36 +1017,53 @@ public class GraphicMenus extends JFrame implements ActionListener {
         }
         // delete the vehicle from agency
 
-        if (toDelete4 < capacityOfAgency) { // that means i need to delete
-            Vehicle[] tempAgency = new Vehicle[capacityOfAgency]; // temp array
-            for (int l = 0, k = 0; l < amountOfVehicles; l++) {
-                // check if index is crossed, continue without copying
-                // to delete only the first match, because if there are alot of matching vehicles, he only buys 1.
-                if (l == toDelete4) {
-                    continue;
-                } else
-                    // else copy the element
-                    tempAgency[k++] = Agency[l];
+        if (toDelete != -1) {
+            // Sleep for a random time between 5 and 10 seconds
+            try {
+                Thread.sleep(new Random().nextInt(6000) + 5000);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
             }
-            Agency = tempAgency;
-            System.out.print("Vehicle bought successfully! \n");
-            JOptionPane.showMessageDialog(null, "Vehicle bought successfully!");
-            amountOfVehicles--;
+
+            // Show confirmation window
+            if (JOptionPane.showConfirmDialog(null, "Are you sure you want to buy this vehicle?") == JOptionPane.YES_OPTION) {
+                // Shift the elements in the array to remove the bought vehicle
+                for (int i = toDelete; i < amountOfVehicles - 1; i++) {
+                    Agency[i] = Agency[i + 1];
+                }
+                Agency[amountOfVehicles - 1] = null; // Set the last element to null
+
+                System.out.println("Vehicle bought successfully!");
+                JOptionPane.showMessageDialog(null, "Vehicle bought successfully!");
+                amountOfVehicles--;
+
+                // Show "Updating database... Please wait" message
+                JOptionPane.showMessageDialog(null, "Updating database... Please wait");
+
+                // Sleep for a random time between 3 and 8 seconds
+                try {
+                    Thread.sleep(new Random().nextInt(6000) + 3000);
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+
+                System.out.println("Database updated successfully!");
+                JOptionPane.showMessageDialog(null, "Database updated successfully!");
+            } else {
+                System.out.println("Purchase canceled by the user.");
+                JOptionPane.showMessageDialog(null, "Purchase cancelled.");
+            }
+        } else {
+            System.out.println("Error, vehicle not found. Please try again.");
+            JOptionPane.showMessageDialog(null, "Error, vehicle not found. Please try again.");
         }
-        else    {
-            System.out.print("Error, Vehicle not found. Please try again. \n");
-            JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
-        }
-        /*System.out.println("The New Agency List:");
-        for (int z=0 ; z<amountOfVehicles ; z++){
-            System.out.println(Agency[z]);
-        }*/
     }
 
     public static void buyAmphibiousGui(AmphibiousVehicle amphibious){
         Vehicle a = amphibious;
 
-        int toDelete = capacityOfAgency+1; // just to make see if theres to delete after
+       // int toDelete = capacityOfAgency+1; // just to make see if theres to delete after
+        int toDelete = -1;
         for (int i=0 ; i<amountOfVehicles ; i++) {
             if (Agency[i] instanceof AmphibiousVehicle){
                 if ((((AmphibiousVehicle) Agency[i]).equals(a))) { // found the vehicle the person wants
@@ -1025,36 +1075,53 @@ public class GraphicMenus extends JFrame implements ActionListener {
         }
         // delete the vehicle from agency
 
-        if (toDelete < capacityOfAgency) { // that means i need to delete
-            Vehicle[] tempAgency = new Vehicle[capacityOfAgency]; // temp array
-            for (int l = 0, k = 0; l < amountOfVehicles; l++) {
-                // check if index is crossed, continue without copying
-                // to delete only the first match, because if there are alot of matching vehicles, he only buys 1.
-                if (l == toDelete) {
-                    continue;
-                } else
-                    // else copy the element
-                    tempAgency[k++] = Agency[l];
+        if (toDelete != -1) {
+            // Sleep for a random time between 5 and 10 seconds
+            try {
+                Thread.sleep(new Random().nextInt(6000) + 5000);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
             }
-            Agency = tempAgency;
-            System.out.print("Vehicle bought successfully! \n");
-            JOptionPane.showMessageDialog(null, "Vehicle bought successfully!");
-            amountOfVehicles--;
+
+            // Show confirmation window
+            if (JOptionPane.showConfirmDialog(null, "Are you sure you want to buy this vehicle?") == JOptionPane.YES_OPTION) {
+                // Shift the elements in the array to remove the bought vehicle
+                for (int i = toDelete; i < amountOfVehicles - 1; i++) {
+                    Agency[i] = Agency[i + 1];
+                }
+                Agency[amountOfVehicles - 1] = null; // Set the last element to null
+
+                System.out.println("Vehicle bought successfully!");
+                JOptionPane.showMessageDialog(null, "Vehicle bought successfully!");
+                amountOfVehicles--;
+
+                // Show "Updating database... Please wait" message
+                JOptionPane.showMessageDialog(null, "Updating database... Please wait");
+
+                // Sleep for a random time between 3 and 8 seconds
+                try {
+                    Thread.sleep(new Random().nextInt(6000) + 3000);
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+
+                System.out.println("Database updated successfully!");
+                JOptionPane.showMessageDialog(null, "Database updated successfully!");
+            } else {
+                System.out.println("Purchase canceled by the user.");
+                JOptionPane.showMessageDialog(null, "Purchase cancelled.");
+            }
+        } else {
+            System.out.println("Error, vehicle not found. Please try again.");
+            JOptionPane.showMessageDialog(null, "Error, vehicle not found. Please try again.");
         }
-        else    {
-            System.out.print("Error, Vehicle not found. Please try again. \n");
-            JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
-        }
-        /*System.out.println("The New Agency List:");
-        for (int z=0 ; z<amountOfVehicles ; z++){
-            System.out.println(Agency[z]);
-        }*/
     }
 
     public static void buyBicycleGui(Bicycle bicycle) {
         Vehicle a = bicycle;
 
-        int toDelete = capacityOfAgency+1; // just to make see if theres to delete after
+        //int toDelete = capacityOfAgency+1; // just to make see if theres to delete after
+        int toDelete = -1;
         for (int i=0 ; i<amountOfVehicles ; i++) {
             if (Agency[i] instanceof Bicycle){
                 if ((((Bicycle) Agency[i]).equals(a))) { // found the vehicle the person wants
@@ -1065,38 +1132,53 @@ public class GraphicMenus extends JFrame implements ActionListener {
             }
         }
         // delete the vehicle from agency
-
-        if (toDelete < capacityOfAgency) { // that means i need to delete
-            Vehicle[] tempAgency = new Vehicle[capacityOfAgency]; // temp array
-            for (int l = 0, k = 0; l < amountOfVehicles; l++) {
-                // check if index is crossed, continue without copying
-                // to delete only the first match, because if there are alot of matching vehicles, he only buys 1.
-                if (l == toDelete) {
-                    continue;
-                } else
-                    // else copy the element
-                    tempAgency[k++] = Agency[l];
+        if (toDelete != -1) {
+            // Sleep for a random time between 5 and 10 seconds
+            try {
+                Thread.sleep(new Random().nextInt(6000) + 5000);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
             }
-            Agency = tempAgency;
-            System.out.print("Vehicle bought successfully! \n");
-            JOptionPane.showMessageDialog(null, "Vehicle bought successfully!");
-            amountOfVehicles--;
-        }
-        else    {
-            System.out.print("Error, Vehicle not found. Please try again. \n");
-            JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
-        }
 
-        /*System.out.println("The New Agency List:");
-        for (int z=0 ; z<amountOfVehicles ; z++){
-            System.out.println(Agency[z]);
-        }*/
+            // Show confirmation window
+            if (JOptionPane.showConfirmDialog(null, "Are you sure you want to buy this vehicle?") == JOptionPane.YES_OPTION) {
+                // Shift the elements in the array to remove the bought vehicle
+                for (int i = toDelete; i < amountOfVehicles - 1; i++) {
+                    Agency[i] = Agency[i + 1];
+                }
+                Agency[amountOfVehicles - 1] = null; // Set the last element to null
+
+                System.out.println("Vehicle bought successfully!");
+                JOptionPane.showMessageDialog(null, "Vehicle bought successfully!");
+                amountOfVehicles--;
+
+                // Show "Updating database... Please wait" message
+                JOptionPane.showMessageDialog(null, "Updating database... Please wait");
+
+                // Sleep for a random time between 3 and 8 seconds
+                try {
+                    Thread.sleep(new Random().nextInt(6000) + 3000);
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+
+                System.out.println("Database updated successfully!");
+                JOptionPane.showMessageDialog(null, "Database updated successfully!");
+            } else {
+                System.out.println("Purchase canceled by the user.");
+                JOptionPane.showMessageDialog(null, "Purchase cancelled.");
+            }
+        } else {
+            System.out.println("Error, vehicle not found. Please try again.");
+            JOptionPane.showMessageDialog(null, "Error, vehicle not found. Please try again.");
+        }
     }
 
     public static void buyCruiseShipGui(CruiseShip cruiseShip){
         Vehicle a = cruiseShip;
 
-        int toDelete = capacityOfAgency+1; // just to make see if theres to delete after
+        //int toDelete = capacityOfAgency+1; // just to make see if theres to delete after
+        int toDelete = -1;
         for (int i=0 ; i<amountOfVehicles ; i++) {
             if (Agency[i] instanceof CruiseShip){
                 if ((((CruiseShip) Agency[i]).equals(a))) { // found the vehicle the person wants
@@ -1108,37 +1190,53 @@ public class GraphicMenus extends JFrame implements ActionListener {
         }
         // delete the vehicle from agency
 
-        if (toDelete < capacityOfAgency) { // that means i need to delete
-            Vehicle[] tempAgency = new Vehicle[capacityOfAgency]; // temp array
-            for (int l = 0, k = 0; l < amountOfVehicles; l++) {
-                // check if index is crossed, continue without copying
-                // to delete only the first match, because if there are alot of matching vehicles, he only buys 1.
-                if (l == toDelete) {
-                    continue;
-                } else
-                    // else copy the element
-                    tempAgency[k++] = Agency[l];
+        if (toDelete != -1) {
+            // Sleep for a random time between 5 and 10 seconds
+            try {
+                Thread.sleep(new Random().nextInt(6000) + 5000);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
             }
-            Agency = tempAgency;
-            System.out.print("Vehicle bought successfully! \n");
-            JOptionPane.showMessageDialog(null, "Vehicle bought successfully!");
-            amountOfVehicles--;
-        }
-        else    {
-            System.out.print("Error, Vehicle not found. Please try again. \n");
-            JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
-        }
 
-        /*System.out.println("The New Agency List:");
-        for (int z=0 ; z<amountOfVehicles ; z++){
-            System.out.println(Agency[z]);
-        }*/
+            // Show confirmation window
+            if (JOptionPane.showConfirmDialog(null, "Are you sure you want to buy this vehicle?") == JOptionPane.YES_OPTION) {
+                // Shift the elements in the array to remove the bought vehicle
+                for (int i = toDelete; i < amountOfVehicles - 1; i++) {
+                    Agency[i] = Agency[i + 1];
+                }
+                Agency[amountOfVehicles - 1] = null; // Set the last element to null
+
+                System.out.println("Vehicle bought successfully!");
+                JOptionPane.showMessageDialog(null, "Vehicle bought successfully!");
+                amountOfVehicles--;
+
+                // Show "Updating database... Please wait" message
+                JOptionPane.showMessageDialog(null, "Updating database... Please wait");
+
+                // Sleep for a random time between 3 and 8 seconds
+                try {
+                    Thread.sleep(new Random().nextInt(6000) + 3000);
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+
+                System.out.println("Database updated successfully!");
+                JOptionPane.showMessageDialog(null, "Database updated successfully!");
+            } else {
+                System.out.println("Purchase canceled by the user.");
+                JOptionPane.showMessageDialog(null, "Purchase cancelled.");
+            }
+        } else {
+            System.out.println("Error, vehicle not found. Please try again.");
+            JOptionPane.showMessageDialog(null, "Error, vehicle not found. Please try again.");
+        }
     }
 
     public static void buyElectricBicycleGui(ElectricBicycle electricBicycle){
         Vehicle a = electricBicycle;
 
-        int toDelete = capacityOfAgency+1; // just to make see if theres to delete after
+        //int toDelete = capacityOfAgency+1; // just to make see if theres to delete after
+        int toDelete = -1;
         for (int i=0 ; i<amountOfVehicles ; i++) {
             if (Agency[i] instanceof ElectricBicycle){
                 if ((((ElectricBicycle) Agency[i]).equals(a))) { // found the vehicle the person wants
@@ -1150,37 +1248,53 @@ public class GraphicMenus extends JFrame implements ActionListener {
         }
         // delete the vehicle from agency
 
-        if (toDelete < capacityOfAgency) { // that means i need to delete
-            Vehicle[] tempAgency = new Vehicle[capacityOfAgency]; // temp array
-            for (int l = 0, k = 0; l < amountOfVehicles; l++) {
-                // check if index is crossed, continue without copying
-                // to delete only the first match, because if there are alot of matching vehicles, he only buys 1.
-                if (l == toDelete) {
-                    continue;
-                } else
-                    // else copy the element
-                    tempAgency[k++] = Agency[l];
+        if (toDelete != -1) {
+            // Sleep for a random time between 5 and 10 seconds
+            try {
+                Thread.sleep(new Random().nextInt(6000) + 5000);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
             }
-            Agency = tempAgency;
-            System.out.print("Vehicle bought successfully! \n");
-            JOptionPane.showMessageDialog(null, "Vehicle bought successfully!");
-            amountOfVehicles--;
-        }
-        else    {
-            System.out.print("Error, Vehicle not found. Please try again. \n");
-            JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
-        }
 
-        /*System.out.println("The New Agency List:");
-        for (int z=0 ; z<amountOfVehicles ; z++){
-            System.out.println(Agency[z]);
-        }*/
+            // Show confirmation window
+            if (JOptionPane.showConfirmDialog(null, "Are you sure you want to buy this vehicle?") == JOptionPane.YES_OPTION) {
+                // Shift the elements in the array to remove the bought vehicle
+                for (int i = toDelete; i < amountOfVehicles - 1; i++) {
+                    Agency[i] = Agency[i + 1];
+                }
+                Agency[amountOfVehicles - 1] = null; // Set the last element to null
+
+                System.out.println("Vehicle bought successfully!");
+                JOptionPane.showMessageDialog(null, "Vehicle bought successfully!");
+                amountOfVehicles--;
+
+                // Show "Updating database... Please wait" message
+                JOptionPane.showMessageDialog(null, "Updating database... Please wait");
+
+                // Sleep for a random time between 3 and 8 seconds
+                try {
+                    Thread.sleep(new Random().nextInt(6000) + 3000);
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+
+                System.out.println("Database updated successfully!");
+                JOptionPane.showMessageDialog(null, "Database updated successfully!");
+            } else {
+                System.out.println("Purchase canceled by the user.");
+                JOptionPane.showMessageDialog(null, "Purchase cancelled.");
+            }
+        } else {
+            System.out.println("Error, vehicle not found. Please try again.");
+            JOptionPane.showMessageDialog(null, "Error, vehicle not found. Please try again.");
+        }
     }
 
     public static void buyHybridAircraftGui(HybridAircraft hybridAircraft){
         Vehicle a = hybridAircraft;
 
-        int toDelete = capacityOfAgency+1; // just to make see if theres to delete after
+        //int toDelete = capacityOfAgency+1; // just to make see if theres to delete after
+        int toDelete = -1;
         for (int i=0 ; i<amountOfVehicles ; i++) {
             if (Agency[i] instanceof HybridAircraft){
                 if ((((HybridAircraft) Agency[i]).equals(a))) { // found the vehicle the person wants
@@ -1192,31 +1306,46 @@ public class GraphicMenus extends JFrame implements ActionListener {
         }
         // delete the vehicle from agency
 
-        if (toDelete < capacityOfAgency) { // that means i need to delete
-            Vehicle[] tempAgency = new Vehicle[capacityOfAgency]; // temp array
-            for (int l = 0, k = 0; l < amountOfVehicles; l++) {
-                // check if index is crossed, continue without copying
-                // to delete only the first match, because if there are alot of matching vehicles, he only buys 1.
-                if (l == toDelete) {
-                    continue;
-                } else
-                    // else copy the element
-                    tempAgency[k++] = Agency[l];
+        if (toDelete != -1) {
+            // Sleep for a random time between 5 and 10 seconds
+            try {
+                Thread.sleep(new Random().nextInt(6000) + 5000);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
             }
-            Agency = tempAgency;
-            System.out.print("Vehicle bought successfully! \n");
-            JOptionPane.showMessageDialog(null, "Vehicle bought successfully!");
-            amountOfVehicles--;
-        }
-        else    {
-            System.out.print("Error, Vehicle not found. Please try again. \n");
-            JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
-        }
 
-        /*System.out.println("The New Agency List:");
-        for (int z=0 ; z<amountOfVehicles ; z++){
-            System.out.println(Agency[z]);
-        }*/
+            // Show confirmation window
+            if (JOptionPane.showConfirmDialog(null, "Are you sure you want to buy this vehicle?") == JOptionPane.YES_OPTION) {
+                // Shift the elements in the array to remove the bought vehicle
+                for (int i = toDelete; i < amountOfVehicles - 1; i++) {
+                    Agency[i] = Agency[i + 1];
+                }
+                Agency[amountOfVehicles - 1] = null; // Set the last element to null
+
+                System.out.println("Vehicle bought successfully!");
+                JOptionPane.showMessageDialog(null, "Vehicle bought successfully!");
+                amountOfVehicles--;
+
+                // Show "Updating database... Please wait" message
+                JOptionPane.showMessageDialog(null, "Updating database... Please wait");
+
+                // Sleep for a random time between 3 and 8 seconds
+                try {
+                    Thread.sleep(new Random().nextInt(6000) + 3000);
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+
+                System.out.println("Database updated successfully!");
+                JOptionPane.showMessageDialog(null, "Database updated successfully!");
+            } else {
+                System.out.println("Purchase canceled by the user.");
+                JOptionPane.showMessageDialog(null, "Purchase cancelled.");
+            }
+        } else {
+            System.out.println("Error, vehicle not found. Please try again.");
+            JOptionPane.showMessageDialog(null, "Error, vehicle not found. Please try again.");
+        }
     }
 
     public static void testDriveJeepGui(){
