@@ -1380,8 +1380,50 @@ public class GraphicMenus extends JFrame implements ActionListener {
     }
 
     public static void testDriveJeepGui(Jeep jeep){
-
         System.out.println("testDriveJeepGui");
+        Vehicle j = jeep;
+
+        int indexToUpdateDistance = capacityOfAgency + 1; // just to make see if there are to delete after
+        for (int i = 0; i < amountOfVehicles; i++) {
+            if (Agency[i] instanceof Jeep) {
+                if ((((Jeep) Agency[i]).equals(j))) { // found the vehicle the person wants (equals2 is with ignoring distance because of the testdrives loops)
+                    indexToUpdateDistance = i; // found the index which to update
+                }
+            }
+        }
+
+        if (indexToUpdateDistance < capacityOfAgency) { // that means and index is found, so the vehicle exists
+            // Now we need to update the vehicle's test drive distance
+            int toUpdateDistanceJeep = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter the distance of the test drive: "));
+            ((Jeep) Agency[indexToUpdateDistance]).move(toUpdateDistanceJeep);
+
+            // Add a delay based on the entered distance
+            try {
+                Thread.sleep(toUpdateDistanceJeep * 100);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+
+            JOptionPane.showMessageDialog(null, "Updated distance to this vehicle by " + toUpdateDistanceJeep + " Km.");
+
+            // Show "Updating database... Please wait" message
+            JOptionPane.showMessageDialog(null, "Updating database... Please wait");
+
+            // Sleep for a random time between 3 and 8 seconds
+            try {
+                Thread.sleep((new Random().nextInt(6000) + 3000));
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+
+            System.out.println("Database updated successfully!");
+            JOptionPane.showMessageDialog(null, "Database updated successfully!");
+        } else {
+            System.out.print("Error, Vehicle not found. Please try again. \n");
+            JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
+        }
+
+        /*System.out.println("testDriveJeepGui");
         Vehicle j = jeep;
 
         int indexToUpdateDistance = capacityOfAgency + 1; // just to make see if theres to delete after
@@ -1402,7 +1444,7 @@ public class GraphicMenus extends JFrame implements ActionListener {
         else    {
             System.out.print("Error, Vehicle not found. Please try again. \n");
             JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
-        }
+        }*/
 
         /*System.out.println("The New Agency List:");
         for (int z = 0; z < amountOfVehicles; z++) {

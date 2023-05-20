@@ -209,21 +209,6 @@ public class MainMenu extends JFrame implements ActionListener {
         // Execute the appropriate action based on the button clicked
         switch (command) {
             case "Jeep":
-                /*if (amountOfVehicles < Agency.length) {
-                    if (Agency[amountOfVehicles] == null) {
-                        Agency[amountOfVehicles] = GraphicMenus.scanJeepGui();
-                        amountOfVehicles++;
-                        System.out.println("Jeep added successfully!");
-                        JOptionPane.showMessageDialog(null, "Jeep added successfully!");
-                    } else {
-                        System.out.println("Error: Agency is full. Cannot add more vehicles.");
-                        JOptionPane.showMessageDialog(null, "Error: Agency is full. Cannot add more vehicles.");
-                    }
-                } else {
-                    System.out.println("Error: Agency is full. Cannot add more vehicles.");
-                    JOptionPane.showMessageDialog(null, "Error: Agency is full. Cannot add more vehicles.");
-                }
-                break;*/
                 if (amountOfVehicles < Agency.length) {
                     int index = -1;  // Variable to store the index of a null slot in the array
                     for (int i = 0; i < Agency.length; i++) {
@@ -246,23 +231,7 @@ public class MainMenu extends JFrame implements ActionListener {
                     JOptionPane.showMessageDialog(null, "Error: Agency is full. Cannot add more vehicles.");
                 }
                 break;
-                /*if(Agency[amountOfVehicles] == null)
-                {
-                    Agency[amountOfVehicles] = GraphicMenus.scanJeepGui();
-                    amountOfVehicles++;
-                    System.out.println("Jeep added successfully!");
-                    JOptionPane.showMessageDialog(null, "Jeep added successfully!");
-                }*/
 
-                /*if (amountOfVehicles < capacityOfAgency) {
-                    Agency[amountOfVehicles] = GraphicMenus.scanJeepGui();
-                    amountOfVehicles++;
-                    System.out.println("Jeep added successfully!");
-                    JOptionPane.showMessageDialog(null, "Jeep added successfully!");
-                } else {
-                    System.out.println("Error, Agency is full. Cannot add more vehicles.");
-                    JOptionPane.showMessageDialog(null, "Error, Agency is full. Cannot add more vehicles.");
-                }*/
             case "Frigate":
                 // Code for Frigate action
                 Agency[amountOfVehicles] = GraphicMenus.scanFrigateGui();
