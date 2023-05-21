@@ -1467,21 +1467,37 @@ public class GraphicMenus extends JFrame implements ActionListener {
             }
         }
 
-        if (indexToUpdateDistanceFrigate < capacityOfAgency) { // that means and index is found, so vehicle exists
-            //now we need to update the vehicle's test drive distance
+        if (indexToUpdateDistanceFrigate < capacityOfAgency) { // that means and index is found, so the vehicle exists
+            // Now we need to update the vehicle's test drive distance
             int toUpdateDistanceFrigate = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter the distance of the test drive: "));
             ((Frigate) Agency[indexToUpdateDistanceFrigate]).move(toUpdateDistanceFrigate);
-            JOptionPane.showMessageDialog(null, "Updated distance to this Vehile by " + toUpdateDistanceFrigate +" Km.");
-        }
-        else    {
+
+            // Add a delay based on the entered distance
+            try {
+                Thread.sleep(toUpdateDistanceFrigate * 100);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+
+            JOptionPane.showMessageDialog(null, "Updated distance to this vehicle by " + toUpdateDistanceFrigate + " Km.");
+
+            // Show "Updating database... Please wait" message
+            JOptionPane.showMessageDialog(null, "Updating database... Please wait");
+
+            // Sleep for a random time between 3 and 8 seconds
+            try {
+                Thread.sleep((new Random().nextInt(6000) + 3000));
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+
+            System.out.println("Database updated successfully!");
+            JOptionPane.showMessageDialog(null, "Database updated successfully!");
+        } else {
             System.out.print("Error, Vehicle not found. Please try again. \n");
             JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
         }
 
-        /*System.out.println("The New Agency List:");
-        for (int z = 0; z < amountOfVehicles; z++) {
-            System.out.println(Agency[z]);
-        }*/
     }
 
     public static void testDriveSpyGliderGui(SpyGlider spyGlider){
@@ -1496,21 +1512,36 @@ public class GraphicMenus extends JFrame implements ActionListener {
             }
         }
 
-        if (indexToUpdateDistanceSpyGlider < capacityOfAgency) { // that means and index is found, so vehicle exists
-            //now we need to update the vehicle's test drive distance
+        if (indexToUpdateDistanceSpyGlider < capacityOfAgency) { // that means and index is found, so the vehicle exists
+            // Now we need to update the vehicle's test drive distance
             int toUpdateDistanceSpyGlider = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter the distance of the test drive: "));
             ((SpyGlider) Agency[indexToUpdateDistanceSpyGlider]).move(toUpdateDistanceSpyGlider);
-            JOptionPane.showMessageDialog(null, "Updated distance to this Vehile by " + toUpdateDistanceSpyGlider +" Km.");
-        }
-        else    {
+
+            // Add a delay based on the entered distance
+            try {
+                Thread.sleep(toUpdateDistanceSpyGlider * 100);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+
+            JOptionPane.showMessageDialog(null, "Updated distance to this vehicle by " + toUpdateDistanceSpyGlider + " Km.");
+
+            // Show "Updating database... Please wait" message
+            JOptionPane.showMessageDialog(null, "Updating database... Please wait");
+
+            // Sleep for a random time between 3 and 8 seconds
+            try {
+                Thread.sleep((new Random().nextInt(6000) + 3000));
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+
+            System.out.println("Database updated successfully!");
+            JOptionPane.showMessageDialog(null, "Database updated successfully!");
+        } else {
             System.out.print("Error, Vehicle not found. Please try again. \n");
             JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
         }
-
-        /*System.out.println("The New Agency List:");
-        for (int z = 0; z < amountOfVehicles; z++) {
-            System.out.println(Agency[z]);
-        }*/
     }
 
     public static void testDriveToyGliderGui(ToyGlider toyGlider){
@@ -1525,21 +1556,36 @@ public class GraphicMenus extends JFrame implements ActionListener {
             }
         }
 
-        if (indexToUpdateDistanceToyGlider < capacityOfAgency) { // that means and index is found, so vehicle exists
-            //now we need to update the vehicle's test drive distance
+        if (indexToUpdateDistanceToyGlider < capacityOfAgency) { // that means and index is found, so the vehicle exists
+            // Now we need to update the vehicle's test drive distance
             int toUpdateDistanceToyGlider = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter the distance of the test drive: "));
             ((ToyGlider) Agency[indexToUpdateDistanceToyGlider]).move(toUpdateDistanceToyGlider);
-            JOptionPane.showMessageDialog(null, "Updated distance to this Vehile by " + toUpdateDistanceToyGlider + " Km.");
-        }
-        else    {
+
+            // Add a delay based on the entered distance
+            try {
+                Thread.sleep(toUpdateDistanceToyGlider * 100);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+
+            JOptionPane.showMessageDialog(null, "Updated distance to this vehicle by " + toUpdateDistanceToyGlider + " Km.");
+
+            // Show "Updating database... Please wait" message
+            JOptionPane.showMessageDialog(null, "Updating database... Please wait");
+
+            // Sleep for a random time between 3 and 8 seconds
+            try {
+                Thread.sleep((new Random().nextInt(6000) + 3000));
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+
+            System.out.println("Database updated successfully!");
+            JOptionPane.showMessageDialog(null, "Database updated successfully!");
+        } else {
             System.out.print("Error, Vehicle not found. Please try again. \n");
             JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
         }
-
-        /*System.out.println("The New Agency List:");
-        for (int z = 0; z < amountOfVehicles; z++) {
-            System.out.println(Agency[z]);
-        }*/
     }
 
     public static void testDriveAmphibiousGui(AmphibiousVehicle amphibious){
@@ -1554,21 +1600,36 @@ public class GraphicMenus extends JFrame implements ActionListener {
             }
         }
 
-        if (indexToUpdateDistance < capacityOfAgency) { // that means and index is found, so vehicle exists
-            //now we need to update the vehicle's test drive distance
-            int toUpdateDistanceAmphibious = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter the distance of the test drive: "));
-            ((AmphibiousVehicle) Agency[indexToUpdateDistance]).move(toUpdateDistanceAmphibious);
-            JOptionPane.showMessageDialog(null, "Updated distance to this Vehile by " + toUpdateDistanceAmphibious + " Km.");
-        }
-        else    {
+        if (indexToUpdateDistance < capacityOfAgency) { // that means and index is found, so the vehicle exists
+            // Now we need to update the vehicle's test drive distance
+            int toUpdateDistance = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter the distance of the test drive: "));
+            ((AmphibiousVehicle) Agency[indexToUpdateDistance]).move(toUpdateDistance);
+
+            // Add a delay based on the entered distance
+            try {
+                Thread.sleep(toUpdateDistance * 100);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+
+            JOptionPane.showMessageDialog(null, "Updated distance to this vehicle by " + toUpdateDistance+ " Km.");
+
+            // Show "Updating database... Please wait" message
+            JOptionPane.showMessageDialog(null, "Updating database... Please wait");
+
+            // Sleep for a random time between 3 and 8 seconds
+            try {
+                Thread.sleep((new Random().nextInt(6000) + 3000));
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+
+            System.out.println("Database updated successfully!");
+            JOptionPane.showMessageDialog(null, "Database updated successfully!");
+        } else {
             System.out.print("Error, Vehicle not found. Please try again. \n");
             JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
         }
-
-        /*System.out.println("The New Agency List:");
-        for (int z = 0; z < amountOfVehicles; z++) {
-            System.out.println(Agency[z]);
-        }*/
     }
 
     public static void testDriveBicycleGui(Bicycle bicycle){
@@ -1583,21 +1644,36 @@ public class GraphicMenus extends JFrame implements ActionListener {
             }
         }
 
-        if (indexToUpdateDistance < capacityOfAgency) { // that means and index is found, so vehicle exists
-            //now we need to update the vehicle's test drive distance
-            int toUpdateDistanceBicycle = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter the distance of the test drive: "));
-            ((Bicycle) Agency[indexToUpdateDistance]).move(toUpdateDistanceBicycle);
-            JOptionPane.showMessageDialog(null, "Updated distance to this Vehile by " + toUpdateDistanceBicycle +" Km.");
-        }
-        else    {
+        if (indexToUpdateDistance < capacityOfAgency) { // that means and index is found, so the vehicle exists
+            // Now we need to update the vehicle's test drive distance
+            int toUpdateDistance = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter the distance of the test drive: "));
+            ((Bicycle) Agency[indexToUpdateDistance]).move(toUpdateDistance);
+
+            // Add a delay based on the entered distance
+            try {
+                Thread.sleep(toUpdateDistance * 100);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+
+            JOptionPane.showMessageDialog(null, "Updated distance to this vehicle by " + toUpdateDistance+ " Km.");
+
+            // Show "Updating database... Please wait" message
+            JOptionPane.showMessageDialog(null, "Updating database... Please wait");
+
+            // Sleep for a random time between 3 and 8 seconds
+            try {
+                Thread.sleep((new Random().nextInt(6000) + 3000));
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+
+            System.out.println("Database updated successfully!");
+            JOptionPane.showMessageDialog(null, "Database updated successfully!");
+        } else {
             System.out.print("Error, Vehicle not found. Please try again. \n");
             JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
         }
-
-        /*System.out.println("The New Agency List:");
-        for (int z = 0; z < amountOfVehicles; z++) {
-            System.out.println(Agency[z]);
-        }*/
 
 
     }
@@ -1614,21 +1690,36 @@ public class GraphicMenus extends JFrame implements ActionListener {
             }
         }
 
-        if (indexToUpdateDistance < capacityOfAgency) { // that means and index is found, so vehicle exists
-            //now we need to update the vehicle's test drive distance
-            int toUpdateDistanceCruiseShip = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter the distance of the test drive: "));
-            ((CruiseShip) Agency[indexToUpdateDistance]).move(toUpdateDistanceCruiseShip);
-            JOptionPane.showMessageDialog(null, "Updated distance to this Vehile by " + toUpdateDistanceCruiseShip +" Km.");
-        }
-        else    {
+        if (indexToUpdateDistance < capacityOfAgency) { // that means and index is found, so the vehicle exists
+            // Now we need to update the vehicle's test drive distance
+            int toUpdateDistance = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter the distance of the test drive: "));
+            ((CruiseShip) Agency[indexToUpdateDistance]).move(toUpdateDistance);
+
+            // Add a delay based on the entered distance
+            try {
+                Thread.sleep(toUpdateDistance * 100);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+
+            JOptionPane.showMessageDialog(null, "Updated distance to this vehicle by " + toUpdateDistance+ " Km.");
+
+            // Show "Updating database... Please wait" message
+            JOptionPane.showMessageDialog(null, "Updating database... Please wait");
+
+            // Sleep for a random time between 3 and 8 seconds
+            try {
+                Thread.sleep((new Random().nextInt(6000) + 3000));
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+
+            System.out.println("Database updated successfully!");
+            JOptionPane.showMessageDialog(null, "Database updated successfully!");
+        } else {
             System.out.print("Error, Vehicle not found. Please try again. \n");
             JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
         }
-
-        /*System.out.println("The New Agency List:");
-        for (int z = 0; z < amountOfVehicles; z++) {
-            System.out.println(Agency[z]);
-        }*/
     }
 
     public static void testDriveElectricBicycleGui(ElectricBicycle electricBicycle){
@@ -1643,21 +1734,36 @@ public class GraphicMenus extends JFrame implements ActionListener {
             }
         }
 
-        if (indexToUpdateDistance < capacityOfAgency) { // that means and index is found, so vehicle exists
-            //now we need to update the vehicle's test drive distance
-            int toUpdateDistanceElectricBicycle = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter the distance of the test drive: "));
-            ((ElectricBicycle) Agency[indexToUpdateDistance]).move(toUpdateDistanceElectricBicycle);
-            JOptionPane.showMessageDialog(null, "Updated distance to this Vehile by " + toUpdateDistanceElectricBicycle +" Km.");
-        }
-        else    {
+        if (indexToUpdateDistance < capacityOfAgency) { // that means and index is found, so the vehicle exists
+            // Now we need to update the vehicle's test drive distance
+            int toUpdateDistance = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter the distance of the test drive: "));
+            ((ElectricBicycle) Agency[indexToUpdateDistance]).move(toUpdateDistance);
+
+            // Add a delay based on the entered distance
+            try {
+                Thread.sleep(toUpdateDistance * 100);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+
+            JOptionPane.showMessageDialog(null, "Updated distance to this vehicle by " + toUpdateDistance+ " Km.");
+
+            // Show "Updating database... Please wait" message
+            JOptionPane.showMessageDialog(null, "Updating database... Please wait");
+
+            // Sleep for a random time between 3 and 8 seconds
+            try {
+                Thread.sleep((new Random().nextInt(6000) + 3000));
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+
+            System.out.println("Database updated successfully!");
+            JOptionPane.showMessageDialog(null, "Database updated successfully!");
+        } else {
             System.out.print("Error, Vehicle not found. Please try again. \n");
             JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
         }
-
-        /*System.out.println("The New Agency List:");
-        for (int z = 0; z < amountOfVehicles; z++) {
-            System.out.println(Agency[z]);
-        }*/
 
     }
 
@@ -1673,21 +1779,36 @@ public class GraphicMenus extends JFrame implements ActionListener {
             }
         }
 
-        if (indexToUpdateDistance < capacityOfAgency) { // that means and index is found, so vehicle exists
-            //now we need to update the vehicle's test drive distance
-            int toUpdateDistanceHybridAircraft = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter the distance of the test drive: "));
-            ((HybridAircraft) Agency[indexToUpdateDistance]).move(toUpdateDistanceHybridAircraft);
-            JOptionPane.showMessageDialog(null, "Updated distance to this Vehile by " + toUpdateDistanceHybridAircraft +" Km.");
-        }
-        else    {
+        if (indexToUpdateDistance < capacityOfAgency) { // that means and index is found, so the vehicle exists
+            // Now we need to update the vehicle's test drive distance
+            int toUpdateDistance = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter the distance of the test drive: "));
+            ((HybridAircraft) Agency[indexToUpdateDistance]).move(toUpdateDistance);
+
+            // Add a delay based on the entered distance
+            try {
+                Thread.sleep(toUpdateDistance * 100);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+
+            JOptionPane.showMessageDialog(null, "Updated distance to this vehicle by " + toUpdateDistance+ " Km.");
+
+            // Show "Updating database... Please wait" message
+            JOptionPane.showMessageDialog(null, "Updating database... Please wait");
+
+            // Sleep for a random time between 3 and 8 seconds
+            try {
+                Thread.sleep((new Random().nextInt(6000) + 3000));
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+
+            System.out.println("Database updated successfully!");
+            JOptionPane.showMessageDialog(null, "Database updated successfully!");
+        } else {
             System.out.print("Error, Vehicle not found. Please try again. \n");
             JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
         }
-
-        /*System.out.println("The New Agency List:");
-        for (int z = 0; z < amountOfVehicles; z++) {
-            System.out.println(Agency[z]);
-        }*/
     }
 
 
