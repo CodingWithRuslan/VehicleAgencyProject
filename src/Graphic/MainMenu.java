@@ -34,6 +34,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
+
 import System.Menus;
 
 
@@ -209,7 +211,7 @@ public class MainMenu extends JFrame implements ActionListener {
         // Execute the appropriate action based on the button clicked
         switch (command) {
             case "Jeep":
-                if (amountOfVehicles < Agency.length) {
+                /*if (amountOfVehicles < Agency.length) {
                     int index = -1;  // Variable to store the index of a null slot in the array
                     for (int i = 0; i < Agency.length; i++) {
                         if (Agency[i] == null) {
@@ -229,48 +231,364 @@ public class MainMenu extends JFrame implements ActionListener {
                 } else {
                     System.out.println("Error: Agency is full. Cannot add more vehicles.");
                     JOptionPane.showMessageDialog(null, "Error: Agency is full. Cannot add more vehicles.");
+                }*/
+                if (amountOfVehicles < Agency.length) {
+                    int index = -1; // Variable to store the index of a null slot in the array
+                    for (int i = 0; i < Agency.length; i++) {
+                        if (Agency[i] == null) {
+                            index = i; // Found a null slot
+                            break;
+                        }
+                    }
+                    if (index != -1) {
+                        Agency[index] = GraphicMenus.scanJeepGui();
+                        amountOfVehicles++;
+
+                        // Show "Updating database... Please wait" message
+                        JOptionPane.showMessageDialog(null, "Updating database... Please wait");
+
+                        // Sleep for a random time between 3 and 8 seconds
+                        try {
+                            Thread.sleep((new Random().nextInt(6000) + 3000));
+                        } catch (InterruptedException ex) {
+                            ex.printStackTrace();
+                        }
+
+                        System.out.println("Database updated successfully!");
+                        JOptionPane.showMessageDialog(null, "Database updated successfully!");
+
+                        System.out.println("Jeep added successfully!");
+                        JOptionPane.showMessageDialog(null, "Jeep added successfully!");
+                    } else {
+                        System.out.println("Error: Agency is full. Cannot add more vehicles.");
+                        JOptionPane.showMessageDialog(null, "Error: Agency is full. Cannot add more vehicles.");
+                    }
+                } else {
+                    System.out.println("Error: Agency is full. Cannot add more vehicles.");
+                    JOptionPane.showMessageDialog(null, "Error: Agency is full. Cannot add more vehicles.");
                 }
                 break;
 
             case "Frigate":
                 // Code for Frigate action
-                Agency[amountOfVehicles] = GraphicMenus.scanFrigateGui();
-                amountOfVehicles++;
+                /*Agency[amountOfVehicles] = GraphicMenus.scanFrigateGui();
+                amountOfVehicles++;*/
+                if (amountOfVehicles < Agency.length) {
+                    int index = -1; // Variable to store the index of a null slot in the array
+                    for (int i = 0; i < Agency.length; i++) {
+                        if (Agency[i] == null) {
+                            index = i; // Found a null slot
+                            break;
+                        }
+                    }
+                    if (index != -1) {
+                        Agency[index] = GraphicMenus.scanFrigateGui();
+                        amountOfVehicles++;
+
+                        // Show "Updating database... Please wait" message
+                        JOptionPane.showMessageDialog(null, "Updating database... Please wait");
+
+                        // Sleep for a random time between 3 and 8 seconds
+                        try {
+                            Thread.sleep((new Random().nextInt(6000) + 3000));
+                        } catch (InterruptedException ex) {
+                            ex.printStackTrace();
+                        }
+
+                        System.out.println("Database updated successfully!");
+                        JOptionPane.showMessageDialog(null, "Database updated successfully!");
+
+                        System.out.println("Frigate added successfully!");
+                        JOptionPane.showMessageDialog(null, "Frigate added successfully!");
+                    } else {
+                        System.out.println("Error: Agency is full. Cannot add more vehicles.");
+                        JOptionPane.showMessageDialog(null, "Error: Agency is full. Cannot add more vehicles.");
+                    }
+                } else {
+                    System.out.println("Error: Agency is full. Cannot add more vehicles.");
+                    JOptionPane.showMessageDialog(null, "Error: Agency is full. Cannot add more vehicles.");
+                }
+
                 break;
             case "SpyGlider":
                 // Code for SpyGlider action
-                Agency[amountOfVehicles] = GraphicMenus.scanSpyGliderGui();
-                amountOfVehicles++;
+                /*gency[amountOfVehicles] = GraphicMenus.scanSpyGliderGui();
+                amountOfVehicles++;*/
+                if (amountOfVehicles < Agency.length) {
+                    int index = -1; // Variable to store the index of a null slot in the array
+                    for (int i = 0; i < Agency.length; i++) {
+                        if (Agency[i] == null) {
+                            index = i; // Found a null slot
+                            break;
+                        }
+                    }
+                    if (index != -1) {
+                        Agency[index] = GraphicMenus.scanSpyGliderGui();
+                        amountOfVehicles++;
+
+                        // Show "Updating database... Please wait" message
+                        JOptionPane.showMessageDialog(null, "Updating database... Please wait");
+
+                        // Sleep for a random time between 3 and 8 seconds
+                        try {
+                            Thread.sleep((new Random().nextInt(6000) + 3000));
+                        } catch (InterruptedException ex) {
+                            ex.printStackTrace();
+                        }
+
+                        System.out.println("Database updated successfully!");
+                        JOptionPane.showMessageDialog(null, "Database updated successfully!");
+
+                        System.out.println("SpyGlider added successfully!");
+                        JOptionPane.showMessageDialog(null, "SpyGlider added successfully!");
+                    } else {
+                        System.out.println("Error: Agency is full. Cannot add more vehicles.");
+                        JOptionPane.showMessageDialog(null, "Error: Agency is full. Cannot add more vehicles.");
+                    }
+                } else {
+                    System.out.println("Error: Agency is full. Cannot add more vehicles.");
+                    JOptionPane.showMessageDialog(null, "Error: Agency is full. Cannot add more vehicles.");
+                }
                 break;
             case "ToyGlider":
                 // Code for boat ToyGlider
-                Agency[amountOfVehicles] = GraphicMenus.scanToyGliderGui();
-                amountOfVehicles++;
+                /*Agency[amountOfVehicles] = GraphicMenus.scanToyGliderGui();
+                amountOfVehicles++;*/
+                if (amountOfVehicles < Agency.length) {
+                    int index = -1; // Variable to store the index of a null slot in the array
+                    for (int i = 0; i < Agency.length; i++) {
+                        if (Agency[i] == null) {
+                            index = i; // Found a null slot
+                            break;
+                        }
+                    }
+                    if (index != -1) {
+                        Agency[index] = GraphicMenus.scanToyGliderGui();
+                        amountOfVehicles++;
+
+                        // Show "Updating database... Please wait" message
+                        JOptionPane.showMessageDialog(null, "Updating database... Please wait");
+
+                        // Sleep for a random time between 3 and 8 seconds
+                        try {
+                            Thread.sleep((new Random().nextInt(6000) + 3000));
+                        } catch (InterruptedException ex) {
+                            ex.printStackTrace();
+                        }
+
+                        System.out.println("Database updated successfully!");
+                        JOptionPane.showMessageDialog(null, "Database updated successfully!");
+
+                        System.out.println("ToyGlider added successfully!");
+                        JOptionPane.showMessageDialog(null, "ToyGlider added successfully!");
+                    } else {
+                        System.out.println("Error: Agency is full. Cannot add more vehicles.");
+                        JOptionPane.showMessageDialog(null, "Error: Agency is full. Cannot add more vehicles.");
+                    }
+                } else {
+                    System.out.println("Error: Agency is full. Cannot add more vehicles.");
+                    JOptionPane.showMessageDialog(null, "Error: Agency is full. Cannot add more vehicles.");
+                }
                 break;
             case "Amphibious":
                 // Code for Amphibious action
-                Agency[amountOfVehicles] = GraphicMenus.scanAmphibiousGui();
-                amountOfVehicles++;
+                /*Agency[amountOfVehicles] = GraphicMenus.scanAmphibiousGui();
+                amountOfVehicles++;*/
+                if (amountOfVehicles < Agency.length) {
+                    int index = -1; // Variable to store the index of a null slot in the array
+                    for (int i = 0; i < Agency.length; i++) {
+                        if (Agency[i] == null) {
+                            index = i; // Found a null slot
+                            break;
+                        }
+                    }
+                    if (index != -1) {
+                        Agency[index] = GraphicMenus.scanAmphibiousGui();
+                        amountOfVehicles++;
+
+                        // Show "Updating database... Please wait" message
+                        JOptionPane.showMessageDialog(null, "Updating database... Please wait");
+
+                        // Sleep for a random time between 3 and 8 seconds
+                        try {
+                            Thread.sleep((new Random().nextInt(6000) + 3000));
+                        } catch (InterruptedException ex) {
+                            ex.printStackTrace();
+                        }
+
+                        System.out.println("Database updated successfully!");
+                        JOptionPane.showMessageDialog(null, "Database updated successfully!");
+
+                        System.out.println("Amphibious added successfully!");
+                        JOptionPane.showMessageDialog(null, "Amphibious added successfully!");
+                    } else {
+                        System.out.println("Error: Agency is full. Cannot add more vehicles.");
+                        JOptionPane.showMessageDialog(null, "Error: Agency is full. Cannot add more vehicles.");
+                    }
+                } else {
+                    System.out.println("Error: Agency is full. Cannot add more vehicles.");
+                    JOptionPane.showMessageDialog(null, "Error: Agency is full. Cannot add more vehicles.");
+                }
                 break;
             case "Bicycle":
                 // Code for Bicycle action
-                Agency[amountOfVehicles] = GraphicMenus.scanBicycleGui();
-                amountOfVehicles++;
+                /*Agency[amountOfVehicles] = GraphicMenus.scanBicycleGui();
+                amountOfVehicles++;*/
+                if (amountOfVehicles < Agency.length) {
+                    int index = -1; // Variable to store the index of a null slot in the array
+                    for (int i = 0; i < Agency.length; i++) {
+                        if (Agency[i] == null) {
+                            index = i; // Found a null slot
+                            break;
+                        }
+                    }
+                    if (index != -1) {
+                        Agency[index] = GraphicMenus.scanBicycleGui();
+                        amountOfVehicles++;
+
+                        // Show "Updating database... Please wait" message
+                        JOptionPane.showMessageDialog(null, "Updating database... Please wait");
+
+                        // Sleep for a random time between 3 and 8 seconds
+                        try {
+                            Thread.sleep((new Random().nextInt(6000) + 3000));
+                        } catch (InterruptedException ex) {
+                            ex.printStackTrace();
+                        }
+
+                        System.out.println("Database updated successfully!");
+                        JOptionPane.showMessageDialog(null, "Database updated successfully!");
+
+                        System.out.println("Bicycle added successfully!");
+                        JOptionPane.showMessageDialog(null, "Bicycle added successfully!");
+                    } else {
+                        System.out.println("Error: Agency is full. Cannot add more vehicles.");
+                        JOptionPane.showMessageDialog(null, "Error: Agency is full. Cannot add more vehicles.");
+                    }
+                } else {
+                    System.out.println("Error: Agency is full. Cannot add more vehicles.");
+                    JOptionPane.showMessageDialog(null, "Error: Agency is full. Cannot add more vehicles.");
+                }
                 break;
             case "CruiseShip":
                 // Code for CruiseShip action
-                Agency[amountOfVehicles] = GraphicMenus.scanCruiseShipGui();
-                amountOfVehicles++;
+                /*Agency[amountOfVehicles] = GraphicMenus.scanCruiseShipGui();
+                amountOfVehicles++;*/
+                if (amountOfVehicles < Agency.length) {
+                    int index = -1; // Variable to store the index of a null slot in the array
+                    for (int i = 0; i < Agency.length; i++) {
+                        if (Agency[i] == null) {
+                            index = i; // Found a null slot
+                            break;
+                        }
+                    }
+                    if (index != -1) {
+                        Agency[index] = GraphicMenus.scanCruiseShipGui();
+                        amountOfVehicles++;
+
+                        // Show "Updating database... Please wait" message
+                        JOptionPane.showMessageDialog(null, "Updating database... Please wait");
+
+                        // Sleep for a random time between 3 and 8 seconds
+                        try {
+                            Thread.sleep((new Random().nextInt(6000) + 3000));
+                        } catch (InterruptedException ex) {
+                            ex.printStackTrace();
+                        }
+
+                        System.out.println("Database updated successfully!");
+                        JOptionPane.showMessageDialog(null, "Database updated successfully!");
+
+                        System.out.println("CruiseShip added successfully!");
+                        JOptionPane.showMessageDialog(null, "CruiseShip added successfully!");
+                    } else {
+                        System.out.println("Error: Agency is full. Cannot add more vehicles.");
+                        JOptionPane.showMessageDialog(null, "Error: Agency is full. Cannot add more vehicles.");
+                    }
+                } else {
+                    System.out.println("Error: Agency is full. Cannot add more vehicles.");
+                    JOptionPane.showMessageDialog(null, "Error: Agency is full. Cannot add more vehicles.");
+                }
                 break;
             case "HybridAircraft":
                 // Code for HybridAircraft action
-                Agency[amountOfVehicles] = GraphicMenus.scanHybridAircraftGui();
-                amountOfVehicles++;
+                /*Agency[amountOfVehicles] = GraphicMenus.scanHybridAircraftGui();
+                amountOfVehicles++;*/
+                if (amountOfVehicles < Agency.length) {
+                    int index = -1; // Variable to store the index of a null slot in the array
+                    for (int i = 0; i < Agency.length; i++) {
+                        if (Agency[i] == null) {
+                            index = i; // Found a null slot
+                            break;
+                        }
+                    }
+                    if (index != -1) {
+                        Agency[index] = GraphicMenus.scanHybridAircraftGui();
+                        amountOfVehicles++;
+
+                        // Show "Updating database... Please wait" message
+                        JOptionPane.showMessageDialog(null, "Updating database... Please wait");
+
+                        // Sleep for a random time between 3 and 8 seconds
+                        try {
+                            Thread.sleep((new Random().nextInt(6000) + 3000));
+                        } catch (InterruptedException ex) {
+                            ex.printStackTrace();
+                        }
+
+                        System.out.println("Database updated successfully!");
+                        JOptionPane.showMessageDialog(null, "Database updated successfully!");
+
+                        System.out.println("HybridAircraft added successfully!");
+                        JOptionPane.showMessageDialog(null, "HybridAircraft added successfully!");
+                    } else {
+                        System.out.println("Error: Agency is full. Cannot add more vehicles.");
+                        JOptionPane.showMessageDialog(null, "Error: Agency is full. Cannot add more vehicles.");
+                    }
+                } else {
+                    System.out.println("Error: Agency is full. Cannot add more vehicles.");
+                    JOptionPane.showMessageDialog(null, "Error: Agency is full. Cannot add more vehicles.");
+                }
                 break;
             case "ElectricBicycle":
                 // Code for ElectricBicycle action
-                Agency[amountOfVehicles] = GraphicMenus.scanElectricBicycleGui();
-                amountOfVehicles++;
+                /*Agency[amountOfVehicles] = GraphicMenus.scanElectricBicycleGui();
+                amountOfVehicles++;*/
+                if (amountOfVehicles < Agency.length) {
+                    int index = -1; // Variable to store the index of a null slot in the array
+                    for (int i = 0; i < Agency.length; i++) {
+                        if (Agency[i] == null) {
+                            index = i; // Found a null slot
+                            break;
+                        }
+                    }
+                    if (index != -1) {
+                        Agency[index] = GraphicMenus.scanElectricBicycleGui();
+                        amountOfVehicles++;
+
+                        // Show "Updating database... Please wait" message
+                        JOptionPane.showMessageDialog(null, "Updating database... Please wait");
+
+                        // Sleep for a random time between 3 and 8 seconds
+                        try {
+                            Thread.sleep((new Random().nextInt(6000) + 3000));
+                        } catch (InterruptedException ex) {
+                            ex.printStackTrace();
+                        }
+
+                        System.out.println("Database updated successfully!");
+                        JOptionPane.showMessageDialog(null, "Database updated successfully!");
+
+                        System.out.println("ElectricBicycle added successfully!");
+                        JOptionPane.showMessageDialog(null, "ElectricBicycle added successfully!");
+                    } else {
+                        System.out.println("Error: Agency is full. Cannot add more vehicles.");
+                        JOptionPane.showMessageDialog(null, "Error: Agency is full. Cannot add more vehicles.");
+                    }
+                } else {
+                    System.out.println("Error: Agency is full. Cannot add more vehicles.");
+                    JOptionPane.showMessageDialog(null, "Error: Agency is full. Cannot add more vehicles.");
+                }
                 break;
 
             case "FinishAdding":

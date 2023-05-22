@@ -1815,10 +1815,28 @@ public class GraphicMenus extends JFrame implements ActionListener {
 
 
     public static void resetDistanceTraveledAll(){
+        /*for (int i = 0; i < amountOfVehicles; i++) {
+            Agency[i].setDistanceTraveled(0);
+        }
+        JOptionPane.showMessageDialog(null, "Distance traveled for ALL the Vehicles has been Reset");*/
         for (int i = 0; i < amountOfVehicles; i++) {
             Agency[i].setDistanceTraveled(0);
         }
-        JOptionPane.showMessageDialog(null, "Distance traveled for ALL the Vehicles has been Reset");
+
+        // Show "Updating database... Please wait" message
+        JOptionPane.showMessageDialog(null, "Updating database... Please wait");
+
+        // Sleep for a random time between 3 and 8 seconds
+        try {
+            Thread.sleep((new Random().nextInt(6000) + 3000));
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+
+        System.out.println("Database updated successfully!");
+        JOptionPane.showMessageDialog(null, "Database updated successfully!");
+
+        JOptionPane.showMessageDialog(null, "The distance traveled for all vehicles is reset");
     }
     public static void changeFlagOfAllMarineVehiclesGui(){
 

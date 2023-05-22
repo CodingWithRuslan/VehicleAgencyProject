@@ -154,6 +154,7 @@ public class SecondMenu extends JFrame implements ActionListener {
                 break;
 
             case "Change":
+                //Change Flag for All the Marine Vehicles to some flag.
                 new GraphicFlags();
                 //GraphicMenus.changeFlagOfAllMarineVehiclesGui();
                 break;

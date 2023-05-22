@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 import static System.Main.Agency;
 import static System.Main.amountOfVehicles;
@@ -114,7 +115,8 @@ public class GraphicFlags extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        GraphicMenus.printAllVehiclesGuiPop();
+        //the print is to check before the update and after.
+        //GraphicMenus.printAllVehiclesGuiPop();
 
         String command = e.getActionCommand();
         //boolean exit = true;
@@ -129,9 +131,23 @@ public class GraphicFlags extends JFrame implements ActionListener {
                         ((MarineVehicle) Agency[i]).setCountryFlag("Israel");
                     }
                 }
-                JOptionPane.showMessageDialog(null, "Flag for All the Marine Vehicles have been Changed to " + "Israel" +".");
+                // Show "Updating database... Please wait" message
+                JOptionPane.showMessageDialog(null, "Updating database... Please wait");
+
+                // Sleep for a random time between 3 and 8 seconds
+                try {
+                    Thread.sleep((new Random().nextInt(6000) + 3000));
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+
+                System.out.println("Database updated successfully!");
+                JOptionPane.showMessageDialog(null, "Database updated successfully!");
+
+                JOptionPane.showMessageDialog(null, "Flag for All the Marine Vehicles have been Changed to " + "Israel" + ".");
                 //GraphicMenus.buyJeepGui();
                 break;
+
 
             case "USA":
                 for (int i = 0; i < amountOfVehicles; i++) {
@@ -139,7 +155,20 @@ public class GraphicFlags extends JFrame implements ActionListener {
                         ((MarineVehicle) Agency[i]).setCountryFlag("USA");
                     }
                 }
-                JOptionPane.showMessageDialog(null, "Flag for All the Marine Vehicles have been Changed to " + "USA" +".");
+                // Show "Updating database... Please wait" message
+                JOptionPane.showMessageDialog(null, "Updating database... Please wait");
+
+                // Sleep for a random time between 3 and 8 seconds
+                try {
+                    Thread.sleep((new Random().nextInt(6000) + 3000));
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+
+                System.out.println("Database updated successfully!");
+                JOptionPane.showMessageDialog(null, "Database updated successfully!");
+
+                JOptionPane.showMessageDialog(null, "Flag for All the Marine Vehicles have been Changed to " + "USA" + ".");
                 //GraphicMenus.buyFrigateGui();
                 //
                 break;
@@ -149,8 +178,20 @@ public class GraphicFlags extends JFrame implements ActionListener {
                         ((MarineVehicle) Agency[i]).setCountryFlag("Germany");
                     }
                 }
-                JOptionPane.showMessageDialog(null, "Flag for All the Marine Vehicles have been Changed to " + "Germany" +".");
-                //GraphicMenus.buySpyGliderGui();
+                // Show "Updating database... Please wait" message
+                JOptionPane.showMessageDialog(null, "Updating database... Please wait");
+
+                // Sleep for a random time between 3 and 8 seconds
+                try {
+                    Thread.sleep((new Random().nextInt(6000) + 3000));
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+
+                System.out.println("Database updated successfully!");
+                JOptionPane.showMessageDialog(null, "Database updated successfully!");
+
+                JOptionPane.showMessageDialog(null, "Flag for All the Marine Vehicles have been Changed to " + "Germany" + ".");
                 //
                 break;
             case "Italy":
@@ -159,7 +200,20 @@ public class GraphicFlags extends JFrame implements ActionListener {
                         ((MarineVehicle) Agency[i]).setCountryFlag("Italy");
                     }
                 }
-                JOptionPane.showMessageDialog(null, "Flag for All the Marine Vehicles have been Changed to " + "Italy" +".");
+                // Show "Updating database... Please wait" message
+                JOptionPane.showMessageDialog(null, "Updating database... Please wait");
+
+                // Sleep for a random time between 3 and 8 seconds
+                try {
+                    Thread.sleep((new Random().nextInt(6000) + 3000));
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+
+                System.out.println("Database updated successfully!");
+                JOptionPane.showMessageDialog(null, "Database updated successfully!");
+
+                JOptionPane.showMessageDialog(null, "Flag for All the Marine Vehicles have been Changed to " + "Italy" + ".");
                 //GraphicMenus.buyToyGliderGui();
                 //
                 break;
@@ -169,7 +223,20 @@ public class GraphicFlags extends JFrame implements ActionListener {
                         ((MarineVehicle) Agency[i]).setCountryFlag("Greece");
                     }
                 }
-                JOptionPane.showMessageDialog(null, "Flag for All the Marine Vehicles have been Changed to " + "Greece" +".");
+                // Show "Updating database... Please wait" message
+                JOptionPane.showMessageDialog(null, "Updating database... Please wait");
+
+                // Sleep for a random time between 3 and 8 seconds
+                try {
+                    Thread.sleep((new Random().nextInt(6000) + 3000));
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+
+                System.out.println("Database updated successfully!");
+                JOptionPane.showMessageDialog(null, "Database updated successfully!");
+
+                JOptionPane.showMessageDialog(null, "Flag for All the Marine Vehicles have been Changed to " + "Greece" + ".");
                 //GraphicMenus.buyAmphibiousGui();
                 //
                 break;
@@ -179,7 +246,20 @@ public class GraphicFlags extends JFrame implements ActionListener {
                         ((MarineVehicle) Agency[i]).setCountryFlag("Somalia");
                     }
                 }
-                JOptionPane.showMessageDialog(null, "Flag for All the Marine Vehicles have been Changed to " + "Somalia" +".");
+                // Show "Updating database... Please wait" message
+                JOptionPane.showMessageDialog(null, "Updating database... Please wait");
+
+                // Sleep for a random time between 3 and 8 seconds
+                try {
+                    Thread.sleep((new Random().nextInt(6000) + 3000));
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+
+                System.out.println("Database updated successfully!");
+                JOptionPane.showMessageDialog(null, "Database updated successfully!");
+
+                JOptionPane.showMessageDialog(null, "Flag for All the Marine Vehicles have been Changed to " + "Somalia" + ".");
                 //GraphicMenus.buyBicycleGui();
                 //
                 break;
@@ -189,14 +269,27 @@ public class GraphicFlags extends JFrame implements ActionListener {
                         ((MarineVehicle) Agency[i]).setCountryFlag("Pirates");
                     }
                 }
-                JOptionPane.showMessageDialog(null, "Flag for All the Marine Vehicles have been Changed to " + "Pirates" +".");
+                // Show "Updating database... Please wait" message
+                JOptionPane.showMessageDialog(null, "Updating database... Please wait");
+
+                // Sleep for a random time between 3 and 8 seconds
+                try {
+                    Thread.sleep((new Random().nextInt(6000) + 3000));
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+
+                System.out.println("Database updated successfully!");
+                JOptionPane.showMessageDialog(null, "Database updated successfully!");
+
+                JOptionPane.showMessageDialog(null, "Flag for All the Marine Vehicles have been Changed to " + "Pirates" + ".");
                 //GraphicMenus.buyCruiseShipGui();
                 //
                 break;
 
 
             case "FinishChange":
-                System.out.println("close menu3");
+                System.out.println("close Menu to Change Flag to all Marine Vehicles.");
                 dispose(); // closes this JFrame
                 System.out.println("closed");
                 break;
