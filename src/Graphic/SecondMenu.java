@@ -16,6 +16,7 @@ import System.Menus;
 
 public class SecondMenu extends JFrame implements ActionListener {
     //private JButton jeepButton;
+    private static SecondMenu instanceSingleton = null;
     public SecondMenu() {
         // Set up the Second Menu
         //Welcome to the Vehicle Agency DealerShip
@@ -141,39 +142,54 @@ public class SecondMenu extends JFrame implements ActionListener {
         // Execute the appropriate action based on the button clicked
         switch (command) {
             case "Buy":
-                /*GraphicMenus.printAllVehiclesGuiPopBuy();*/
-                SwingUtilities.invokeLater(GraphicMenus::printAllVehiclesGuiPopBuy);
+                Thread buyThread = new Thread(() -> {
+                    System.out.println("Thread Buy Started");
+                    SwingUtilities.invokeLater(GraphicMenus::printAllVehiclesGuiPopBuy);
+                });
+                buyThread.start();
                 break;
             case "Test":
-                //GraphicTest.main(null); // before ex2 with this we used to TestDrive...
-                GraphicMenus.printAllVehiclesGuiPopTestDrive();
+                Thread testThread = new Thread(() -> {
+                    System.out.println("Thread Test Started");
+                    SwingUtilities.invokeLater(GraphicMenus::printAllVehiclesGuiPopTestDrive);
+                });
+                testThread.start();
                 break;
-
             case "Reset":
-                GraphicMenus.resetDistanceTraveledAll();
+                Thread resetThread = new Thread(() -> {
+                    System.out.println("Thread Reset Started");
+                    GraphicMenus.resetDistanceTraveledAll();
+                });
+                resetThread.start();
                 break;
-
             case "Change":
-                //Change Flag for All the Marine Vehicles to some flag.
-                new GraphicFlags();
-                //GraphicMenus.changeFlagOfAllMarineVehiclesGui();
+                Thread changeThread = new Thread(() -> {
+                    System.out.println("Thread Change Started");
+                    new GraphicFlags();
+                });
+                changeThread.start();
                 break;
             case "AddVehicleMenu":
+                Thread addVehicleThread = new Thread(() -> {
+                    System.out.println("Thread AddVehicleMenu Started");
                     MainMenu.main(null);
-                      dispose();
-                //MainMenu.main(null);
-                //GraphicMenus.addVehicleToAgency();
+                    dispose();
+                });
+                addVehicleThread.start();
                 break;
             case "Available":
-                synchronized (this) {
-                    GraphicMenus.printAllVehiclesGuiPop();
-                }
+                Thread availableThread = new Thread(() -> {
+                    System.out.println("Thread Available Started");
+                    synchronized (this) {
+                        GraphicMenus.printAllVehiclesGuiPop();
+                    }
+                });
+                availableThread.start();
                 break;
-
             case "QuitSystem":
-                System.out.println("close menu2");
+                System.out.println("QuitSystem");
                 dispose(); // closes this JFrame
-                System.out.println("closedd");
+
                 break;
             default:
                 break;
@@ -181,6 +197,13 @@ public class SecondMenu extends JFrame implements ActionListener {
         Menus m = new Menus();
         //m.printAllVehicles();
 
+    }
+
+    public static SecondMenu getInstanceSingleton(){
+        if(instanceSingleton ==null){
+            instanceSingleton = new SecondMenu();
+        }
+        return instanceSingleton;
     }
 
 }

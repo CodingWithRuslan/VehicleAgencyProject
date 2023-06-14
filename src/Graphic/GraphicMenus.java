@@ -17,6 +17,7 @@ import javax.swing.table.TableModel;
 
 import System.Menus;
 
+import static Graphic.MainMenu.countTotalTestDriveDistance;
 import static System.Main.*;
 import Vehicle.MarineVehicle;
 
@@ -28,6 +29,8 @@ import java.awt.event.MouseEvent;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Vector;
+
+
 
 
 public class GraphicMenus extends JFrame implements ActionListener {
@@ -1395,6 +1398,7 @@ public class GraphicMenus extends JFrame implements ActionListener {
         if (indexToUpdateDistance < capacityOfAgency) { // that means and index is found, so the vehicle exists
             // Now we need to update the vehicle's test drive distance
             int toUpdateDistanceJeep = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter the distance of the test drive: "));
+            countTotalTestDriveDistance = countTotalTestDriveDistance +toUpdateDistanceJeep;
             ((Jeep) Agency[indexToUpdateDistance]).move(toUpdateDistanceJeep);
 
             // Add a delay based on the entered distance
@@ -1404,12 +1408,10 @@ public class GraphicMenus extends JFrame implements ActionListener {
                 ex.printStackTrace();
             }
 
-            JOptionPane.showMessageDialog(null, "Updated distance to this vehicle by " + toUpdateDistanceJeep + " Km.");
+            // Display the "Updating database... please wait" message.
+            JOptionPane.showMessageDialog(null, "Updating database... please wait");
 
-            // Show "Updating database... Please wait" message
-            JOptionPane.showMessageDialog(null, "Updating database... Please wait");
-
-            // Sleep for a random time between 3 and 8 seconds
+// Sleep for a random time between 3 and 8 secondsז
             try {
                 Thread.sleep((new Random().nextInt(6000) + 3000));
             } catch (InterruptedException ex) {
@@ -1418,6 +1420,9 @@ public class GraphicMenus extends JFrame implements ActionListener {
 
             System.out.println("Database updated successfully!");
             JOptionPane.showMessageDialog(null, "Database updated successfully!");
+
+            JOptionPane.showMessageDialog(null, "The distance is updated for this vehicle by " + toUpdateDistanceJeep + "Km.");
+
         } else {
             System.out.print("Error, Vehicle not found. Please try again. \n");
             JOptionPane.showMessageDialog(null, "Error, Vehicle not found. Please try again.");
@@ -1470,6 +1475,7 @@ public class GraphicMenus extends JFrame implements ActionListener {
         if (indexToUpdateDistanceFrigate < capacityOfAgency) { // that means and index is found, so the vehicle exists
             // Now we need to update the vehicle's test drive distance
             int toUpdateDistanceFrigate = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter the distance of the test drive: "));
+            countTotalTestDriveDistance = countTotalTestDriveDistance +toUpdateDistanceFrigate;
             ((Frigate) Agency[indexToUpdateDistanceFrigate]).move(toUpdateDistanceFrigate);
 
             // Add a delay based on the entered distance
@@ -1515,6 +1521,7 @@ public class GraphicMenus extends JFrame implements ActionListener {
         if (indexToUpdateDistanceSpyGlider < capacityOfAgency) { // that means and index is found, so the vehicle exists
             // Now we need to update the vehicle's test drive distance
             int toUpdateDistanceSpyGlider = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter the distance of the test drive: "));
+            countTotalTestDriveDistance = countTotalTestDriveDistance +toUpdateDistanceSpyGlider;
             ((SpyGlider) Agency[indexToUpdateDistanceSpyGlider]).move(toUpdateDistanceSpyGlider);
 
             // Add a delay based on the entered distance
@@ -1559,6 +1566,7 @@ public class GraphicMenus extends JFrame implements ActionListener {
         if (indexToUpdateDistanceToyGlider < capacityOfAgency) { // that means and index is found, so the vehicle exists
             // Now we need to update the vehicle's test drive distance
             int toUpdateDistanceToyGlider = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter the distance of the test drive: "));
+            countTotalTestDriveDistance = countTotalTestDriveDistance +toUpdateDistanceToyGlider;
             ((ToyGlider) Agency[indexToUpdateDistanceToyGlider]).move(toUpdateDistanceToyGlider);
 
             // Add a delay based on the entered distance
@@ -1603,6 +1611,7 @@ public class GraphicMenus extends JFrame implements ActionListener {
         if (indexToUpdateDistance < capacityOfAgency) { // that means and index is found, so the vehicle exists
             // Now we need to update the vehicle's test drive distance
             int toUpdateDistance = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter the distance of the test drive: "));
+            countTotalTestDriveDistance = countTotalTestDriveDistance +toUpdateDistance;
             ((AmphibiousVehicle) Agency[indexToUpdateDistance]).move(toUpdateDistance);
 
             // Add a delay based on the entered distance
@@ -1647,6 +1656,7 @@ public class GraphicMenus extends JFrame implements ActionListener {
         if (indexToUpdateDistance < capacityOfAgency) { // that means and index is found, so the vehicle exists
             // Now we need to update the vehicle's test drive distance
             int toUpdateDistance = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter the distance of the test drive: "));
+            countTotalTestDriveDistance = countTotalTestDriveDistance +toUpdateDistance;
             ((Bicycle) Agency[indexToUpdateDistance]).move(toUpdateDistance);
 
             // Add a delay based on the entered distance
@@ -1693,6 +1703,7 @@ public class GraphicMenus extends JFrame implements ActionListener {
         if (indexToUpdateDistance < capacityOfAgency) { // that means and index is found, so the vehicle exists
             // Now we need to update the vehicle's test drive distance
             int toUpdateDistance = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter the distance of the test drive: "));
+            countTotalTestDriveDistance = countTotalTestDriveDistance +toUpdateDistance;
             ((CruiseShip) Agency[indexToUpdateDistance]).move(toUpdateDistance);
 
             // Add a delay based on the entered distance
@@ -1737,6 +1748,7 @@ public class GraphicMenus extends JFrame implements ActionListener {
         if (indexToUpdateDistance < capacityOfAgency) { // that means and index is found, so the vehicle exists
             // Now we need to update the vehicle's test drive distance
             int toUpdateDistance = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter the distance of the test drive: "));
+            countTotalTestDriveDistance = countTotalTestDriveDistance +toUpdateDistance;
             ((ElectricBicycle) Agency[indexToUpdateDistance]).move(toUpdateDistance);
 
             // Add a delay based on the entered distance
@@ -1782,6 +1794,7 @@ public class GraphicMenus extends JFrame implements ActionListener {
         if (indexToUpdateDistance < capacityOfAgency) { // that means and index is found, so the vehicle exists
             // Now we need to update the vehicle's test drive distance
             int toUpdateDistance = Integer.parseInt(JOptionPane.showInputDialog(null, "Please Enter the distance of the test drive: "));
+            countTotalTestDriveDistance = countTotalTestDriveDistance +toUpdateDistance;
             ((HybridAircraft) Agency[indexToUpdateDistance]).move(toUpdateDistance);
 
             // Add a delay based on the entered distance

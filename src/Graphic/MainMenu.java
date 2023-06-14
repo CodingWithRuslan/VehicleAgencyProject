@@ -36,6 +36,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
 
+import Factory.JeepFactory;
+import Factory.*;
+import Factory.VehicleFactory;
 import System.Menus;
 
 
@@ -44,6 +47,8 @@ import static System.Main.amountOfVehicles;
 import static System.Main.capacityOfAgency;
 
 public class MainMenu extends JFrame implements ActionListener {
+    public static int countTotalTestDriveDistance = 0; // static variable
+
     //private JButton jeepButton;
     public MainMenu() {
         // Set up the main window
@@ -163,7 +168,6 @@ public class MainMenu extends JFrame implements ActionListener {
         electricBicycleButton.setActionCommand("ElectricBicycle");
 
         //
-
         ImageIcon imageIconFinish = new ImageIcon("src/Images/finish.png"); // load the image to a imageIcon
         Image imageFinish = imageIconFinish.getImage();
         Image FinishImg = imageFinish.getScaledInstance(100, 100,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
@@ -173,8 +177,6 @@ public class MainMenu extends JFrame implements ActionListener {
         finishButton.setVerticalTextPosition(JButton.BOTTOM);
         finishButton.addActionListener(this);
         finishButton.setActionCommand("FinishAdding");
-
-
 
 
         // Add the components to the GUI
@@ -211,27 +213,6 @@ public class MainMenu extends JFrame implements ActionListener {
         // Execute the appropriate action based on the button clicked
         switch (command) {
             case "Jeep":
-                /*if (amountOfVehicles < Agency.length) {
-                    int index = -1;  // Variable to store the index of a null slot in the array
-                    for (int i = 0; i < Agency.length; i++) {
-                        if (Agency[i] == null) {
-                            index = i;  // Found a null slot
-                            break;
-                        }
-                    }
-                    if (index != -1) {
-                        Agency[index] = GraphicMenus.scanJeepGui();
-                        amountOfVehicles++;
-                        System.out.println("Jeep added successfully!");
-                        JOptionPane.showMessageDialog(null, "Jeep added successfully!");
-                    } else {
-                        System.out.println("Error: Agency is full. Cannot add more vehicles.");
-                        JOptionPane.showMessageDialog(null, "Error: Agency is full. Cannot add more vehicles.");
-                    }
-                } else {
-                    System.out.println("Error: Agency is full. Cannot add more vehicles.");
-                    JOptionPane.showMessageDialog(null, "Error: Agency is full. Cannot add more vehicles.");
-                }*/
                 if (amountOfVehicles < Agency.length) {
                     int index = -1; // Variable to store the index of a null slot in the array
                     for (int i = 0; i < Agency.length; i++) {
@@ -241,7 +222,8 @@ public class MainMenu extends JFrame implements ActionListener {
                         }
                     }
                     if (index != -1) {
-                        Agency[index] = GraphicMenus.scanJeepGui();
+                        VehicleFactory jeepFactory = new JeepFactory();
+                        Agency[index] = jeepFactory.createVehicle();
                         amountOfVehicles++;
 
                         // Show "Updating database... Please wait" message
@@ -282,8 +264,10 @@ public class MainMenu extends JFrame implements ActionListener {
                         }
                     }
                     if (index != -1) {
-                        Agency[index] = GraphicMenus.scanFrigateGui();
+                        VehicleFactory FrigateFactory = new FrigateFactory();
+                        Agency[index] = FrigateFactory.createVehicle();
                         amountOfVehicles++;
+
 
                         // Show "Updating database... Please wait" message
                         JOptionPane.showMessageDialog(null, "Updating database... Please wait");
@@ -323,7 +307,8 @@ public class MainMenu extends JFrame implements ActionListener {
                         }
                     }
                     if (index != -1) {
-                        Agency[index] = GraphicMenus.scanSpyGliderGui();
+                        VehicleFactory SpyGliderFactory = new SpyGliderFactory();
+                        Agency[index] = SpyGliderFactory.createVehicle();
                         amountOfVehicles++;
 
                         // Show "Updating database... Please wait" message
@@ -363,7 +348,8 @@ public class MainMenu extends JFrame implements ActionListener {
                         }
                     }
                     if (index != -1) {
-                        Agency[index] = GraphicMenus.scanToyGliderGui();
+                        VehicleFactory ToyGliderFactory = new ToyGliderFactory();
+                        Agency[index] = ToyGliderFactory.createVehicle();
                         amountOfVehicles++;
 
                         // Show "Updating database... Please wait" message
@@ -403,7 +389,8 @@ public class MainMenu extends JFrame implements ActionListener {
                         }
                     }
                     if (index != -1) {
-                        Agency[index] = GraphicMenus.scanAmphibiousGui();
+                        VehicleFactory AmphibiousVehicleFactory = new AmphibiousVehicleFactory();
+                        Agency[index] = AmphibiousVehicleFactory.createVehicle();
                         amountOfVehicles++;
 
                         // Show "Updating database... Please wait" message
@@ -443,7 +430,8 @@ public class MainMenu extends JFrame implements ActionListener {
                         }
                     }
                     if (index != -1) {
-                        Agency[index] = GraphicMenus.scanBicycleGui();
+                        VehicleFactory BicycleFactory = new BicycleFactory();
+                        Agency[index] = BicycleFactory.createVehicle();
                         amountOfVehicles++;
 
                         // Show "Updating database... Please wait" message
@@ -483,7 +471,8 @@ public class MainMenu extends JFrame implements ActionListener {
                         }
                     }
                     if (index != -1) {
-                        Agency[index] = GraphicMenus.scanCruiseShipGui();
+                        VehicleFactory CruiseShipFactory = new CruiseShipFactory();
+                        Agency[index] = CruiseShipFactory.createVehicle();
                         amountOfVehicles++;
 
                         // Show "Updating database... Please wait" message
@@ -510,7 +499,7 @@ public class MainMenu extends JFrame implements ActionListener {
                     JOptionPane.showMessageDialog(null, "Error: Agency is full. Cannot add more vehicles.");
                 }
                 break;
-            case "HybridAircraft":
+                case "HybridAircraft":
                 // Code for HybridAircraft action
                 /*Agency[amountOfVehicles] = GraphicMenus.scanHybridAircraftGui();
                 amountOfVehicles++;*/
@@ -523,7 +512,8 @@ public class MainMenu extends JFrame implements ActionListener {
                         }
                     }
                     if (index != -1) {
-                        Agency[index] = GraphicMenus.scanHybridAircraftGui();
+                        VehicleFactory HybridAircraftFactory = new HybridAircraftFactory();
+                        Agency[index] = HybridAircraftFactory.createVehicle();
                         amountOfVehicles++;
 
                         // Show "Updating database... Please wait" message
@@ -563,7 +553,8 @@ public class MainMenu extends JFrame implements ActionListener {
                         }
                     }
                     if (index != -1) {
-                        Agency[index] = GraphicMenus.scanElectricBicycleGui();
+                        VehicleFactory ElectricBicycleFactory = new ElectricBicycleFactory();
+                        Agency[index] = ElectricBicycleFactory.createVehicle();
                         amountOfVehicles++;
 
                         // Show "Updating database... Please wait" message
@@ -592,15 +583,21 @@ public class MainMenu extends JFrame implements ActionListener {
                 break;
 
             case "FinishAdding":
-                System.out.println("close");
                 dispose();
-                System.out.println("closedd");
-                SecondMenu.main(null);
+               SecondMenu.main(null);
                 break;
+                //here singleton dont work good need to fix it.
+                /*dispose();
+                SecondMenu secondMenuInstance = SecondMenu.getInstanceSingleton();
+                if (secondMenuInstance == null) {
+                    SecondMenu.main(null);
+                }
+                SecondMenu.main(null);
+                break;*/
             default:
                 break;
         }
-        Menus m = new Menus();
+        //Menus m = new Menus();
         //m.printAllVehicles();
         //GraphicMenus.printAllVehiclesGuiPop();
         //GraphicMenus.printAllVehiclesGuiPop();
